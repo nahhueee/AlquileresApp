@@ -1,0 +1,38 @@
+/* Barra Navegacion */
+.navbar{
+    background-color: #2D2D2D;
+    border-radius: 0% !important;
+}
+.navbar-brand{  
+    font-family: "Pumpkin-Pancakes"; 
+    font-size:30px; 
+    color: white; }
+
+.navbar-brand :hover{ color:  white;}
+.navbar-toggle {color: white !important;}
+.icon-bar{color: white !important;}
+
+/* Links */
+.navbar-nav a{
+   text-decoration: none;
+   color: white; 
+   font-family: "Roboto-Medium";
+   font-size: 13px;
+   text-transform: uppercase;
+}
+.navbar-nav a:hover{
+    transition: all .5s;
+    background-color: #1d1d1d;
+}
+.navbar-nav a:after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0px;
+    transition: all .8s;
+    }
+.navbar-nav a:hover:after {
+    width: 100%;
+    background: #F20746;
+}

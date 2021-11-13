@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Afterglow-Regular";
+    src: url('../src/assets/fonts/Afterglow-Regular.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: "Chapaza";
+    src: url('../src/assets/fonts/Chapaza.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: "CaviarDreams";
+    src: url('../src/assets/fonts/CaviarDreams.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: "Montserrat-Regular";
+    src: url('../src/assets/fonts/Montserrat-Regular.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+   font-family: "Poppins-Medium";
+   src: url('../src/assets/fonts/Poppins-Medium.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+    font-family: "Pumpkin-Pancakes";
+    src: url('../src/assets/fonts/Pumpkin-Pancakes.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: "Roboto-Medium";
+    src: url('../src/assets/fonts/Roboto-Medium.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: "Roboto-Regular";
+    src: url('../src/assets/fonts/Roboto-Regular.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: "Roboto-Bold";
+    src: url('../src/assets/fonts/Roboto-Bold.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
