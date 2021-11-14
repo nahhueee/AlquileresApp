@@ -1,0 +1,98 @@
+.principalContainer{
+    margin-top: -20px;
+    padding: 0%;
+}
+
+/* Cabecera */
+.cabecera{
+    background: no-repeat center rgba(19, 19, 19, 0.432);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 70vh;
+    background-blend-mode: multiply;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulosCabecera{
+    padding: 15px;
+}
+.titulosCabecera h1{
+    width: 100%;
+    font-size: 120px;
+    font-family:"Pumpkin-Pancakes";
+    color: white;
+    margin: 0%;
+}
+.titulosCabecera hr{
+    margin-top: 5px;
+    margin-bottom: 8px;
+    border-top: 2px solid #F20746
+}
+.titulosCabecera p{
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #F20746;
+    font-family: "Roboto-Regular";
+}
+
+@media only screen and (max-width: 500px){
+    .titulosCabecera h1{
+        width: 100%;
+        font-size: 80px;
+    }
+}
+/* ------------------------------ */
+
+/* Destacados */
+.destacados{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #ff3d7136;
+    padding: 20px 50px;
+}
+
+/* ------------------------------ */
+
+/* Banner Publicitario */
+.bannerPublicidad{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+}
+.bannerPublicidad img{
+    height: 200px;
+}
+@media only screen and (max-width: 500px){
+    .bannerPublicidad img{
+        height: 130px;
+    }
+}
+/* ------------------------------ */
+
+/* Categorias */
+.categorias{
+    text-align: center;
+}
+.categorias img{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.categorias img:hover{
+    transition: .4s ease;
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+@media only screen and (max-width: 800px){
+    .categorias img{
+        width: 70%;
+    }
+}
+/* ------------------------------ */

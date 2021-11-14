@@ -1,0 +1,50 @@
+
+<div class="principalContainer container-fluid">
+
+    <header class="cabecera" style="background-image: url('assets/fondos/atardecer.jpg')">
+        <div class="text-center titulosCabecera">
+                <p>Descubre con nosotros</p>
+                <hr>
+                <h1>Traslasierra</h1>
+        </div>
+    </header>
+
+    <div class="destacados">
+        <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="slideConfig" 
+        >
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <img src="{{ slide.img }}" alt="">
+        </div>
+        </ngx-slick-carousel>
+    </div>
+
+    <div class="bannerPublicidad">
+        <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="slidebannerPubli" 
+        >
+        <div ngxSlickItem *ngFor="let slide of publis" class="slide">
+            <img src="{{ slide.img }}" alt="" width="100%">
+        </div>
+        </ngx-slick-carousel>
+    </div>
+<!-- 
+    
+       
+
+    <div class="categorias container">
+        <div class="row">
+            
+            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Hoteleria.jpg" alt=""> </div>
+            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Cabañas.jpg" alt=""> </div>
+            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Casas.jpg" alt=""> </div>
+            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Dptos.jpg" alt=""> </div>
+            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Campings.jpg" alt=""> </div>
+        </div>
+    </div> -->
+    
+</div>
+
+

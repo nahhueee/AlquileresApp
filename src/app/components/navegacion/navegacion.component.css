@@ -1,6 +1,6 @@
 /* Barra Navegacion */
 .navbar{
-    background-color: #2D2D2D;
+    background-color: #2D2D2D !important;
     border-radius: 0% !important;
 }
 .navbar-brand{  
@@ -22,7 +22,7 @@
 }
 .navbar-nav a:hover{
     transition: all .5s;
-    background-color: #1d1d1d;
+    background-color: #363636;
 }
 .navbar-nav a:after {
     content: "";
