@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.hrfooter{
+   border-top: 1px solid #F20746;
+   width: 100%;
+   margin: 0%;
+}
+
+
+.p-dropdown{
+   width: 300px !important;
+}
+
+/* Scroll Top */
+.p-scrolltop{
+   width: 2.3rem !important;
+   height: 2.3rem !important;
+}
+.p-scrolltop.p-link{
+   background: #294b85c9 !important;
+}
+/* ------------------------------ */
+
 
 @font-face {
     font-family: "Afterglow-Regular";

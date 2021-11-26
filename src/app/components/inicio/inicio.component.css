@@ -1,5 +1,4 @@
 .principalContainer{
-    margin-top: -20px;
     padding: 0%;
 }
 
@@ -48,12 +47,144 @@
 }
 /* ------------------------------ */
 
+/* Divisor */
+.divisor{
+    margin: 0% 10%;
+}
+.divisor h6{
+    text-transform: uppercase;
+    font-family: "Montserrat-Regular";
+    margin: 0%;
+}
+.divisor i{
+    color:#294B85;
+}
+.hrDivisor{
+    border-top: 1px solid #294B85;
+    width: 80%;
+    margin-top: 3px;
+}
+/* ------------------------------ */
+
 /* Destacados */
 .destacados{
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #ff3d7136;
+    background-color: #bdbdbd96;
     padding: 20px 50px;
+}
+
+.destacados .card{
+    box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
+}
+.card-body{
+    box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
+}
+
+.slideTopAlquileres img{
+    height: 200px;
+}
+
+.overlay{
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    display: flex;
+  }
+  
+.overlay h4{
+    background-color: rgba(26, 26, 26, 0.774);;
+    padding: 5px;
+    color: white;
+    border-radius: 3px;
+    font-size: 13px;
+    margin: 0%;
+}
+
+.slideTopAlquileres .card{
+    width: 95% !important;
+}
+@media only screen and (max-width: 600px){
+    .slideTopAlquileres .card{
+        width: 100% !important;
+    }
+}
+
+
+.card-title{
+    font-family: "Roboto-Medium";
+    font-size: 23px;
+    color: #3f3f3f;
+    font-family: "Montserrat-Regular";
+}
+.precio{
+    display: flex;
+    align-items: center;
+}
+.precio h4{
+    color: #F20746;
+    font-family: "Poppins-Medium";
+    font-size: 25px;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.precio p{
+    color: rgb(134, 134, 134);
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.card-div{
+    margin: 10px 5px;
+    border-top: 1px solid #b4b4b4
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info p{
+    margin-bottom: 0%;
+    margin-left: 3px;
+    font-weight: 500;
+    color: #414141;
+}
+.info i{
+    color: #414141;
+}
+.capacidad{
+    border: 1px solid #F20746;
+    border-radius: 5px;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+.habitaciones{
+    border: 1px solid #F20746;
+    border-radius: 5px;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.filled{
+    color: #F20746;
+}
+
+.defaultHeart{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 25px;
+}
+
+.paintedHeart{
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #F20746;
 }
 
 /* ------------------------------ */
@@ -78,9 +209,12 @@
 .categorias{
     text-align: center;
 }
+
 .categorias img{
-    margin-bottom: 15px;
     width: 100%;
+    transition: .4s ease;
+    margin: 13px 0px;
+    box-shadow: 0px 10px 10px rgba(58, 58, 58, 0.575)
 }
 .categorias img:hover{
     transition: .4s ease;
@@ -89,10 +223,53 @@
     transform: scale(1.1);
     z-index: 1;
 }
-
-@media only screen and (max-width: 800px){
-    .categorias img{
-        width: 70%;
-    }
-}
 /* ------------------------------ */
+
+/* Ciudades */
+.col-img{
+    position: relative;
+}
+.ciudades img{
+    transition: .4s ease;
+    width: 100%;
+    height: 280px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    box-shadow: 0px 10px 10px rgba(58, 58, 58, 0.575);
+    cursor: pointer;
+}
+.overlay-img{
+    transition: .4s ease;
+    background-color: rgba(24, 24, 24, 0.884);
+    padding-left: inherit;
+    padding-right: inherit;
+    position: absolute;
+    top: 75%;
+    left: 0;
+    right: 0;
+    margin: 0px 15px;
+    text-align: center;
+    
+}
+.overlay-img h5{
+    margin: 0%;
+    padding: 3px;
+    color: white;
+    font-family: "CaviarDreams";
+}
+
+.col-img:hover img{
+    transition: .4s ease;
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+    z-index: 1;
+}
+.col-img:hover .overlay-img{
+    transition: .4s ease;
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+    z-index: 1;
+}
+
+/* ------------------------------ */
+

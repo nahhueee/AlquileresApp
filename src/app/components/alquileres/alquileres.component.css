@@ -1,0 +1,101 @@
+.principalContainer{
+   padding: 0%;
+}
+
+/* Divisor */
+.divisor{
+    margin: 0% 10%;
+}
+.divisor h6{
+    text-transform: uppercase;
+    font-family: "Montserrat-Regular";
+    margin: 0%;
+}
+.divisor i{
+    color:#294B85;
+    margin-left: 8px;
+}
+.hrDivisor{
+    border-top: 1px solid #294B85;
+    width: 80%;
+    margin-top: 3px;
+}
+/* ------------------------------ */
+
+/* Cabecera */
+.cabecera{
+    background: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 12vh;
+    background-blend-mode: multiply;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulosCabecera{
+    padding: 15px;
+}
+.titulosCabecera h1{
+    width: 100%;
+    font-size: 50px;
+    font-family:"Pumpkin-Pancakes";
+    color: white;
+    margin: 0%;
+}
+/* ------------------------------ */
+
+/* Filtro */
+.filtros{
+    margin: 25px 70px;
+    padding: 18px;
+    border: 1px solid #294B85;
+    border-radius: 5px;
+}
+.filtros i{
+    color: #F20746;
+    font-size: 16px;
+    width: 15px;
+}
+.icon{
+    text-align: center;
+    border: 1px solid #ced4da;
+    padding: 7px;
+}
+
+@media only screen and (max-width: 600px){
+    .filtros{
+        margin: 25px 10px;
+    }
+}
+
+.cant-personas{
+    width: 300px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    font-size: 1rem;
+    padding: 8px;
+}
+.cant-personas:hover{
+    border-color: #2196F3
+}
+
+.botones i{
+    color: white;
+}
+.btnBuscar{
+    width: 270px;
+    margin-right: 8px;
+}
+.btnBuscar i{
+    margin-right: 5px;
+}
+.btnLimpiar{
+    width:53px;
+}
+/* ------------------------------ */

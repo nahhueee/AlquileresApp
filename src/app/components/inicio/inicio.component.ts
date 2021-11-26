@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlquileresService } from 'src/app/services/alquileres.service';
 
 @Component({
   selector: 'app-inicio',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  raiting: number = 3.50;
+  currentRating:number = 3.50;
   topAlquileres:any=[]
   slides = [
     {img: "http://placehold.it/350x150/000000"},
@@ -17,9 +20,10 @@ export class InicioComponent implements OnInit {
     {img: "assets/Publicidad1.jpg"},
     {img: "assets/Publicidad3.jpg"}
   ];
-  constructor() { }
+  constructor(private alquilerService:AlquileresService) { }
 
   ngOnInit(): void {
+    this.obtenerTopAlquileres()
   }
 
   slideConfig = {
@@ -35,21 +39,21 @@ export class InicioComponent implements OnInit {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: false
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 750,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
@@ -68,4 +72,14 @@ export class InicioComponent implements OnInit {
       slidesToScroll: 1,
       arrows: false,
       responsive: []};
+
+  
+    obtenerTopAlquileres(){
+        this.alquilerService.obtenerTopAlquileres().subscribe(
+        res => {this.topAlquileres = res},
+        err => console.log(err)
+    )}   
 }
+
+
+ 

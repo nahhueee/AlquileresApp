@@ -1,0 +1,53 @@
+<div class="principalContainer container-fluid">
+    <p-scrollTop [threshold]="200"></p-scrollTop>
+
+    <header class="cabecera" style="background-image: url('assets/fondos/fondo.jpg')">
+        <div class="text-center titulosCabecera">
+                <h1>Alojamientos</h1>
+        </div>
+    </header>
+
+    
+    <br>
+    <div class="divisor d-flex justify-content-between align-items-center">
+        <h6>Encontrá lo que buscas con los filtros</h6>
+        <i class="fas fa-filter"></i>
+    </div>
+    <hr class="hrDivisor">
+
+    <div class="filtros">
+        <div class="d-flex align-items-center justify-content-center mb-2">
+            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+            <p-dropdown [options]="localidades" [(ngModel)]="selectedLocality" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Selecciona una Localidad">
+                <ng-template pTemplate="selectedItem">
+                    <div class="country-item country-item-value"  *ngIf="selectedLocality">
+                        <div>{{selectedLocality.name}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-country pTemplate="item">
+                    <div class="country-item">
+                       <div>{{country.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+        
+
+        <div class="d-flex align-items-center justify-content-center mb-2">
+            <div class="icon"><i class="fas fa-user"></i></div>
+            <input class="cant-personas" name="cap" placeholder="Cant. Personas" type="text" [(ngModel)]="cantPersonas"> 
+        </div>
+      
+        <div class="d-flex align-items-center justify-content-center mb-2">
+            <div class="icon"><i class="fas fa-th-large"></i></div>
+            <p-dropdown [options]="categorias" [(ngModel)]="selectedCategory" optionLabel="name" placeholder="Selecciona una Categoria"></p-dropdown>
+        </div>
+
+        <br>
+        <div class="botones d-flex align-items-center justify-content-center">
+            <button type="button" class="btnBuscar btn btn-dark" (click)="Buscar()"><i class="fas fa-search"></i>Buscar</button>
+            <button type="button" class="btnLimpiar btn btn-dark" (click)="LimpiarFiltros()"><i class="fas fa-trash-alt"></i></button>
+        </div>
+    </div>
+    
+</div>

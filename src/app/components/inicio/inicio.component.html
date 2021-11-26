@@ -1,5 +1,5 @@
-
 <div class="principalContainer container-fluid">
+    <p-scrollTop [threshold]="200"></p-scrollTop>
 
     <header class="cabecera" style="background-image: url('assets/fondos/atardecer.jpg')">
         <div class="text-center titulosCabecera">
@@ -9,13 +9,59 @@
         </div>
     </header>
 
-    <div class="destacados">
+    <br>
+    <div class="divisor d-flex justify-content-between align-items-center">
+        <h6>Elegidos para vos</h6>
+        <div>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+    </div>
+    <hr class="hrDivisor">
+        
+    
+
+   <div class="destacados">
         <ngx-slick-carousel class="carousel" 
         #slickModal="slick-carousel" 
         [config]="slideConfig" 
         >
-        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-            <img src="{{ slide.img }}" alt="">
+        <div ngxSlickItem *ngFor="let alquiler of topAlquileres" class="slideTopAlquileres">
+            <div class="card">
+                <a href="" style="text-decoration: none;">
+                    <img class="card-img-top" src="{{ alquiler.imgPrincipal }}" alt="" style="width: 100%">
+                    <div class="overlay">
+                        <h4><i class="fas fa-map-marker-alt"></i> {{alquiler.zona}}</h4>
+                    </div>
+
+                    <div class="card-body">
+                      <h5 class="card-title">{{alquiler.nombre}}</h5>
+                      <div class="precio">
+                        <h4>${{alquiler.precioGral}}</h4> 
+                        <p>/{{alquiler.precioCond}}</p>
+                      </div>
+                      <hr class="card-div">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="info">
+                            <div class="capacidad"><i class="fas fa-male"></i><p>{{alquiler.capacidad}}</p></div>
+                            <div class="habitaciones"><i class="fas fa-bed"></i><p>{{alquiler.habitaciones}}</p></div>
+                          </div>
+                          <div>
+                            <ngb-rating [(rate)]="alquiler.Raiting" [max]="5" [readonly]='true'>
+                                <ng-template let-fill="fill">
+                                  <span class="defaultHeart" [class.filled]="fill === 100">
+                                    <span class="paintedHeart" [style.width.%]="fill">★</span>★
+                                  </span>
+                                </ng-template>
+                              </ngb-rating>
+                          </div>
+                      </div>
+                     
+                    </div>
+                </a>
+            </div>
+            
         </div>
         </ngx-slick-carousel>
     </div>
@@ -30,21 +76,68 @@
         </div>
         </ngx-slick-carousel>
     </div>
-<!-- 
-    
-       
 
-    <div class="categorias container">
-        <div class="row">
-            
-            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Hoteleria.jpg" alt=""> </div>
-            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Cabañas.jpg" alt=""> </div>
-            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Casas.jpg" alt=""> </div>
-            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Dptos.jpg" alt=""> </div>
-            <div class="col col-lg-2 col-md-4 col-sm-4 col-xs-6"><img src="assets/categorias/Campings.jpg" alt=""> </div>
-        </div>
-    </div> -->
+
+    <br>
+    <div class="divisor d-flex justify-content-between align-items-center">
+        <h6>Encontrá por categorias</h6>
+        <i class="fas fa-th-large"></i>
+    </div>
+    <hr class="hrDivisor">
+
     
+    <div class="categorias container">
+       <div class="row">
+            <div class="col-6 col-sm-4 col-md-2"><img src="assets/categorias/Hotel.jpg" alt=""></div>
+            <div class="col-6 col-sm-4 col-md-2"><img src="assets/categorias/Cabaña.jpg" alt=""></div>
+            <div class="col-6 col-sm-4 col-md-2"><img src="assets/categorias/Casa.jpg" alt=""></div> 
+            <div class="col-6 col-sm-4 col-md-2"><img src="assets/categorias/Dptos.jpg" alt=""></div>
+            <div class="col-6 col-sm-4 col-md-2"><img src="assets/categorias/Camping.jpg" alt=""></div> 
+            <div class="col-6 col-sm-4 col-md-2"><img src="assets/categorias/Destacados.jpg" alt=""></div> 
+        </div>
+    </div>
+    
+    <br><br>
+    <div class="divisor d-flex justify-content-between align-items-center">
+        <h6>Mira lo que cada localidad puede ofrecer</h6>
+        <i class="fas fa-sun"></i>
+    </div>
+    <hr class="hrDivisor">
+
+    <div class="ciudades container">
+        <div class="row">
+            <div class="col-img col-lg-8"> 
+                <img src="assets/fondos/Mina.jpg" alt="" width="100%">
+                <div class="overlay-img">
+                    <h5>Mina Clavero</h5>
+                </div>
+            </div>
+            <div class="col-img col-lg-4"> 
+                <img src="assets/fondos/Brochero.jpg" alt="">
+                <div class="overlay-img">
+                    <h5>Villa Cura Brochero</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-img col-lg-4"> 
+                <img src="assets/fondos/Rosas.jpg" alt="">
+                <div class="overlay-img">
+                    <h5>Las Rosas</h5>
+                </div>
+            </div>
+            <div class="col-img col-lg-8">
+                 <img src="assets/fondos/Nono1.jpg" alt="">
+                 <div class="overlay-img">
+                    <h5>Nono</h5>
+                </div>
+            </div>
+        </div>
+        
+        <br>
+    
+    
+    </div>
 </div>
 
 
