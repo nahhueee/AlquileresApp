@@ -1,0 +1,82 @@
+.principalContainer{
+    padding: 0%;
+ }
+
+/* Cabecera */
+.cabecera{
+    background: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 12vh;
+    background-blend-mode: multiply;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulosCabecera{
+    padding: 15px;
+}
+.titulosCabecera h1{
+    width: 100%;
+    font-size: 50px;
+    font-family:"Pumpkin-Pancakes";
+    color: white;
+    margin: 0%;
+}
+/* ------------------------------ */
+
+
+/* bienvenida */
+.mensaje{
+    font-family: "Roboto-Regular";
+    font-size: 17px;
+}
+.bienvenida h4{
+    font-family: "Chapaza";
+    font-size: 26px;
+}
+.hrTitulo{
+   border-top: 1px solid #294B85;
+}
+.bienvenida img{
+    padding: 0%;
+    height: 290px;
+    border-radius: 3px;
+}
+/* ------------------------------ */
+
+
+/* Divisor */
+.divisor{
+    margin: 0% 10%;
+}
+.divisor h6{
+    text-transform: uppercase;
+    font-family: "Montserrat-Regular";
+    margin: 0%;
+}
+.divisor i{
+    color:#294B85;
+}
+.hrDivisor{
+    border-top: 1px solid #294B85;
+    width: 80%;
+    margin-top: 3px;
+}
+/* ------------------------------ */
+
+/* Contacto */
+.informacion{
+    background-color: #bdbdbd96;
+    padding: 20px;
+}
+.informacion p{
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+    margin: 0%;
+    margin-left: 5px;
+}
+/* ------------------------------ */

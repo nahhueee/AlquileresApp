@@ -1,0 +1,38 @@
+<div class="principalContainer container-fluid" *ngFor ="let alquiler of DetaAlquiler">
+    <div class="imgFondo" [style.backgroundImage]="'url('+ alquiler.imgPrincipal +')'">
+        
+        <div class="overTitulo">
+            <h5>{{alquiler.categoria}}</h5>
+           <div class="Titulo">{{alquiler.nombre}}</div>
+           <hr id="separador">
+        </div>
+
+        <div class="overlay row-cols-2">
+            <div class="valoraciones col-12 text-center">
+                <h4 class="text-center">Valoración</h4>
+                <div class="stars">
+                    <h5>{{alquiler.Raiting}}</h5>
+                    <div class="text-center">
+                        <ngb-rating [(rate)]="alquiler.Raiting" [max]="5" [readonly]='true'>
+                            <ng-template let-fill="fill">
+                              <span class="defaultHeart" [class.filled]="fill === 100">
+                                <span class="paintedHeart" [style.width.%]="fill">★</span>★
+                              </span>
+                            </ng-template>
+                        </ngb-rating>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="botones col-6 d-flex">
+                <div class="imagenes">
+                    <a class="btn" role="button" rel="nofollow"><i class="fas fa-image"></i>  Imagenes</a>
+                </div>
+                <div class="contacto">
+                    <a class="btn" role="button" rel="nofollow"><i class="fas fa-phone"></i>  Contacto</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

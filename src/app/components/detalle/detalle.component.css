@@ -1,0 +1,118 @@
+/* Cabecera */
+.principalContainer{
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 50px;
+}
+.imgFondo{
+    background: no-repeat center rgba(19, 19, 19, 0.438);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 70vh;
+    
+    background-blend-mode: multiply;
+    position: relative;
+}
+
+.overTitulo{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 3px;
+    color: white;}
+   
+.overTitulo .Titulo{
+    font-family: 'Lora', serif;
+    font-size: 60px;
+    text-shadow: 3px 3px 0px rgba(41, 41, 41, 0.61);
+    line-height: 40pt;
+    margin-bottom: 8px;
+}
+
+#separador{
+    margin-top: 0%;
+    margin-bottom: 20px;
+    border: 1px solid #F20746;
+    border-radius: 300px/10px;
+}
+
+.overlay{
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(26, 26, 26, 0.815);
+    text-align: center;
+    padding: 3px;
+    transition: all ease .2s;
+  }
+
+.valoraciones{
+      padding: 5px;
+      margin-right: 5px;
+}
+
+.stars{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stars h5{
+    margin-top: 3px;
+    margin-bottom: 0%;
+    margin-right: 10px;
+    color: white;
+}
+
+.valoraciones h4{
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 12px;
+      margin-bottom: 3px;
+}
+
+.filled{
+    color: #f2da07;
+}
+
+.defaultHeart{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 25px;
+}
+
+.paintedHeart{
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #f2da07;
+}
+
+
+.botones .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 6px 34px;
+    border: 2px solid #e0e0e0;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: all ease .2s;
+    margin: 5px 3px;
+}
+
+.botones .btn:hover{
+    background-color: #294B85;
+    border: 2px solid #294B85;
+}
+    .botones .btn i{
+        margin-right: 8px;
+    }

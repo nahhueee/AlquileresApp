@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import {DropdownModule} from 'primeng/dropdown';
@@ -15,6 +16,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AlquileresComponent } from './components/alquileres/alquileres.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { AlquileresComponent } from './components/alquileres/alquileres.componen
     AppComponent,
     NavegacionComponent,
     InicioComponent,
-    AlquileresComponent
+    AlquileresComponent,
+    ContactoComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import { AlquileresComponent } from './components/alquileres/alquileres.componen
     HttpClientModule,
     NgbModule,
     ScrollTopModule,
-    DropdownModule
+    DropdownModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

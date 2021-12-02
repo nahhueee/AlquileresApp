@@ -99,3 +99,155 @@
     width:53px;
 }
 /* ------------------------------ */
+
+/* Mensaje */
+
+.resultados h6{
+    font-size: 17px;
+    margin: 0%;
+    margin-left: 5px;
+}
+.resultados span{
+    color: #F20746;
+}
+.resultados hr{
+    width: 60%;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    border-top: 1px solid #F20746
+}
+.lblBuscar{
+    text-align: center;
+}
+.lblBuscar p{
+    margin: 0%;
+    padding: 8px;
+    border-radius: 3px;
+    color: rgb(58, 58, 58);
+    background-color: #e6e6e6;
+    font-size: 17px;
+    font-family: "Poppins-Medium";
+}
+.lblBuscar span{
+    color: #F20746;
+}
+/* ------------------------------ */
+
+/* Alojamientos */
+.Alquileres{
+    padding: 10px 70px;
+}
+.card{
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 8px 8px 8px #3d3d3d3f;
+}
+.col{
+    padding: 8px !important;
+}
+
+/* @media only screen and (max-width: 1500px){
+    .col{
+       max-width: 300px;
+    }
+} */
+.Tarjeta img{
+    height: 200px;
+}
+
+.overlay{
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    display: flex;
+  }
+  
+.overlay h4{
+    background-color: rgba(26, 26, 26, 0.774);;
+    padding: 5px;
+    color: white;
+    border-radius: 3px;
+    font-size: 13px;
+    margin: 0%;
+}
+
+.card-title{
+    font-family: "Roboto-Medium";
+    font-size: 23px;
+    color: #3f3f3f;
+    font-family: "Montserrat-Regular";
+}
+.precio{
+    display: flex;
+    align-items: center;
+}
+.precio h4{
+    color: #F20746;
+    font-family: "Poppins-Medium";
+    font-size: 25px;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.precio p{
+    color: rgb(134, 134, 134);
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.card-div{
+    margin: 10px 5px;
+    border-top: 1px solid #b4b4b4
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info p{
+    margin-bottom: 0%;
+    margin-left: 3px;
+    font-weight: 500;
+    color: #414141;
+}
+.info i{
+    color: #414141;
+}
+.capacidad{
+    border: 1px solid #F20746;
+    border-radius: 5px;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+.habitaciones{
+    border: 1px solid #F20746;
+    border-radius: 5px;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.filled{
+    color: #F20746;
+}
+
+.defaultHeart{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 25px;
+}
+
+.paintedHeart{
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #F20746;
+}
+/* ------------------------------ */
