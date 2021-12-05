@@ -103,7 +103,8 @@
             <h4 class="subTitulo"><i class="fas fa-map-marker-alt"></i>Ubicacion</h4>
 
             <div style="text-align: center;"><h6>{{alquiler.ubicacion}}, {{alquiler.zona}} </h6></div>
-            <div id="map"></div>
+            <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions">
+            </div>
             
             <hr class="divisor">
             <!-- Contacto -->

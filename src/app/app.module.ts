@@ -12,7 +12,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import {DropdownModule} from 'primeng/dropdown';
-
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -41,6 +41,7 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     ScrollTopModule,
     DropdownModule,
     NgxPaginationModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]

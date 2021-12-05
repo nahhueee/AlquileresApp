@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DetaAlquilerService } from 'src/app/services/deta-alquiler.service';
+import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
 
 @Component({
   selector: 'app-detalle',
@@ -16,7 +17,12 @@ export class DetalleComponent implements OnInit {
   ServiciosAlquiler: any = [];
 
   GaleriaAlquiler: any = [];
-  constructor(private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService) {}
+
+  map!: Map;
+  mapOptions: MapOptions;
+  constructor(private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService) {
+    this.mapOptions = {}
+  }
   
   // showGallery(index: number) {
   //   let prop = {
@@ -86,6 +92,38 @@ export class DetalleComponent implements OnInit {
     this.obtenerDetalleAlquiler()
     this.obtenerServiciosAlquiler()
     this.obtenerGaleriaAlquiler()
+    this.initializeMapOptions()
+  }
+
+  onMapReady(map: Map) {
+    this.map = map;
+    this.addSampleMarker();
+  }
+
+  private initializeMapOptions() {
+    this.mapOptions = {
+      center: latLng(-31.73857178234314, -65.00440872624107),
+      zoom: 17,
+      layers: [
+        tileLayer(
+          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          {
+            maxZoom: 18,
+            attribution: 'Map data © OpenStreetMap contributors'
+          })
+      ],
+    };
+  }
+
+  private addSampleMarker() {
+    const marker = new Marker([-31.73857178234314, -65.00440872624107])
+      .setIcon(
+        icon({
+          iconSize: [38, 35],
+          iconAnchor: [13, 41],
+          iconUrl: 'assets/marker-icon.png'
+        }));
+    marker.addTo(this.map);
   }
 
   obtenerDetalleAlquiler(){
