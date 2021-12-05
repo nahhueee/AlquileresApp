@@ -36,3 +36,110 @@
         </div>
     </div>
 </div>
+
+
+
+<br>
+<div class="container-fluid cuerpo">
+    <div class="row row-cols-2" *ngFor ="let alquiler of DetaAlquiler">
+        <div class="col col-12 col-sm-8">
+            <!-- info -->
+            <p class="info"><i class="fas fa-caret-right"></i> Alojamiento de tipo <span>{{alquiler.categoria}}</span> con capacidad para <span>{{alquiler.capacidad}}</span> personas y <span>{{alquiler.habitaciones}}</span> habitaciones</p>
+            <hr class="divisor">
+            <p class="desc">{{alquiler.descripcion}}</p>
+
+            <hr class="divisor">
+
+            <!-- Servicios -->
+            <h4 class="subTitulo"><i class="fas fa-th-list"></i>Servicios</h4>
+            <div class="row servicios">
+                    <div *ngFor ="let servicio of ServiciosDestacados" class="col-12 col-lg-4 servicio">
+                        <img [src]="servicio.icono" class="card-img-top">
+                        <p><span>{{servicio.servicio}}</span>  {{servicio.descripcion}}</p>
+                    </div>
+            </div>
+            <div style="text-align: center;">
+                <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal3">Ver Todos</button>
+            </div>
+
+            <hr class="divisor">
+            <!-- Tarifas -->
+            <h4 class="subTitulo"><i class="fas fa-dollar-sign"></i>Tarifas</h4>
+            
+            <hr class="divisor">
+             <!-- Galeria -->
+            <h4 class="subTitulo"><i class="fas fa-images"></i>Galeria</h4>
+            
+                <div class="container">
+                    <div class="feedback-slides">
+                        <div class="client-feedback">
+                            <ngx-slick-carousel 
+                                class="carousel feedback" 
+                                #slickModal="slick-carousel" 
+                                [config]="imagesSlider">
+                                <div id="container-imgGrande" ngxSlickItem *ngFor="let gImg of GaleriaAlquiler; let i = index" class="slide">
+                                       <a href="{{ gImg.thumb }}" data-lightbox="roadtrip"><img class="imgGrande" src="{{ gImg.thumb }}" alt="" width="100%"></a> 
+                                        
+                                </div>
+                            </ngx-slick-carousel>
+                        </div>
+                    </div>
+
+                    <div class="client-thumbnails">
+                        <ngx-slick-carousel 
+                        class="carousel thumbs" 
+                        #slickModal="slick-carousel" 
+                        [config]="thumbnailsSlider ">
+                        <div id="container-imgPequeña" ngxSlickItem *ngFor="let gImg of GaleriaAlquiler" class="slide">
+                            <img class="imgPequeña" src="{{ gImg.thumb }}" alt="" width="100%">
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+                <div style="text-align: center;"><p class="pinfo">Click sobre imagen para ver más</p></div>
+                
+            <hr class="divisor">
+            <!-- Ubicacion -->
+            <h4 class="subTitulo"><i class="fas fa-map-marker-alt"></i>Ubicacion</h4>
+
+            <div style="text-align: center;"><h6>{{alquiler.ubicacion}}, {{alquiler.zona}} </h6></div>
+            <div id="map"></div>
+            
+            <hr class="divisor">
+            <!-- Contacto -->
+            <h4 class="subTitulo"><i class="fas fa-address-card"></i>Contacto</h4>
+
+            <hr class="divisor">
+            <!-- Comentarios -->
+            <h4 class="subTitulo"><i class="fas fa-user-friends"></i>Comentarios</h4>
+
+
+            <!-- ModalServicios -->
+            <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center h-100">
+                            <h5 class="modal-title">Viendo los servicios de {{alquiler.nombre}}</h5>
+                            <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                
+                                <div *ngFor ="let servicio of ServiciosAlquiler" class="servicio">
+                                    <img [src]="servicio.icono" class="card-img-top">
+                                    <p><span>{{servicio.servicio}}</span>  {{servicio.descripcion}}</p>
+                                </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-12 col-sm-4">
+            <p>Hello World</p>
+        </div>
+    </div>
+</div>
+
+

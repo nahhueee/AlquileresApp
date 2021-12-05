@@ -1,3 +1,7 @@
+.cuerpo{
+    width: 87%;
+}
+
 /* Cabecera */
 .principalContainer{
     margin: 0%;
@@ -116,3 +120,112 @@
     .botones .btn i{
         margin-right: 8px;
     }
+
+/* --------------------------------------------------- */
+
+/* Subtitulos */
+.subTitulo{
+    color: #303030;
+    font-family: "Amaranth-Regular";
+    margin-bottom: 15px;
+}
+.subTitulo i{
+    margin-right: 5px;
+    color: #F20746;
+}
+.divisor{
+    margin: 30px 0px;
+    border-top: 1px solid #acacac;
+}
+/* --------------------------------------------------- */
+
+/* Descripcion */
+.info{
+    font-size: 21px;
+    color: rgb(58, 58, 58);
+    font-family: "Roboto-Regular";
+}
+.info span{
+    color: #F20746;
+}
+.desc{
+    font-size: 20px;
+    color: rgb(75, 75, 75);
+    font-family: "Asap-Regular";
+}
+/* --------------------------------------------------- */
+
+
+/* Servicios */
+.servicios{
+    margin: 20px 30px;
+    border-radius: 3px;
+}
+.servicio{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+} 
+.servicio img{
+    width: 27px;
+    height: 27px;
+    margin-right: 10px;
+}
+.servicio p{
+    margin: 0%;
+    font-family: "Poppins-Regular";
+    color: rgb(109, 108, 108);
+}
+.servicio span{
+    margin-right: 10px;
+    font-family: "Poppins-Medium";
+    font-size: 18px;
+    color: rgb(73, 73, 73);
+}
+.btnTodos{
+    font-family: "Roboto-Regular";
+    width: 250px;
+    background: transparent;
+    color: rgb(22, 22, 22);
+    border: 1px solid #F20746;
+}
+/* --------------------------------------------------- */
+
+/* Galeria */
+    #container-imgGrande{margin-bottom: 5px;}
+    .imgGrande{ height: 480px; border-radius: 5px; transition: ease 0.5s;}
+
+    #container-imgPequeña{height: 100px;}
+    .imgPequeña{cursor: pointer; height:100px;}
+    .imgPequeña:hover{filter:brightness(70%);}
+
+    @media only screen and (max-width: 1000px){
+        .imgGrande{ height: 350px;}
+        #container-imgPequeña, .imgPequeña{height: 80px;}}
+    @media only screen and (max-width: 480px){
+        .imgGrande{ height: 250px;}
+        #container-imgPequeña, .imgPequeña{height: 70px;}}
+
+    #galeryColContainer{ padding: 5px;}    
+    #itemGaleria :hover{ filter:brightness(90%) }
+    #itemGaleria{ transition: .5s ease-in-out; margin: 0%;}
+    #itemGaleria img{ margin: 0%; height: 100%;}
+    #imgPrincipalGalery{ padding: 0%;}    
+
+    .imgGrande:hover{
+        filter:brightness(70%);
+        cursor: zoom-in;
+    }
+
+.pinfo{
+    margin-bottom: 0%;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #3d3d3d;
+    font-family: "Poppins-Medium";
+}
+/* --------------------------------------------------- */
+
+/* Ubicacion */
+#map { height: 180px; }
+/* --------------------------------------------------- */

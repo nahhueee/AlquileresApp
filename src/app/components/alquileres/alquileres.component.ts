@@ -21,7 +21,6 @@ export class AlquileresComponent implements OnInit {
   categoria:string = '';
 
   resultados:number = 0
-
   Alojamientos:any=[];
 
   constructor(private alquilerService:AlquileresService, private rutaActiva:ActivatedRoute) {

@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import {DropdownModule} from 'primeng/dropdown';
 
+
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AlquileresComponent } from './components/alquileres/alquileres.component';
@@ -39,7 +40,7 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     NgbModule,
     ScrollTopModule,
     DropdownModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

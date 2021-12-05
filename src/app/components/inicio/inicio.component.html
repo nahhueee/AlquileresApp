@@ -29,7 +29,7 @@
         >
         <div ngxSlickItem *ngFor="let alquiler of topAlquileres" class="slideTopAlquileres">
             <div class="card">
-                <a href="" style="text-decoration: none;">
+                <a [routerLink]="['/alojamiento/', alquiler.nombre, alquiler.id]" target="blank" style="text-decoration: none;">
                     <img class="card-img-top" src="{{ alquiler.imgPrincipal }}" alt="" style="width: 100%">
                     <div class="overlay">
                         <h4><i class="fas fa-map-marker-alt"></i> {{alquiler.zona}}</h4>

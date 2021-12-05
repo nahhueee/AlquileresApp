@@ -11,4 +11,10 @@ export class DetaAlquilerService {
   obtenerDetalleAlquileres(IdAlquiler:number){
     return this.http.get(`api/rentals/${IdAlquiler}`,{withCredentials:true})
   }
+  obtenerServiciosAlquileres(IdAlquiler:number){
+    return this.http.get(`api/rentals/services/${IdAlquiler}`,{withCredentials:true})
+  }
+  obtenerGaleriaAlquileres(IdAlquiler:number){
+    return this.http.get(`api/rentals/galery/${IdAlquiler}`,{withCredentials:true})
+  }
 }

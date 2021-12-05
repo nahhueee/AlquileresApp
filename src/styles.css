@@ -59,6 +59,30 @@
    font-style: normal;
 }
 @font-face {
+   font-family: "Poppins-ExtraLight";
+   src: url('../src/assets/fonts/Poppins-ExtraLight.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Poppins-Light";
+   src: url('../src/assets/fonts/Poppins-Light.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Poppins-Regular";
+   src: url('../src/assets/fonts/Poppins-Regular.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Poppins-Thin";
+   src: url('../src/assets/fonts/Poppins-Thin.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
     font-family: "Pumpkin-Pancakes";
     src: url('../src/assets/fonts/Pumpkin-Pancakes.ttf') format("truetype");
     font-weight: normal;
@@ -82,3 +106,15 @@
     font-weight: normal;
     font-style: normal;
  }
+ @font-face {
+   font-family: "Asap-Regular";
+   src: url('../src/assets/fonts/Asap-Regular.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: "Amaranth-Regular";
+   src: url('../src/assets/fonts/Amaranth-Regular.ttf') format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
