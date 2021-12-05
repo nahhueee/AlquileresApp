@@ -30,11 +30,13 @@
     color: white;}
    
 .overTitulo .Titulo{
-    font-family: 'Lora', serif;
-    font-size: 60px;
+    font-family: "Pumpkin-Pancakes";
+    font-size: 80px;
     text-shadow: 3px 3px 0px rgba(41, 41, 41, 0.61);
-    line-height: 40pt;
+    line-height: 50pt;
+    word-spacing: -18pt;
     margin-bottom: 8px;
+    margin-top: 15px;
 }
 
 #separador{
@@ -139,6 +141,124 @@
 }
 /* --------------------------------------------------- */
 
+/* Tarifas */
+.stick{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100 !important;
+}
+.Movil{
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
+}
+.Movil p{
+    margin: 0%;
+    font-size: 15px;
+    color: rgb(58, 58, 58);
+    font-family: "Poppins-Medium";
+}
+
+.precio-Movil{
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    padding-bottom: 0%;
+}
+.precio-Movil h4{
+    color: #F20746;
+    font-family: "Poppins-Medium";
+    font-size: 28px;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    font-weight: 500;
+    word-spacing: -5pt;
+}
+.precio-Movil p{
+    color: rgb(134, 134, 134);
+    margin-bottom: 0%;
+    font-weight: 500;
+    font-size: 17px;
+}
+.btns-movil{
+    padding: 8px;
+    padding-bottom: 0%;
+    margin-right: 15px;
+    text-align: right;
+}
+.btns-movil .btn{
+    margin-right: 5px;
+}
+
+.tarifa-hr{
+    margin: 8px 0px;
+}
+
+.stick-pc{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100 !important;
+}
+.pc{
+    border-left: 4px solid #7a7a7a;
+    box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
+}
+.precio-pc{
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    padding-bottom: 0%;
+}
+.precio-pc h4{
+    color: #F20746;
+    font-family: "Poppins-Medium";
+    font-size: 33px;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.precio-pc p{
+    color: rgb(134, 134, 134);
+    margin-bottom: 0%;
+    font-weight: 500;
+    font-size: 23px;
+}
+.pc p{
+    font-size: 15px;
+    color: #3d3d3d;
+    font-family: "Poppins-Medium";
+}
+.pc .btns{
+    padding: 8px;
+    padding-bottom: 0%;
+    margin-right: 15px;
+    text-align: right;
+}
+.btns .btn{
+    margin-right: 5px;
+}
+.wpp{
+    background-color: #00a050;
+}
+.mail{
+    background-color: #294B85;
+}
+
+@media only screen and (max-width: 967px){
+    .pc .btns{
+        text-align: center;
+        margin: 0%;
+    }
+    
+}
+/* --------------------------------------------------- */
+
+
 /* Descripcion */
 .info{
     font-size: 21px;
@@ -219,7 +339,7 @@
 
 .pinfo{
     margin-bottom: 0%;
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 16px;
     color: #3d3d3d;
     font-family: "Poppins-Medium";
@@ -229,5 +349,6 @@
 /* Ubicacion */
 #map {
     height: 400px;
-  }
+}
 /* --------------------------------------------------- */
+

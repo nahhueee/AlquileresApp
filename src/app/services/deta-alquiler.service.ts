@@ -17,4 +17,7 @@ export class DetaAlquilerService {
   obtenerGaleriaAlquileres(IdAlquiler:number){
     return this.http.get(`api/rentals/galery/${IdAlquiler}`,{withCredentials:true})
   }
+  obtenerTarifasAlquileres(IdAlquiler:number){
+    return this.http.get(`api/rentals/rate/${IdAlquiler}`,{withCredentials:true})
+  }
 }

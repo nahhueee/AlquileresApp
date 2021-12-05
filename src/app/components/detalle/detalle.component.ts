@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DetaAlquilerService } from 'src/app/services/deta-alquiler.service';
 import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
@@ -10,6 +10,8 @@ import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
 })
 export class DetalleComponent implements OnInit {
   IdAlquiler:number = 0;
+  public innerWidth: any;
+
 
   DetaAlquiler: any = [];
 
@@ -20,6 +22,7 @@ export class DetalleComponent implements OnInit {
 
   map!: Map;
   mapOptions: MapOptions;
+
   constructor(private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService) {
     this.mapOptions = {}
   }
@@ -88,6 +91,7 @@ export class DetalleComponent implements OnInit {
         this.IdAlquiler = params.id;
       }
     );
+    this.innerWidth = window.innerWidth;
 
     this.obtenerDetalleAlquiler()
     this.obtenerServiciosAlquiler()
@@ -95,6 +99,8 @@ export class DetalleComponent implements OnInit {
     this.initializeMapOptions()
   }
 
+
+  // Mapa
   onMapReady(map: Map) {
     this.map = map;
     this.addSampleMarker();
@@ -125,6 +131,22 @@ export class DetalleComponent implements OnInit {
         }));
     marker.addTo(this.map);
   }
+// --------------------------------------------------
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+  this.innerWidth = window.innerWidth;
+  }
+  
+  scrollToGalery() {
+    document.getElementById("toGaleria")?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+  scrollToContact() {
+    document.getElementById("toContact")?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+  scrollToRaiting() {
+    document.getElementById("toRaiting")?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+
 
   obtenerDetalleAlquiler(){
     this.detaService.obtenerDetalleAlquileres(this.IdAlquiler).subscribe(

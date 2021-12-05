@@ -1,3 +1,4 @@
+<p-scrollTop [threshold]="200"></p-scrollTop>
 <div class="principalContainer container-fluid" *ngFor ="let alquiler of DetaAlquiler">
     <div class="imgFondo" [style.backgroundImage]="'url('+ alquiler.imgPrincipal +')'">
         
@@ -26,10 +27,10 @@
             </div>
             <div class="botones col-6 d-flex">
                 <div class="imagenes">
-                    <a class="btn" role="button" rel="nofollow"><i class="fas fa-image"></i>  Imagenes</a>
+                    <a class="btn" role="button" rel="nofollow"  (click)="scrollToGalery()"><i class="fas fa-image"></i>  Imagenes</a>
                 </div>
                 <div class="contacto">
-                    <a class="btn" role="button" rel="nofollow"><i class="fas fa-phone"></i>  Contacto</a>
+                    <a class="btn" role="button" rel="nofollow" (click)="scrollToRaiting()"><i class="fas fa-user-friends"></i>  Reseñas</a>
                 </div>
             </div>
             
@@ -38,11 +39,27 @@
 </div>
 
 
+<div class="stick" *ngIf="innerWidth<768">
+   <div class="Movil card" *ngFor ="let alquiler of DetaAlquiler">
+    <div class="row">
+        <div class="col precio-Movil">
+            <h4>${{alquiler.precioGral}}</h4> 
+            <p>/{{alquiler.precioCond}}</p>
+        </div>
+        <div class="col btns-movil">
+            <button type="button" class="btn btn-dark mail" (click)="scrollToContact()"><i class="fas fa-envelope"></i></button>
+            <button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button>
+        </div>
+    </div>
+    <hr class="tarifa-hr">
+    <p style="text-align: center;">Consulta por promociones y tarifas</p>
+   </div> 
+</div>
 
 <br>
 <div class="container-fluid cuerpo">
     <div class="row row-cols-2" *ngFor ="let alquiler of DetaAlquiler">
-        <div class="col col-12 col-sm-8">
+        <div class="col col-12 col-md-8">
             <!-- info -->
             <p class="info"><i class="fas fa-caret-right"></i> Alojamiento de tipo <span>{{alquiler.categoria}}</span> con capacidad para <span>{{alquiler.capacidad}}</span> personas y <span>{{alquiler.habitaciones}}</span> habitaciones</p>
             <hr class="divisor">
@@ -62,11 +79,7 @@
                 <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal3">Ver Todos</button>
             </div>
 
-            <hr class="divisor">
-            <!-- Tarifas -->
-            <h4 class="subTitulo"><i class="fas fa-dollar-sign"></i>Tarifas</h4>
-            
-            <hr class="divisor">
+            <hr id="toGaleria" class="divisor">
              <!-- Galeria -->
             <h4 class="subTitulo"><i class="fas fa-images"></i>Galeria</h4>
             
@@ -100,19 +113,17 @@
                 
             <hr class="divisor">
             <!-- Ubicacion -->
-            <h4 class="subTitulo"><i class="fas fa-map-marker-alt"></i>Ubicacion</h4>
-
-            <div style="text-align: center;"><h6>{{alquiler.ubicacion}}, {{alquiler.zona}} </h6></div>
-            <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions">
-            </div>
+            <h4 class="subTitulo"><i class="fas fa-map-marker-alt"></i>Ubicación</h4>
+            <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions"></div>
+            <div style="text-align: center;"><p class="pinfo">La ubicación exacta se la brindará el hospedante</p></div>
             
-            <hr class="divisor">
+            <hr id="toContact" class="divisor">
             <!-- Contacto -->
             <h4 class="subTitulo"><i class="fas fa-address-card"></i>Contacto</h4>
 
-            <hr class="divisor">
+            <hr id="toRaiting" class="divisor">
             <!-- Comentarios -->
-            <h4 class="subTitulo"><i class="fas fa-user-friends"></i>Comentarios</h4>
+            <h4 class="subTitulo"><i class="fas fa-user-friends"></i>Reseñas</h4>
 
 
             <!-- ModalServicios -->
@@ -137,8 +148,23 @@
                 </div>
             </div>
         </div>
-        <div class="col col-12 col-sm-4">
-            <p>Hello World</p>
+        <div class="col col-12 col-md-4">
+            <div class="stick-pc" *ngIf="innerWidth>768">
+                <div class="card pc" *ngFor ="let alquiler of DetaAlquiler">
+                    <div class="row">
+                        <div class="col precio-pc">
+                            <h4>${{alquiler.precioGral}}</h4> 
+                            <p>/{{alquiler.precioCond}}</p>
+                        </div>
+                        <div class="col btns">
+                            <button type="button" class="btn btn-dark mail" (click)="scrollToContact()"><i class="fas fa-envelope"></i></button>
+                            <button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button>
+                        </div>
+                    </div>
+                    <hr class="tarifa-hr">
+                    <p style="text-align: center;">Consulta por promociones y tarifas</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
