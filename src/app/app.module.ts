@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
@@ -13,6 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import {DropdownModule} from 'primeng/dropdown';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {InputTextModule} from 'primeng/inputtext';
 
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -41,7 +44,11 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     ScrollTopModule,
     DropdownModule,
     NgxPaginationModule,
-    LeafletModule
+    LeafletModule,
+    MessagesModule,
+    MessageModule,
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

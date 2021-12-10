@@ -150,13 +150,13 @@
 }
 .Movil{
     margin: 10px;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
 }
 .Movil p{
     margin: 0%;
-    font-size: 15px;
+    font-size: 12px;
     color: rgb(58, 58, 58);
     font-family: "Poppins-Medium";
 }
@@ -272,6 +272,7 @@
     font-size: 20px;
     color: rgb(75, 75, 75);
     font-family: "Asap-Regular";
+    white-space: pre-line;
 }
 /* --------------------------------------------------- */
 
@@ -307,7 +308,7 @@
     width: 250px;
     background: transparent;
     color: rgb(22, 22, 22);
-    border: 1px solid #F20746;
+    border: 2px solid #F20746;
 }
 /* --------------------------------------------------- */
 
@@ -352,3 +353,351 @@
 }
 /* --------------------------------------------------- */
 
+/* Contacto */
+.form-contact{
+    padding: 25px;
+    border-radius: 5px;
+    background: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-blend-mode: multiply;
+    overflow: hidden;
+    border: solid 1px rgb(212, 212, 212);
+    /* background: rgb(202, 202, 202); */
+}
+.form-contact label{
+    display: block;
+    color: rgb(36, 36, 36);
+    font-family: "Roboto-Medium";
+}
+.left-icon{
+    width: 25px;
+}
+.left-icon img{
+   width: 20px;
+   height: 20px;
+}
+.form-contact .btn{
+    width: 300px;
+}
+@media only screen and (max-width: 850px){
+    .form-contact .btn{
+        width: 100%;
+    }
+}
+
+.pContacto{
+    font-size: 15px;
+    color: #3d3d3d;
+    font-family: "Poppins-Medium";
+    margin-bottom: 0px;
+    margin-top: 8px;
+}
+.hrContacto{
+    margin-top: 2px;
+}
+
+
+.DatosContacto{
+    margin: 15px 0px;
+    border: solid 1px #F20746;
+    border-radius: 5px;
+    padding: 20px 0px;
+    background: #f3f3f3
+}
+
+.card-info{
+    text-align: center;
+    margin-top: 15px;
+}
+.card-info img{
+    width: 40px;
+    height: 40px;
+}
+.card-info h6{
+    font-family: "Poppins-Medium";
+    margin: 5px 0px;
+    color: rgb(44, 44, 44);
+    font-size: 17px;
+}
+.card-info p{
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Asap-Regular";
+    color: rgb(82, 82, 82);
+    white-space: pre-line;
+    margin: 0%;
+}
+.card-info a{
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Asap-Regular";
+    color: rgb(82, 82, 82);
+    margin: 0%;
+}
+@media only screen and (max-width: 500px){
+    .card-info p{font-size: 15px;}
+    .card-info a{font-size: 15px;}
+}
+
+/* Errores FormContacto */
+.has-error{
+    border: 1px solid #ff0000;
+}
+small{
+    color: red;
+    margin: 0%;
+}
+.Input-error p{
+    margin: 0%;
+}
+.Input-error{
+    display: block;
+    margin-left: 25px;
+}
+.Input-error2{
+    display: block;
+}
+.Input-error2 p{
+    margin: 0%;
+}
+/* --------------------------------------------------- */
+
+
+/* Reseñas */
+.reseñas{
+    margin-bottom: 20px;
+}
+
+.reseñas h5{
+    font-family: "Poppins-Medium";
+    font-size: 50px;
+    color: rgb(22, 22, 22);
+    margin-bottom: -5px;
+}
+.color{
+    color: #F20746;
+}
+.defaultstar{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 35px;
+}
+
+.paintedstar{
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #F20746;
+}
+
+.bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.label-bar{
+    width: 120px;
+    font-family: "Roboto-Medium";
+    margin-bottom: 0%;
+    margin-right: 5px;
+    color: rgb(73, 73, 73);
+    font-size: 15px;
+}
+.numero{
+    text-align: right;
+    width: 30px;
+    font-family: "Roboto-Medium";
+    margin-bottom: 0%;
+    color: rgb(73, 73, 73);
+    font-size: 15px;
+}
+
+
+.starComent{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 20px;
+}
+
+.paintedComent{
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #F20746;
+}
+
+.comentario{
+    padding: 15px 25px;
+    margin: 5px 0px;
+}
+.comentario p{
+    margin: 0%;
+}
+.mss{
+    text-align: center;
+    font-family: "Poppins-Medium";
+    color: rgb(22, 22, 22);
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+.agregar .btn{
+    font-family: "Roboto-Regular";
+    width: 250px;
+    color: rgb(22, 22, 22);
+    background: transparent;
+    border: 2px solid #00a050;
+    margin-top: 10px;
+}
+.agregar .btn:hover{
+    background-color: #23272b;
+    color: white;
+    border: 2px solid #00a050;
+}
+
+.agregar i{
+    margin-right: 8px;
+}
+.reseñasHr{
+    margin-top: 12px;
+    width: 70%;
+    border-top: 1px solid #acacac;
+}
+/* --------------------------------------------------- */
+
+
+/* ModalReseña */
+#ContenedorReseña{
+    position: relative;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#ContenedorReseña .star-widget .in{
+    display: none;
+}
+.star-widget label{
+    font-size: 40px;
+    color: rgb(163, 162, 162);
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+    margin-bottom: 15px;
+}
+
+.star-widget .in:not(:checked) ~ label:hover,
+.star-widget .in:not(:checked) ~ label:hover ~ label{
+    color: #F20746;
+
+}
+
+.star-widget .in:checked ~ label{
+    color: #F20746;
+}
+.star-widget .in#rate-5:checked ~ label{
+    color: #ff1f5b;
+    text-shadow: 0 0 20px rgba(255, 238, 144, 0.678);
+}
+
+.star-widget .in#rate-1:checked ~ form header:before{
+    content: "Muy mala 😠";
+}
+.star-widget .in#rate-2:checked ~ form header:before{
+    content: "Mala 😒";
+}
+.star-widget .in#rate-3:checked ~ form header:before{
+    content: "Regular 😄";
+}
+.star-widget .in#rate-4:checked ~ form header:before{
+    content: "Muy buena 😎";
+}
+.star-widget .in#rate-5:checked ~ form header:before{
+    content: "Excelente 😍";
+}
+
+#FormReseña header{
+    width: 100%;
+    font-size: 25px;
+    color: #222;
+    font-family: "Poppins-Medium";
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+#FormReseña .textarea{
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+} 
+#FormReseña .textos{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: rgb(24, 24, 24);
+    border: 1px solid rgb(112, 112, 112);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#FormReseña p{
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: rgb(36, 36, 36);
+    font-family: "Roboto-Medium";
+}
+
+#FormReseña .textosEmail{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: rgb(24, 24, 24);
+    border: 1px solid rgb(112, 112, 112);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+#FormReseña .textarea textarea{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: rgb(24, 24, 24);
+    border: 1px solid rgb(112, 112, 112);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+#FormReseña .btn{
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+    padding: 0%;
+}
+#FormReseña .btn button{
+    height: 100%;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0%;
+    padding: 0%;
+}
+/* --------------------------------------------------- */

@@ -48,11 +48,12 @@
         </div>
         <div class="col btns-movil">
             <button type="button" class="btn btn-dark mail" (click)="scrollToContact()"><i class="fas fa-envelope"></i></button>
-            <button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button>
+            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.com"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button></a>
         </div>
     </div>
     <hr class="tarifa-hr">
-    <p style="text-align: center;">Consulta por promociones y tarifas</p>
+    <div style="text-align: center;"><p>Consulta por promociones y tarifas</p></div>
+    
    </div> 
 </div>
 
@@ -120,10 +121,263 @@
             <hr id="toContact" class="divisor">
             <!-- Contacto -->
             <h4 class="subTitulo"><i class="fas fa-address-card"></i>Contacto</h4>
+            
+           
+           
+                <div class="DatosContacto row d-flex justify-content-center">
+               
+                    <div *ngIf="alquiler.telefono1!=''" class="card-info col-6 col-md-3">
+                        <img src="assets/otros/Tel1.png" alt="">
+                        <h6>Telefono 1</h6>
+                        <p>{{alquiler.telefono1}}</p>
+                    </div>
+                    <div *ngIf="alquiler.telefono2!=''" class="card-info col-6 col-md-3">
+                        <img src="assets/otros/Tel2.png" alt="">
+                        <h6>Telefono 2</h6>
+                        <p>{{alquiler.telefono2}}</p>
+                    </div>
+                    <div *ngIf="alquiler.mail!=''" class="card-info col-6 col-md-3">
+                        <img src="assets/otros/PaperPlane.png" alt="">
+                        <h6>Mail</h6>
+                        <p>{{alquiler.mail}}</p>
+                    </div>
+                    <div *ngIf="alquiler.Web!=''" class="card-info col-6 col-md-3">
+                        <img src="assets/otros/Web.png" alt="">
+                        <h6>Web</h6>
+                        <a target="_blank" [href]="alquiler.web">Click para ver</a>
+                    </div>
+                </div>
+           
+            
 
+            <div class="form-contact" style="background-image: url('assets/fondos/Contact.jpg')">
+                <form  [formGroup]="formContact" (ngSubmit)="enviarMail($event)" method="POST" name="contactForm" class="contactForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="label" for="name">Nombre Completo</label>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="left-icon"><img src="assets/otros/Person.png" alt=""></div>
+                                    <input [ngClass]="{'has-error':nameField?.invalid && (nameField?.dirty || nameField?.touched)}" type="text" class="form-control" name="name" placeholder="Nombre" formControlName="name">
+                                </div>
+                                <div class="Input-error"  *ngIf="nameField?.invalid && (nameField?.dirty || nameField?.touched)">
+                                    <p *ngIf="nameField?.errors?.required">
+                                        <small>El campo es requerido.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"> 
+                            <div class="form-group">
+                                <label class="label" for="email">Mail</label>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="left-icon"><img src="assets/otros/Email.png" alt=""></div>
+                                    <input [ngClass]="{'has-error':emailField?.invalid && (emailField?.dirty || emailField?.touched)}" type="email" class="form-control" name="email" id="email"  placeholder="Email" formControlName="email">
+                                </div>
+                                <div class="Input-error"  *ngIf="emailField?.invalid && (emailField?.dirty || emailField?.touched)">
+                                    <p *ngIf="emailField?.errors?.required">
+                                        <small>El campo es requerido.</small>
+                                    </p>
+                                    <p *ngIf="emailField?.errors?.pattern">
+                                        <small>Ingrese un Mail valido.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"> 
+                            <div class="form-group">
+                                <label class="label" for="telefono">Telefono</label>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="left-icon"><img src="assets/otros/Phone.png" alt=""></div>
+                                    <input [ngClass]="{'has-error':phoneField?.invalid && (phoneField?.dirty || phoneField?.touched)}" type="text" class="form-control" name="phone"  placeholder="Telefono" formControlName="phone">
+                                </div>
+                                <div class="Input-error"  *ngIf="phoneField?.invalid && (phoneField?.dirty || phoneField?.touched)">
+                                    <p *ngIf="phoneField?.errors?.required">
+                                        <small>El campo es requerido.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="label" for="provincia">Provincia</label>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="left-icon"><img src="assets/otros/Map.png" alt=""></div>
+                                        <select [ngClass]="{'has-error':stateField?.invalid && (stateField?.dirty || stateField?.touched)}" class="browser-default custom-select mdb-select md-form" name="state" formControlName="state">
+                                            <option value="" disabled selected>Seleccione la provincia</option>
+                                            <option value="Buenos Aires">Buenos Aires</option>
+                                            <option value="Catamarca">Catamarca</option>
+                                            <option value="Chaco">Chaco</option>
+                                            <option value="Chubut">Chubut</option>
+                                            <option value="Córdoba">Córdoba</option>
+                                            <option value="Corrientes">Corrientes</option>
+                                            <option value="Entre Ríos">Entre Ríos</option>
+                                            <option value="Formosa">Formosa</option>
+                                            <option value="Jujuy">Jujuy</option>
+                                            <option value="La Pampa">La Pampa</option>
+                                            <option value="La Rioja">La Rioja</option>
+                                            <option value="Mendoza">Mendoza</option>
+                                            <option value="Misiones">Misiones</option>
+                                            <option value="Neuquén">Neuquén</option>
+                                            <option value="Salta">Salta</option>
+                                            <option value="San Juan">San Juan</option>
+                                            <option value="San Luis">San Luis</option>
+                                            <option value="Santa Cruz">Santa Cruz</option>
+                                            <option value="Santa Fe">Santa Fe</option>
+                                            <option value="Santiago del Estero">Santiago del Estero</option>
+                                            <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                            <option value="Tucumán">Tierra del Fuego</option>
+                                        </select>  
+                                </div>
+                                <div class="Input-error"  *ngIf="stateField?.invalid && (stateField?.dirty || stateField?.touched)">
+                                    <p *ngIf="stateField?.errors?.required">
+                                        <small>Selecciona una provincia.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div  class="col-md-12" style="text-align: center;"><p class="pContacto">Datos de mi Estadía</p></div>
+                        <div class="col-md-12"><hr class="hrContacto"></div>
+                        
+                        
+                            <div class="col-6 col-md-3"> 
+                                <div class="form-group">
+                                    <label  class="label" for="fechadesde">Entrada: </label>
+                                    <input type="date" class="form-control" formControlName="entrada" name="entrada">  
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3"> 
+                                <div class="form-group">
+                                    <label  class="label" for="fechaHasta">Salida: </label>
+                                    <input type="date" class="form-control" formControlName="salida" name="salida"> 
+                                </div>
+                            </div>
+                               
+                            <div class="col-6 col-md-3"> 
+                                <div class="form-group">
+                                    <label  class="label" for="mayores">P. Mayores: </label>
+                                    <input [ngClass]="{'has-error':mayorField?.invalid && (mayorField?.dirty || mayorField?.touched)}" type="text" class="form-control" name="mayores" formControlName="mayor">
+                                    <div class="Input-error2"  *ngIf="mayorField?.invalid && (mayorField?.dirty || mayorField?.touched)">
+                                        <p *ngIf="mayorField?.errors?.pattern">
+                                            <small>Ingresa un número.</small>
+                                        </p>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3"> 
+                                <div class="form-group">
+                                    <label  class="label" for="menores">P. Menores: </label>
+                                    <input [ngClass]="{'has-error':menorField?.invalid && (menorField?.dirty || menorField?.touched)}" type="text" class="form-control" name="menores" formControlName="menor">  
+                                    <div class="Input-error2"  *ngIf="menorField?.invalid && (menorField?.dirty || menorField?.touched)">
+                                        <p *ngIf="menorField?.errors?.pattern">
+                                            <small>Ingresa un número.</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                       <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="label" for="#">Consulta</label>
+                                <textarea name="message" class="form-control" formControlName="message" cols="30" rows="3" placeholder="Consulta"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" style="text-align: center;">
+                               <input type="submit" value="✔ Enviar" class="btn btn-dark">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
+           
             <hr id="toRaiting" class="divisor">
             <!-- Comentarios -->
             <h4 class="subTitulo"><i class="fas fa-user-friends"></i>Reseñas</h4>
+
+            <div class="container reseñas">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 col-md-4">
+                            <div class="text-center">
+                                <h5>{{alquiler.Raiting}}</h5>
+                                <div>
+                                    <ngb-rating [(rate)]="alquiler.Raiting" [max]="5" [readonly]='true'>
+                                        <ng-template let-fill="fill">
+                                          <span class="defaultstar" [class.color]="fill === 100">
+                                            <span class="paintedstar" [style.width.%]="fill">★</span>★
+                                          </span>
+                                        </ng-template>
+                                    </ngb-rating>
+                                </div>
+                                <p>{{alquiler.cantValoraciones}} valoraciones</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <div class="bar">
+                                <p class="label-bar">5 estrellas</p>
+                                <p style="width: 100%; margin-bottom: 0%;"><ngb-progressbar height="8px" [showValue]="false" type="success" [value]="total5" [max]="alquiler.cantValoraciones"></ngb-progressbar></p>
+                                <p class="numero">{{total5}}</p>
+                            </div>
+                            <div class="bar">
+                                <p class="label-bar">4 estrellas</p>
+                                <p style="width: 100%; margin-bottom: 0%;;"><ngb-progressbar height="8px" [showValue]="false" type="success" [value]="total4" [max]="alquiler.cantValoraciones"></ngb-progressbar></p>
+                                <p class="numero">{{total4}}</p>
+                            </div>
+                            <div class="bar">
+                                <p class="label-bar">3 estrellas</p>
+                                <p style="width: 100%; margin-bottom: 0%;"><ngb-progressbar height="8px" [showValue]="false" type="success" [value]="total3" [max]="alquiler.cantValoraciones"></ngb-progressbar></p>
+                                <p class="numero">{{total3}}</p>
+                            </div>
+                            <div class="bar">
+                                <p class="label-bar">2 estrellas</p>
+                                <p style="width: 100%; margin-bottom: 0%;"><ngb-progressbar height="8px" [showValue]="false" type="success" [value]="total2" [max]="alquiler.cantValoraciones"></ngb-progressbar></p>
+                                <p class="numero">{{total2}}</p>
+                            </div>
+                            <div class="bar">
+                                <p class="label-bar">1 estrellas</p>
+                                <p style="width: 100%; margin-bottom: 0%;"><ngb-progressbar height="8px" [showValue]="false" type="success" [value]="total1" [max]="alquiler.cantValoraciones"></ngb-progressbar></p>
+                                <p class="numero">{{total1}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agregar" style="text-align: center;"><button type="button" data-toggle="modal" data-target="#Modal1" class="btn btn-dark"><i class="fas fa-plus-circle"></i>Agregar mi Reseña</button></div>
+            </div>
+            <hr class="reseñasHr">
+
+            <div class="container">
+                <p class="mss">Últimas Reseñas</p>
+                <div *ngFor="let comentario of UltimosComentarios;">
+                    <div class="card comentario">
+                        <div class="d-flex justify-content-between">
+                            <ngb-rating [(rate)]="comentario.raiting" [max]="5" [readonly]='true'>
+                                <ng-template let-fill="fill">
+                                    <span class="starComent" [class.color]="fill === 100">
+                                    <span class="paintedComent" [style.width.%]="fill">★</span>★
+                                    </span>
+                                </ng-template>
+                           </ngb-rating>
+                           <h6>{{comentario.fecha}}</h6>
+                        </div>
+                      
+                       <h6>{{comentario.titulo}}</h6>
+                       <p>{{comentario.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div style="text-align: center;">
+                <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal2">Ver Todos</button>
+            </div>
+               
+            <br>
+
+            <hr class="divisor">
+            <!-- Otros Datos -->
+            <h4 class="subTitulo"><i class="fas fa-list"></i>Otros Datos</h4>
 
 
             <!-- ModalServicios -->
@@ -147,7 +401,87 @@
                     </div>
                 </div>
             </div>
+             <!-- ModalComentarios -->
+             <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center h-100">
+                            <h5 class="modal-title">Viendo los comentarios de {{alquiler.nombre}}</h5>
+                            <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div *ngFor="let comentario of ComentariosAlquiler;">
+                                    <div class="card comentario">
+                                        <div class="d-flex justify-content-between">
+                                            <ngb-rating [(rate)]="comentario.raiting" [max]="5" [readonly]='true'>
+                                                <ng-template let-fill="fill">
+                                                    <span class="starComent" [class.color]="fill === 100">
+                                                    <span class="paintedComent" [style.width.%]="fill">★</span>★
+                                                    </span>
+                                                </ng-template>
+                                           </ngb-rating>
+                                           <h6>{{comentario.fecha}}</h6>
+                                        </div>
+                                      
+                                       <h6>{{comentario.titulo}}</h6>
+                                       <p>{{comentario.descripcion}}</p>
+                                    </div>
+                                </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Modal Reseña -->
+             <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header align-items-center h-100">
+                        <h5 class="modal-title">Califica tu experiencia con {{alquiler.nombre}}</h5>
+                        <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ContenedorReseña" class="container">
+                            <div class="star-widget">
+                                <input class="in" type="radio" name="rate" id="rate-5" value="5" >
+                                <label for="rate-5" class="fas fa-star"></label>
+                                <input class="in" type="radio" name="rate" id="rate-4" value="4" > 
+                                <label for="rate-4" class="fas fa-star"></label>
+                                <input class="in" type="radio" name="rate" id="rate-3" value="3" >
+                                <label for="rate-3" class="fas fa-star"></label>
+                                <input class="in" type="radio" name="rate" id="rate-2" value="2" >
+                                <label for="rate-2" class="fas fa-star"></label>
+                                <input class="in" type="radio" name="rate" id="rate-1" value="1" >
+                                <label for="rate-1" class="fas fa-star"></label>
+                            
+                                <form id="FormReseña" action="#">
+                                    <header></header>
+                                    
+                                    <p>Mail</p>
+                                    <input class="textosEmail" type="text" name="titulo" placeholder="Tu correo electrónico"> 
+                                    
+                                    <p>Resumen</p>
+                                    <input class="textos" type="text" name="titulo" placeholder="Tu experiencia en pocas palabras"> 
+
+                                   <p>Descripción</p>
+                                    <div class="textarea">
+                                        <textarea  name="descripcion" cols="30" placeholder="Describe detalladamente como te fue..."></textarea>
+                                    </div>
+                                    <div class="btn">
+                                        <button id="botonPost" type="submit" class="btn btn-primary" data-dismiss="modal">Publicar</button>
+                                    </div>
+                                </form>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
+
         <div class="col col-12 col-md-4">
             <div class="stick-pc" *ngIf="innerWidth>768">
                 <div class="card pc" *ngFor ="let alquiler of DetaAlquiler">
@@ -158,7 +492,7 @@
                         </div>
                         <div class="col btns">
                             <button type="button" class="btn btn-dark mail" (click)="scrollToContact()"><i class="fas fa-envelope"></i></button>
-                            <button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button>
+                            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.com"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button></a>
                         </div>
                     </div>
                     <hr class="tarifa-hr">
