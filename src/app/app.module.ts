@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,13 +15,19 @@ import {DropdownModule} from 'primeng/dropdown';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
-import {InputTextModule} from 'primeng/inputtext';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AlquileresComponent } from './components/alquileres/alquileres.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
+import { LocalidadesComponent } from './components/localidades/localidades.component';
+import { DetZonaComponent } from './components/det-zona/det-zona.component';
+import { DatosComponent } from './components/datos/datos.component';
+import { InterceptorService } from './services/interceptor.service';
+import { VerificacionComponent } from './components/verificacion/verificacion.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 
 @NgModule({
@@ -31,7 +37,12 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     InicioComponent,
     AlquileresComponent,
     ContactoComponent,
-    DetalleComponent
+    DetalleComponent,
+    LocalidadesComponent,
+    DetZonaComponent,
+    DatosComponent,
+    VerificacionComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +59,9 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     MessagesModule,
     MessageModule,
     ReactiveFormsModule,
-    InputTextModule
-  ],
-  providers: [],
+    NgxSpinnerModule,
+    ],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

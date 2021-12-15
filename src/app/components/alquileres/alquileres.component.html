@@ -101,8 +101,10 @@
         </div>
     </div>
 
-    <br><br>
+   
     <!-- Paginacion -->
-    <pagination-controls *ngIf="click==true" class="text-center" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="page = $event"></pagination-controls>
-    <br>
-        
+    <div *ngIf="click==true" >
+        <br>
+        <pagination-controls class="text-center" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="page = $event"></pagination-controls>
+    </div>
+    

@@ -66,18 +66,39 @@
         </ngx-slick-carousel>
     </div>
 
-    <div class="bannerPublicidad">
-        <ngx-slick-carousel class="carousel" 
-        #slickModal="slick-carousel" 
-        [config]="slidebannerPubli" 
-        >
-        <div ngxSlickItem *ngFor="let slide of publis" class="slide">
-            <img src="{{ slide.img }}" alt="" width="100%">
+    <br>
+    
+        <div *ngIf="innerWidth>850">
+            <div class="container bannerPublicidad">
+                <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="slidebannerPubli" 
+                >
+                <div ngxSlickItem *ngFor="let slide of publis" class="slide">
+                    <img src="{{ slide.img }}" alt="" width="100%">
+                    <a  class="link" *ngIf='slide.link!=""' routerLink="{{slide.link}}">LLevame  <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </ngx-slick-carousel>
+            </div>
+           
         </div>
-        </ngx-slick-carousel>
-    </div>
 
+        <div *ngIf="innerWidth<850">
+            <div class="bannerPublicidadmovil">
+                <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="slidebannerPubli" 
+                >
+                <div ngxSlickItem *ngFor="let slide of publismovil" class="slide">
+                    <img src="{{ slide.img }}" alt="" width="100%">
+                    <a class="link" *ngIf='slide.link!=""' routerLink="{{slide.link}}">LLevame  <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </ngx-slick-carousel>
+            </div>
+            
+        </div>
 
+    
     <br>
     <div class="divisor d-flex justify-content-between align-items-center">
         <h6>Encontrá por categorias</h6>
@@ -107,7 +128,7 @@
     <div class="ciudades container">
         <div class="row">
             <div class="col-img col-lg-8"> 
-                <a [routerLink]="['/alojamientos/localidad/', 'mina-clavero', '1']">
+                <a [routerLink]="['/localidad/', 'mina-clavero', '1']">
                     <img src="assets/fondos/Mina.jpg" alt="" width="100%">
                     <div class="overlay-img">
                         <h5>Mina Clavero</h5>
@@ -115,7 +136,7 @@
                 </a>
             </div>
             <div class="col-img col-lg-4"> 
-                <a [routerLink]="['/alojamientos/localidad/', 'cura-brochero', '3']">
+                <a [routerLink]="['/localidad/', 'cura-brochero', '3']">
                     <img src="assets/fondos/Brochero.jpg" alt="">
                     <div class="overlay-img">
                         <h5>Villa Cura Brochero</h5>
@@ -125,7 +146,7 @@
         </div>
         <div class="row">
             <div class="col-img col-lg-4">
-                <a [routerLink]="['/alojamientos/localidad/', 'las-rosas', '4']">
+                <a [routerLink]="['/localidad/', 'las-rosas', '4']">
                     <img src="assets/fondos/Rosas.jpg" alt="">
                     <div class="overlay-img">
                         <h5>Las Rosas</h5>
@@ -133,8 +154,8 @@
                 </a> 
             </div>
             <div class="col-img col-lg-8">
-                <a [routerLink]="['/alojamientos/localidad/', 'nono', '2']">
-                    <img src="assets/fondos/Nono1.jpg" alt="">
+                <a [routerLink]="['/localidad/', 'nono', '2']">
+                    <img src="assets/fondos/Nono.jpg" alt="">
                     <div class="overlay-img">
                        <h5>Nono</h5>
                    </div>

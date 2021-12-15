@@ -46,6 +46,29 @@
     height: 290px;
     border-radius: 3px;
 }
+
+.overlay-img{
+    /* position: absolute;
+    left: 32%;
+    top: 13%; */
+
+    background: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+.overlay-img img{
+    height: 200px;
+    width: 200px;
+}
+  
 /* ------------------------------ */
 
 
@@ -80,3 +103,16 @@
     margin-left: 5px;
 }
 /* ------------------------------ */
+
+.banner-web{
+    margin: 0% 10%;
+}
+.banner-movil{
+    margin: 0% 0%;
+}
+.banner-movil img{
+    border: 1px solid #999999;
+}
+.banner-web img{
+    border: 1px solid #999999;
+}

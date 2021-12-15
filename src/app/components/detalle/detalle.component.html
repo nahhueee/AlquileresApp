@@ -39,7 +39,8 @@
 </div>
 
 
-<div class="stick" *ngIf="innerWidth<768">
+
+<div class="stick" *ngIf="innerWidth<991">
    <div class="Movil card" *ngFor ="let alquiler of DetaAlquiler">
     <div class="row">
         <div class="col precio-Movil">
@@ -48,7 +49,7 @@
         </div>
         <div class="col btns-movil">
             <button type="button" class="btn btn-dark mail" (click)="scrollToContact()"><i class="fas fa-envelope"></i></button>
-            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.com"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button></a>
+            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.ar"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button></a>
         </div>
     </div>
     <hr class="tarifa-hr">
@@ -60,11 +61,15 @@
 <br>
 <div class="container-fluid cuerpo">
     <div class="row row-cols-2" *ngFor ="let alquiler of DetaAlquiler">
-        <div class="col col-12 col-md-8">
+        <div class="col col-12 col-lg-8">
             <!-- info -->
             <p class="info"><i class="fas fa-caret-right"></i> Alojamiento de tipo <span>{{alquiler.categoria}}</span> con capacidad para <span>{{alquiler.capacidad}}</span> personas y <span>{{alquiler.habitaciones}}</span> habitaciones</p>
-            <hr class="divisor">
-            <p class="desc">{{alquiler.descripcion}}</p>
+          
+            <div [ngClass]="{'limitTextHeight': isReadMore}">
+                <p class="desc">{{alquiler.descripcion}}</p>
+            </div>
+            <div class="readMore d-flex align-items-center"><hr class="izq"><a type="button" (click)="showText()">{{ isReadMore ? 'Ver Más': 'Ver Menos' }}</a><hr  class="der"></div>
+
 
             <hr class="divisor">
 
@@ -77,7 +82,7 @@
                     </div>
             </div>
             <div style="text-align: center;">
-                <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal3">Ver Todos</button>
+                <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal3"><i class="fas fa-eye"></i> Ver Todos</button>
             </div>
 
             <hr id="toGaleria" class="divisor">
@@ -115,7 +120,11 @@
             <hr class="divisor">
             <!-- Ubicacion -->
             <h4 class="subTitulo"><i class="fas fa-map-marker-alt"></i>Ubicación</h4>
-            <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions"></div>
+            <div class="map-overlay">
+                <p>Click sobre el mapa para interactuar</p>
+            </div>
+            <div id="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="mapOptions" (click)="ActivarMapa()"></div>
+            
             <div style="text-align: center;"><p class="pinfo">La ubicación exacta se la brindará el hospedante</p></div>
             
             <hr id="toContact" class="divisor">
@@ -286,13 +295,21 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group" style="text-align: center;">
-                               <input type="submit" value="✔ Enviar" class="btn btn-dark">
+                               <input type="submit" value="✔ Enviar" class="btn btn-dark btnEnviar">
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-            
+            <ngx-spinner
+            bdColor="rgba(51,51,51,0.8)"
+            size="medium"
+            color="#fff"
+            type="ball-scale-multiple"
+            >
+            <p style="font-size: 20px; color: white">Cargando...</p>
+            </ngx-spinner>
+
             <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
            
             <hr id="toRaiting" class="divisor">
@@ -347,6 +364,7 @@
                     <div class="agregar" style="text-align: center;"><button type="button" data-toggle="modal" data-target="#Modal1" class="btn btn-dark"><i class="fas fa-plus-circle"></i>Agregar mi Reseña</button></div>
             </div>
             <hr class="reseñasHr">
+            <p-messages [(value)]="alerta" [enableService]="false"></p-messages>
 
             <div class="container">
                 <p class="mss">Últimas Reseñas</p>
@@ -360,7 +378,7 @@
                                     </span>
                                 </ng-template>
                            </ngb-rating>
-                           <h6>{{comentario.fecha}}</h6>
+                           <h5>{{comentario.fecha}}</h5>
                         </div>
                       
                        <h6>{{comentario.titulo}}</h6>
@@ -370,16 +388,24 @@
             </div>
             <br>
             <div style="text-align: center;">
-                <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal2">Ver Todos</button>
+                <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal2"><i class="fas fa-eye"></i> Ver Todos</button>
             </div>
                
-            <br>
-
             <hr class="divisor">
             <!-- Otros Datos -->
-            <h4 class="subTitulo"><i class="fas fa-list"></i>Otros Datos</h4>
+            <h4 class="subTitulo"><i class="fas fa-list"></i>Condiciones y Politicas</h4>
+            
+                <div [ngClass]="{'limitConditionsHeight': isLeerMas}" class="container Condiciones">
+                    <div class="Condicion" *ngFor ="let condicion of CondicionesAlquiler">
+                        <i class="fas fa-angle-right"></i>
+                        <strong>{{condicion.titulo}}: </strong>
+                        {{condicion.descripcion}}
+                    </div>
+                </div>
+            
+            <div class="readMore d-flex align-items-center"><hr class="izq"><a type="button" (click)="showConditios()">{{ isLeerMas ? 'Ver Más': 'Ver Menos' }}</a><hr  class="der"></div>
 
-
+            
             <!-- ModalServicios -->
             <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog modal-md" role="document">
@@ -406,7 +432,7 @@
                 <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header align-items-center h-100">
-                            <h5 class="modal-title">Viendo los comentarios de {{alquiler.nombre}}</h5>
+                            <h5 class="modal-title">Viendo las reseñas de {{alquiler.nombre}}</h5>
                             <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
                         </div>
                         <div class="modal-body">
@@ -445,32 +471,65 @@
                     <div class="modal-body">
                         <div id="ContenedorReseña" class="container">
                             <div class="star-widget">
-                                <input class="in" type="radio" name="rate" id="rate-5" value="5" >
+                                <input class="in" type="radio" name="rate" id="rate-5" value="5" [(ngModel)]="SelectNum">
                                 <label for="rate-5" class="fas fa-star"></label>
-                                <input class="in" type="radio" name="rate" id="rate-4" value="4" > 
+                                <input class="in" type="radio" name="rate" id="rate-4" value="4" [(ngModel)]="SelectNum"> 
                                 <label for="rate-4" class="fas fa-star"></label>
-                                <input class="in" type="radio" name="rate" id="rate-3" value="3" >
+                                <input class="in" type="radio" name="rate" id="rate-3" value="3" [(ngModel)]="SelectNum">
                                 <label for="rate-3" class="fas fa-star"></label>
-                                <input class="in" type="radio" name="rate" id="rate-2" value="2" >
+                                <input class="in" type="radio" name="rate" id="rate-2" value="2" [(ngModel)]="SelectNum">
                                 <label for="rate-2" class="fas fa-star"></label>
-                                <input class="in" type="radio" name="rate" id="rate-1" value="1" >
+                                <input class="in" type="radio" name="rate" id="rate-1" value="1" [(ngModel)]="SelectNum">
                                 <label for="rate-1" class="fas fa-star"></label>
                             
-                                <form id="FormReseña" action="#">
+                                <form [formGroup]="formComentarios" id="FormReseña" (ngSubmit)="PublicarComentario($event)">
                                     <header></header>
                                     
                                     <p>Mail</p>
-                                    <input class="textosEmail" type="text" name="titulo" placeholder="Tu correo electrónico"> 
+                                    <input [ngClass]="{'has-error':mail?.invalid && (mail?.dirty || mail?.touched)}" class="form-control" type="email" name="mail" placeholder="Tu correo electrónico" formControlName="mail"> 
+                                    <div class="Input-error2"  *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)">
+                                        <p *ngIf="mail?.errors?.required">
+                                            <small>El campo es requerido.</small>
+                                        </p>
+                                        <p *ngIf="mail?.errors?.pattern">
+                                            <small>Ingrese un Mail valido.</small>
+                                        </p>
+                                    </div>
                                     
+                                    <hr class="reseñasHr">
+                                   
                                     <p>Resumen</p>
-                                    <input class="textos" type="text" name="titulo" placeholder="Tu experiencia en pocas palabras"> 
+                                    <input [ngClass]="{'has-error':titulo?.invalid && (titulo?.dirty || titulo?.touched)}" class="form-control" type="text" name="titulo" placeholder="Tu experiencia en pocas palabras" formControlName="titulo"> 
+                                    <div class="Input-error2"  *ngIf="titulo?.invalid && (titulo?.dirty || titulo?.touched)">
+                                        <p *ngIf="titulo?.errors?.required">
+                                            <small>El campo es requerido.</small>
+                                        </p>
+                                        <p *ngIf="titulo?.errors?.maxlength">
+                                            <small>Excediste el número de caracteres(30).</small>
+                                        </p>
+                                    </div>
 
                                    <p>Descripción</p>
                                     <div class="textarea">
-                                        <textarea  name="descripcion" cols="30" placeholder="Describe detalladamente como te fue..."></textarea>
+                                        <textarea [ngClass]="{'has-error':descripcion?.invalid && (descripcion?.dirty || descripcion?.touched)}" class="form-control" name="descripcion" cols="30" placeholder="Describe con detalles como te fue durante tu estadia..." formControlName="descripcion"></textarea>
                                     </div>
+                                    <div class="Input-error2"  *ngIf="descripcion?.invalid && (descripcion?.dirty || descripcion?.touched)">
+                                        <p *ngIf="descripcion?.errors?.required">
+                                            <small>El campo es requerido.</small>
+                                        </p>
+                                        <p *ngIf="descripcion?.errors?.minlength">
+                                            <small>El mensaje debe al menos 30 caracteres</small>
+                                        </p>
+                                        <p *ngIf="descripcion?.errors?.maxlength">
+                                            <small>Excediste el número de caracteres(250)</small>
+                                        </p>
+                                    </div>
+
                                     <div class="btn">
-                                        <button id="botonPost" type="submit" class="btn btn-primary" data-dismiss="modal">Publicar</button>
+                                        <button id="botonPost" (click)="PublicarComentario($event)" class="btnTodos btn btn-dark" *ngIf="formComentarios.valid" data-dismiss="modal">Publicar</button>
+
+                                        <button id="botonPost" type="submit" class="btnTodos btn btn-dark" *ngIf="formComentarios.invalid">Publicar</button>
+
                                     </div>
                                 </form>
                             </div>
@@ -482,8 +541,8 @@
             </div>
         </div>
 
-        <div class="col col-12 col-md-4">
-            <div class="stick-pc" *ngIf="innerWidth>768">
+        <div class="col col-12 col-lg-4">
+            <div class="stick-pc" *ngIf="innerWidth>991">
                 <div class="card pc" *ngFor ="let alquiler of DetaAlquiler">
                     <div class="row">
                         <div class="col precio-pc">
@@ -492,13 +551,41 @@
                         </div>
                         <div class="col btns">
                             <button type="button" class="btn btn-dark mail" (click)="scrollToContact()"><i class="fas fa-envelope"></i></button>
-                            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.com"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button></a>
+                            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.ar"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i></button></a>
                         </div>
                     </div>
                     <hr class="tarifa-hr">
                     <p style="text-align: center;">Consulta por promociones y tarifas</p>
                 </div>
             </div>
+            <hr>
+            
+            <div class="Relacionados">
+                <div style="text-align: center;"><h6>{{alquiler.categoria}} relacionados en {{alquiler.zona}}</h6></div>
+                <ngx-slick-carousel class="carousel" 
+                #slickModal="slick-carousel" 
+                [config]="slideConfig" 
+                >
+                <div ngxSlickItem *ngFor="let relacionado of Relacionados" class="slide">
+                <a [routerLink]="['/alojamiento/', relacionado.nombre, relacionado.id]" style="text-decoration: none;">
+                    <div class="card">
+                        <img src="{{ relacionado.imgPrincipal }}" alt="">
+                        
+                        <div class="card-body">
+                          <h5 class="card-title">{{relacionado.nombre}}</h5>
+                          <div class="precio">
+                            <h4>${{relacionado.precioGral}}</h4> 
+                            <p>/{{relacionado.precioCond}}</p>
+                          </div>
+                          
+                        </div>
+                    </div>
+                </a>
+                </div>
+                </ngx-slick-carousel>   
+            </div>
+                
+           
         </div>
     </div>
 </div>

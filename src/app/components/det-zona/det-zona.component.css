@@ -1,0 +1,252 @@
+.principalContainer{
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 50px;
+}
+.cuerpo{
+    margin-top: 60px;
+}
+
+/* Cabecera */
+
+.imgFondo{
+    background: no-repeat center rgba(19, 19, 19, 0.438);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 70vh;
+    
+    background-blend-mode: multiply;
+    position: relative;
+}
+
+.overTitulo{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 3px;
+    color: white;}
+   
+.overTitulo .Titulo{
+    font-family: "Pumpkin-Pancakes";
+    font-size: 80px;
+    text-shadow: 3px 3px 0px rgba(41, 41, 41, 0.61);
+    line-height: 50pt;
+    word-spacing: -18pt;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+#separador{
+    margin-top: 0%;
+    margin-bottom: 20px;
+    border: 1px solid #F20746;
+    border-radius: 300px/10px;
+}
+
+.overlay{
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(26, 26, 26, 0.815);
+    text-align: center;
+    padding: 3px;
+    transition: all ease .2s;
+  }
+
+.botones .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 6px 34px;
+    border: 2px solid #e0e0e0;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: all ease .2s;
+    margin: 5px 3px;
+}
+
+.botones .btn:hover{
+    background-color: #294B85;
+    border: 2px solid #294B85;
+}
+    .botones .btn i{
+        margin-right: 8px;
+    }
+
+/* --------------------------------------------------- */
+
+
+/* Cabecera */
+.desc{
+    margin: 0% 20px;
+    font-size: 20px;
+    color: rgb(75, 75, 75);
+    font-family: "Asap-Regular";
+    white-space: pre-line;
+}
+/* --------------------------------------------------- */
+
+/* Subtitulos */
+.subTitulo{
+    color: #303030;
+    font-family: "Amaranth-Regular";
+    margin-bottom: 15px;
+}
+.subTitulo i{
+    margin-right: 5px;
+    color: #F20746;
+}
+.divisor{
+    margin: 30px 0px;
+    border-top: 1px solid #acacac;
+}
+/* --------------------------------------------------- */
+
+
+
+/* Alojamientos */
+.alojamientos{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* background-color: #bdbdbd96; */
+    padding: 20px 50px;
+}
+
+.alojamientos .card{
+    box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
+}
+.card-body{
+    box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.575)
+}
+
+.slideAlquileres img{
+    height: 200px;
+}
+
+/* .overlay{
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    display: flex;
+  }
+  
+.overlay h4{
+    background-color: rgba(26, 26, 26, 0.774);;
+    padding: 5px;
+    color: white;
+    border-radius: 3px;
+    font-size: 13px;
+    margin: 0%;
+} */
+
+.slideAlquileres .card{
+    width: 95% !important;
+}
+@media only screen and (max-width: 600px){
+    .slideAlquileres .card{
+        width: 100% !important;
+    }
+}
+
+
+.card-title{
+    
+    font-size: 23px;
+    color: #3f3f3f;
+    font-family: "Montserrat-Regular";
+}
+.precio{
+    display: flex;
+    align-items: center;
+}
+.precio h4{
+    color: #F20746;
+    font-family: "Poppins-Medium";
+    font-size: 25px;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.precio p{
+    color: rgb(134, 134, 134);
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.card-div{
+    margin: 10px 5px;
+    border-top: 1px solid #b4b4b4
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info p{
+    margin-bottom: 0%;
+    margin-left: 3px;
+    font-weight: 500;
+    color: #414141;
+}
+.info i{
+    color: #414141;
+}
+.capacidad{
+    border: 1px solid #F20746;
+    border-radius: 5px;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+.habitaciones{
+    border: 1px solid #F20746;
+    border-radius: 5px;
+    padding: 2px 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.filled{
+    color: #F20746;
+}
+
+.defaultHeart{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 25px;
+}
+
+.paintedHeart{
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #F20746;
+}
+
+/* ------------------------------ */
+
+.info{
+    font-family: "Poppins-Medium";
+}
+.btnTodos{
+    font-family: "Roboto-Regular";
+    width: 250px;
+    background: transparent;
+    color: rgb(22, 22, 22);
+    border: 2px solid #F20746;
+}
+.btnTodos i{
+    margin-right: 5px;
+}
+.btnTodos:hover{
+    border: 2px solid #F20746;
+}

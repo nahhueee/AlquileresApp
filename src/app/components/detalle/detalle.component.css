@@ -2,6 +2,36 @@
     width: 87%;
 }
 
+.limitTextHeight {
+    height: 45px;
+    overflow: hidden;
+}
+.limitConditionsHeight{
+    height: 80px;
+    overflow: hidden;
+}
+
+.readMore{
+    text-align: center;
+    padding: 8px;
+}
+.readMore a{
+    width: 200px;
+    font-family: "Poppins-Medium";
+    color: #516281;
+    font-size: 15px;
+}
+.readMore hr{
+    border-top: 1px solid #757575;
+    width: 50%;
+}
+.readMore .izq{
+    margin-left: 30px;
+}
+.readMore .der{
+    margin-right: 30px;
+}
+
 /* Cabecera */
 .principalContainer{
     margin: 0%;
@@ -273,6 +303,7 @@
     color: rgb(75, 75, 75);
     font-family: "Asap-Regular";
     white-space: pre-line;
+    margin: 0%;
 }
 /* --------------------------------------------------- */
 
@@ -308,6 +339,12 @@
     width: 250px;
     background: transparent;
     color: rgb(22, 22, 22);
+    border: 2px solid #F20746;
+}
+.btnTodos i{
+    margin-right: 5px;
+}
+.btnTodos:hover{
     border: 2px solid #F20746;
 }
 /* --------------------------------------------------- */
@@ -350,6 +387,17 @@
 /* Ubicacion */
 #map {
     height: 400px;
+}
+.map-overlay{
+    background-color: rgba(63, 63, 63, 0.884);
+    position: relative;
+    text-align: center;
+    padding: 5px;
+}
+.map-overlay p{
+    margin: 0%;
+    font-family: "Roboto-Medium";
+    color: #ffffff;
 }
 /* --------------------------------------------------- */
 
@@ -441,6 +489,10 @@
 @media only screen and (max-width: 500px){
     .card-info p{font-size: 15px;}
     .card-info a{font-size: 15px;}
+}
+
+.btnEnviar{
+    border-radius: 5px;
 }
 
 /* Errores FormContacto */
@@ -537,8 +589,17 @@ small{
     padding: 15px 25px;
     margin: 5px 0px;
 }
+.comentario h6{
+    font-family: "Roboto-Regular";
+    font-size: 18px;
+}
+.comentario h5{
+    font-family: "Roboto-Regular";
+    font-size: 15px;
+}
 .comentario p{
     margin: 0%;
+    font-family: "Asap-Regular";
 }
 .mss{
     text-align: center;
@@ -637,37 +698,11 @@ small{
     width: 100%;
     overflow: hidden;
 } 
-#FormReseña .textos{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: rgb(24, 24, 24);
-    border: 1px solid rgb(112, 112, 112);
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 17px;
-    margin-bottom: 10px;
-}
-
 #FormReseña p{
-    margin-top: 5px;
+    margin-top: 6px;
     margin-bottom: 3px;
     color: rgb(36, 36, 36);
     font-family: "Roboto-Medium";
-}
-
-#FormReseña .textosEmail{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: rgb(24, 24, 24);
-    border: 1px solid rgb(112, 112, 112);
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 17px;
-    margin-bottom: 28px;
 }
 
 #FormReseña .textarea textarea{
@@ -675,7 +710,7 @@ small{
     width: 100%;
     outline: none;
     color: rgb(24, 24, 24);
-    border: 1px solid rgb(112, 112, 112);
+    border: 1px solid rgb(192, 192, 192);
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 10px;
@@ -686,7 +721,7 @@ small{
 #FormReseña .btn{
     height: 45px;
     width: 100%;
-    margin: 15px 0;
+    margin: 20px 0;
     padding: 0%;
 }
 #FormReseña .btn button{
@@ -699,5 +734,78 @@ small{
     transition: all 0.3s ease;
     margin: 0%;
     padding: 0%;
+}
+/* --------------------------------------------------- */
+
+/* Condiciones */
+.Condiciones{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.Condicion{
+    margin: 10px 0px;
+    color: rgb(75, 75, 75);
+    font-family: "Asap-Regular";
+}
+.Condicion i{
+    margin-right: 5px;
+    color: #00a050;
+}
+/* --------------------------------------------------- */
+
+/* Relacionados */
+.Relacionados img{
+    height: 150px;
+}
+@media only screen and (max-width: 1270px) and (min-width: 991px) {
+    .Relacionados img{
+        height: 100px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .Relacionados img{
+        height: 130px;
+    }
+    .Relacionados .card-title{
+        font-size: 18px;
+     }
+     .precio h4{
+       font-size: 15px;
+    }
+    .precio p{
+        font-size: 10px;
+    }
+}
+
+.Relacionados h6{
+    font-family: "Poppins-Medium";
+    color: rgb(22, 22, 22);
+}
+.Relacionados .card{
+   margin: 5px;
+}
+.Relacionados .card-title{
+    text-align: center;
+    font-size: 20px;
+    color: #3f3f3f;
+    font-family: "Montserrat-Regular";
+}
+.precio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.precio h4{
+    color: #294B85;
+    font-family: "Poppins-Medium";
+    font-size: 20px;
+    margin-right: 5px;
+    margin-bottom: 0%;
+    font-weight: 500;
+}
+.precio p{
+    color: rgb(134, 134, 134);
+    margin-bottom: 0%;
+    font-weight: 500;
 }
 /* --------------------------------------------------- */

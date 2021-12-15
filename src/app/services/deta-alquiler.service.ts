@@ -24,8 +24,27 @@ export class DetaAlquilerService {
   obtenerReseñasAlquileres(IdAlquiler:number){
     return this.http.get(`api/rentals/coments/${IdAlquiler}`,{withCredentials:true})
   }
+  obtenerCondicionesAlquileres(IdAlquiler:number){
+    return this.http.get(`api/rentals/condition/${IdAlquiler}`,{withCredentials:true})
+  }
+  obtenerRelacionados(idZona:number, idCategoria:number, idAlquiler:number){
+    return this.http.put(`api/rentals/related/`,{idZona:idZona, idCategoria:idCategoria, idAlquiler:idAlquiler},{withCredentials:true})
+  }
+
+
+  PublicarComentario(Coment:any[]){
+    return this.http.post(`api/rentals/postcoment`,Coment,{withCredentials:true})
+  }
+  consultarTotalRaiting(IdAlquiler:number){
+    return this.http.get(`api/rentals/gralraiting/${IdAlquiler}`,{withCredentials:true})
+  }
+  consultarEmailComentario(idAlquiler:number, mail:string){
+    return this.http.put(`api/rentals/verify/`,{idAlquiler:idAlquiler,mail:mail},{withCredentials:true})
+  }
+
 
   EnviarEmail(Mail:any[]){
     return this.http.post(`api/send-email/`,Mail,{withCredentials:true})
   }
+  
 }

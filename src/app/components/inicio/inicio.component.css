@@ -112,7 +112,7 @@
 
 
 .card-title{
-    font-family: "Roboto-Medium";
+    
     font-size: 23px;
     color: #3f3f3f;
     font-family: "Montserrat-Regular";
@@ -191,18 +191,26 @@
 
 /* Banner Publicitario */
 .bannerPublicidad{
-    margin-left: 0px;
-    margin-right: 0px;
     margin-bottom: 20px;
 }
-.bannerPublicidad img{
-    height: 200px;
+.bannerPublicidadmovil{
+    margin: 0% 0%;
+    margin-bottom: 20px;
 }
-@media only screen and (max-width: 500px){
-    .bannerPublicidad img{
-        height: 130px;
-    }
+.link{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    height: 40px;
+    font-family: "Poppins-Medium";
 }
+.link i{
+    margin-left: 5px;
+}
+
 /* ------------------------------ */
 
 /* Categorias */

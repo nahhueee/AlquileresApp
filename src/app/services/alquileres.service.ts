@@ -15,4 +15,8 @@ export class AlquileresService {
   obtenerAlquileres(Filtro:any=[]){
     return this.http.put(`api/rentals`,Filtro,{withCredentials:true})
   }
+
+  EnviarDatosNuevo(Datos:any=[]){
+    return this.http.post(`api/send-email/new`,Datos,{withCredentials:true})
+  }
 }

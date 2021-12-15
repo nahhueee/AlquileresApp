@@ -3,6 +3,10 @@
  z-index: 99 !important;
 }
 
+.slick-prev:before, .slick-next:before{
+   color: #141414 !important;
+}
+
 .hrfooter{
    border-top: 1px solid #F20746;
    width: 100%;
@@ -15,7 +19,6 @@
 .ngx-pagination .current{
  background: #294B85 !important;
 }
-
 
 .p-dropdown{
    width: 300px !important;

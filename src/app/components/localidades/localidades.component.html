@@ -1,0 +1,32 @@
+<div class="principalContainer container-fluid">
+    <p-scrollTop [threshold]="200"></p-scrollTop>
+
+    <header class="cabecera" style="background-image: url('assets/fondos/fondo.jpg')">
+        <div class="text-center titulosCabecera">
+                <h1>Localidades</h1>
+        </div>
+    </header>
+
+
+    <div class="Zonas">
+        <div class="row d-flex justify-content-center">
+            <div class="Tarjeta col-10 col-lg-5" *ngFor ="let zona of Zonas">
+              <a [routerLink]="['/localidad/', zona.nombre, zona.id]" target="blank" style="text-decoration: none;"> 
+                <div class="card">
+                    <img class="card-img-top" src="{{ zona.imgPrincipal }}" alt="" style="width: 100%">
+                  
+                    <div class="card-body">
+                      <h5 class="card-title">{{zona.nombre}}</h5>
+                      <hr>
+                      <div class="cant">
+                        <i class="fas fa-home"></i>
+                        {{zona.alojamientos}} Alojamientos por ver
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+        </div>
+    </div>
+</div>
+

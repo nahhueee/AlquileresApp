@@ -18,17 +18,20 @@
         <div class="row">
             <div class="col-sm-12 col-md-6 mensaje">
                 <p>Como nos encanta nuestra valle, queremos que vos tambien lo disfrutes.
-                    Por esto creamos "MiSitio.com", donde encontraras todo lo que necesitas para tus vacaciones y escapadas a Traslasierra.
-                    Descubre lo que cada Localidad de la zona tiene para ofrecerte y encontrá, de manera facil y rapida, el lugar para hospedarte.
+                    Por esto creamos "valleserrano.ar", donde encontraras todo lo que necesitas para tus vacaciones y escapadas a Traslasierra.
+                    Descubre lo que cada localidad de la zona tiene para ofrecerte y encontrá, de manera facil y rapida, el lugar para hospedarte.
                 </p>
-                <p>Estamos en crecimiento, y ante cualquier sugerencia e idea que tengas no dudes en contactarnos, que queremos que este se convierta
+                <p>Estamos en crecimiento, y ante cualquier sugerencia e idea que tengas no dudes en contactarnos, queremos que este se convierta
                     en tu sitio de confianza al pensar en Traslasierra.
                 </p>
                 <hr>
-                <span>El equipo de desarrollo de "MiSitio.com"</span>
+                <span>El equipo de desarrollo de "Valle Serrano"</span>
             </div>
             <div class="col-sm-12 col-md-6">
-                <img src="assets/fondos/traslasierra.jpg" alt="" width="100%">
+                <!-- <img src="assets/fondos/traslasierra.jpg" alt="" width="100%"> -->
+                <div class="overlay-img" style="background-image: url('assets/fondos/traslasierra.jpg')"> 
+                    <img src="assets/valle/logoT.png" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -42,13 +45,17 @@
     <hr class="hrDivisor">
 
     <div class="informacion">
-        <div class="d-flex justify-content-center align-items-center"><img src="assets/otros/Wp.png" alt="" width="30px" height="25px"><p>Telefono: 3544 407984</p></div>
-        <div class="d-flex justify-content-center align-items-center"><img src="assets/otros/mail.png" alt="" width="30px" height="20px"><p>Mail: micorreo@gmail.com</p></div>
-        <div class="d-flex justify-content-center align-items-center"><img src="assets/otros/Face.png" alt="" width="30px" height="23px"><p>Facebook: facebook.com/mipagina.com</p></div>
+        <div class="d-flex justify-content-center align-items-center"><img src="assets/otros/Wp.png" alt="" width="30px" height="25px"><p>3544 407984</p></div>
+        <div class="d-flex justify-content-center align-items-center"><img src="assets/otros/mail.png" alt="" width="30px" height="20px"><p>valleserranotraslasierra@gmail.com</p></div>
+        <div class="d-flex justify-content-center align-items-center"><img src="assets/otros/Face.png" alt="" width="30px" height="23px"><p>facebook.com/mipagina.com</p></div>
     </div>
     <br>
 
-    <img src="assets/banner1.jpg" alt="" width="100%">
-    <br>
+    <div *ngIf="innerWidth>770" class="banner-web">
+        <img src="assets/banners/Web.jpg" alt="" width="100%">
+    </div>
+    <div *ngIf="innerWidth<770" class="banner-movil">
+        <img src="assets/banners/Phone.jpg" alt="" width="100%">
+    </div>
     <br>
 </div>

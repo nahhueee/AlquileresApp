@@ -1,0 +1,74 @@
+.principalContainer{
+    padding: 0%;
+ }
+/* Cabecera */
+.cabecera{
+    background: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 12vh;
+    background-blend-mode: multiply;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulosCabecera{
+    padding: 15px;
+}
+.titulosCabecera h1{
+    width: 100%;
+    font-size: 50px;
+    font-family:"Pumpkin-Pancakes";
+    color: white;
+    margin: 0%;
+}
+/* ------------------------------ */
+
+/* Zonas */
+.Zonas{
+    margin: 50px 120px;
+}
+@media only screen and (max-width: 750px){
+    .Zonas{
+        margin: 20px 10px;
+    }
+}
+.card{
+    margin: 8px;
+    transition: .3s ease;
+}
+.card:hover{
+    transition: .3s ease;
+    -webkit-transform: scale(1.04);
+    transform: scale(1.04);
+}
+
+.col{
+    padding: 15px !important;
+}
+.card-title{
+    text-align: center;
+    font-family: "Roboto-Medium";
+    font-size: 23px;
+    color: #3f3f3f;
+    font-family: "Montserrat-Regular";
+}
+.Zonas img{
+    height: 265px;
+}
+.Zonas hr{
+    margin: 3px;
+}
+.cant{
+    padding: 8px;
+    text-align: center;
+    font-family: "Poppins-Medium";
+    color: rgb(22, 22, 22);
+}
+.cant i{
+    color:  #F20746;
+}
+/* ------------------------------ */

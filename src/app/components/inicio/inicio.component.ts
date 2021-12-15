@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AlquileresService } from 'src/app/services/alquileres.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { AlquileresService } from 'src/app/services/alquileres.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  public innerWidth: any;
   raiting: number = 3.50;
   currentRating:number = 3.50;
   topAlquileres:any=[]
@@ -17,15 +18,24 @@ export class InicioComponent implements OnInit {
     {img: "http://placehold.it/350x150/666666"}
   ];
   publis = [
-    {img: "assets/Publicidad1.jpg"},
-    {img: "assets/Publicidad3.jpg"}
+    {img: "assets/banners/BannerHomeWeb.jpg",
+     link: "/contacto"}
+  ];
+  publismovil = [
+    {img: "assets/banners/BannerHome.jpg",
+    link: "/contacto"}
   ];
   constructor(private alquilerService:AlquileresService) { }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     this.obtenerTopAlquileres()
   }
-
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+  this.innerWidth = window.innerWidth;
+  }
+  
   slideConfig = {
     dots: false,
     infinite: true,
@@ -46,7 +56,7 @@ export class InicioComponent implements OnInit {
         }
       },
       {
-        breakpoint: 750,
+        breakpoint: 790,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1

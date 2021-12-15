@@ -1,0 +1,119 @@
+.principalContainer{
+    padding: 0%;
+ }
+ 
+ /* Divisor */
+ .divisor{
+     margin: 0% 10%;
+ }
+ .divisor h6{
+     text-transform: uppercase;
+     font-family: "Montserrat-Regular";
+     margin: 0%;
+     margin-top: 30px;
+ }
+.hrDivisor{
+     border-top: 1px solid #ff0000;
+     width: 80%;
+     margin-top: 3px;
+ }
+ /* ------------------------------ */
+ 
+ /* Cabecera */
+ .cabecera{
+     background: no-repeat center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     height: 12vh;
+     background-blend-mode: multiply;
+ 
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .titulosCabecera{
+     padding: 15px;
+ }
+ .titulosCabecera h1{
+     width: 100%;
+     font-size: 50px;
+     font-family:"Pumpkin-Pancakes";
+     color: white;
+     margin: 0%;
+ }
+ /* ------------------------------ */
+
+
+/* form */
+
+.has-error{
+    border: 1px solid #ff0000;
+}
+small{
+    color: red;
+    margin: 0%;
+}
+.Input-error p{
+    margin: 0%;
+}
+
+
+form{
+    margin-top: 5px;
+}
+form label{
+    color: rgb(36, 36, 36);
+    font-family: "Roboto-Medium";
+}
+
+
+.servicios{
+    margin: 8px;
+}
+.servicio{
+    margin-bottom: 10px;
+}
+.s{
+    width: 200px;
+}
+.s input{
+    margin-right: 15px;  
+     transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8);}
+
+.info{
+    text-align: center;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+.info p{
+    margin: 0% 15px;
+    font-family: "Poppins-Regular";
+    font-size: 15px;
+}
+
+
+.web-info{
+    margin: 0%;
+    color: #666666;
+    font-family: "Poppins-Medium";
+    font-size: 13px;
+}
+
+.btnEnviar{
+    width: 400px;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 600px){
+    .btnEnviar{
+        width: 80%;
+    }
+}
+
+/* ------------------------------ */
