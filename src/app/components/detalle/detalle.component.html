@@ -1,4 +1,14 @@
+<!-- size="medium"
+            color="#fff"
+            type="ball-scale-multiple" -->
+
 <p-scrollTop [threshold]="200"></p-scrollTop>
+<ngx-spinner
+            bdColor="rgba(51,51,51,0.8)"
+            template="<img src='assets/otros/loading.gif'/>"
+            >
+</ngx-spinner>
+
 <div class="principalContainer container-fluid" *ngFor ="let alquiler of DetaAlquiler">
     <div class="imgFondo" [style.backgroundImage]="'url('+ alquiler.imgPrincipal +')'">
         
@@ -301,15 +311,7 @@
                     </div>
                 </form>
             </div>
-            <ngx-spinner
-            bdColor="rgba(51,51,51,0.8)"
-            size="medium"
-            color="#fff"
-            type="ball-scale-multiple"
-            >
-            <p style="font-size: 20px; color: white">Cargando...</p>
-            </ngx-spinner>
-
+            
             <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
            
             <hr id="toRaiting" class="divisor">

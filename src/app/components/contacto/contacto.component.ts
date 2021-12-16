@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contacto',
@@ -8,9 +9,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class ContactoComponent implements OnInit {
   public innerWidth: any;
 
-  constructor() { }
+  constructor(private titlepage:Title) { }
 
   ngOnInit(): void {
+    this.titlepage.setTitle('Contacto')
     this.innerWidth = window.innerWidth;
     }
 

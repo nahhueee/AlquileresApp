@@ -24,6 +24,42 @@
    width: 300px !important;
 }
 
+
+/* footer */
+.Links{
+   background-color: #d4d4d4;
+   padding: 20px;
+   text-align: center;
+}
+.btn-nav{
+   margin: 5px 10px;
+}
+.navegacion a{
+   text-decoration: none;
+   color: rgb(49, 49, 49);
+   font-family: "Montserrat-Regular";
+}
+.Links p{
+   font-family: "Asap-Regular";
+   color: rgb(41, 41, 41);
+   font-size: 15px;
+   padding: 10px;
+   margin: 0%;
+}
+.navegacion i{
+   color: #F20746;
+   margin-right: 5px;
+}
+.social i{
+   color: white;
+   margin: 0%;
+}
+.social{
+   margin: 10px;
+}
+/* ------------------------------ */
+
+
 /* Scroll Top */
 .p-scrolltop{
    width: 2.3rem !important;

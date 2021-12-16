@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ZonasService } from 'src/app/services/zonas.service';
 
 @Component({
@@ -9,9 +10,10 @@ import { ZonasService } from 'src/app/services/zonas.service';
 export class LocalidadesComponent implements OnInit {
   Zonas:any=[]
 
-  constructor(private zonaService:ZonasService) { }
+  constructor(private titlepage:Title, private zonaService:ZonasService) { }
 
   ngOnInit(): void {
+    this.titlepage.setTitle('Localidades')  
     this.obtenerZonas()
   }
 

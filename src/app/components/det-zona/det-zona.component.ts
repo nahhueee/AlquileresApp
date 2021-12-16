@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ZonasService } from 'src/app/services/zonas.service';
 
@@ -12,14 +13,18 @@ export class DetZonaComponent implements OnInit {
   DetaZona:any=[]
   Alojamientos:any=[]
   
-  constructor(private zonaService:ZonasService,private rutaActiva:ActivatedRoute) { }
+  constructor(private titlepage:Title, private zonaService:ZonasService,private rutaActiva:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.rutaActiva.params.subscribe(
       (params: Params) => {
         this.IdZona = params.id;
+        this.titlepage.setTitle(params.nombre)  
       }
     );
+
+
+    
     this.obtenerDetZona()
     this.obtenerAlojamientos()
   }
@@ -69,7 +74,7 @@ export class DetZonaComponent implements OnInit {
 
   obtenerDetZona(){
     this.zonaService.obtenerDetalleZona(this.IdZona).subscribe(
-    res => {this.DetaZona = res, console.log(res)},
+    res => {this.DetaZona = res},
     err => console.log(err)
   )}
 

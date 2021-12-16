@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Message } from 'primeng/api';
 import { AlquileresService } from 'src/app/services/alquileres.service';
@@ -33,11 +34,12 @@ export class DatosComponent implements OnInit {
     {id : 15, name: "Desayuno", isSelected: false, descripcion: ""},
   ];
 
-  constructor(private alquilerService:AlquileresService,private router:Router) {
+  constructor(private titlepage:Title, private alquilerService:AlquileresService,private router:Router) {
     this.form= this.createForm();
    }
 
-  ngOnInit(): void {   
+  ngOnInit(): void { 
+    this.titlepage.setTitle('Registro')  
   }
 
 

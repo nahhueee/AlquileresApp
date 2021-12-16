@@ -56,7 +56,8 @@ const routes: Routes = [
 {
   path: 'correcto',
   component:VerificacionComponent, 
-}
+},
+{path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

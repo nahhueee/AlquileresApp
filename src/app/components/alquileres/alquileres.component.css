@@ -98,6 +98,72 @@
 .btnLimpiar{
     width:53px;
 }
+
+.filterhr{
+    margin: 3px 0px;
+}
+.agregar .btn{
+    font-family: "Roboto-Regular";
+    width: 250px;
+    color: rgb(22, 22, 22);
+    background: transparent;
+    border: 1px solid #F20746;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+.agregar .btn:hover{
+    background-color: #33373b;
+    color: white;
+    border: 1px solid #F20746;
+}
+
+.agregar i{
+    margin-right: 8px;
+}
+/* ------------------------------ */
+
+/* mas filtros */
+.servicios{
+    margin: 8px;
+}
+.servicio{
+    margin-bottom: 10px;
+}
+.s{
+    width: 200px;
+}
+.s input{
+    margin-right: 15px;  
+     transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+}
+
+.more{
+    margin: 20px;
+}
+.click{
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.click hr{
+    border-top: 1px solid #757575;
+    width: 30%;
+}
+.click a{
+    width: 230px;
+    font-family: "Poppins-Medium";
+}
+.info{
+    text-align: center;
+    font-family: "Poppins-Medium";
+    font-size: 15px;
+}
+.info span{
+    color: #F20746;
+}
 /* ------------------------------ */
 
 /* Mensaje */
@@ -131,6 +197,7 @@
 .lblBuscar span{
     color: #F20746;
 }
+
 /* ------------------------------ */
 
 /* Alojamientos */

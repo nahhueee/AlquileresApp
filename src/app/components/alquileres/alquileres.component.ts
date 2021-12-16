@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Localidad } from 'src/app/models/localidad';
 import { AlquileresService } from 'src/app/services/alquileres.service';
@@ -9,6 +10,7 @@ import { AlquileresService } from 'src/app/services/alquileres.service';
   styleUrls: ['./alquileres.component.css']
 })
 export class AlquileresComponent implements OnInit {
+  public isCollapsed = true;
   page:number=1;
   click: boolean = false;
   localidades: Localidad[];
@@ -23,7 +25,19 @@ export class AlquileresComponent implements OnInit {
   resultados:number = 0
   Alojamientos:any=[];
 
-  constructor(private alquilerService:AlquileresService, private rutaActiva:ActivatedRoute) {
+  Servicios = [
+    {id: 1, name: "WI-FI", isSelected: false},
+    {id: 2, name: "Cochera", isSelected: false},
+    {id: 3, name: "Pileta", isSelected: false},
+    {id: 4, name: "Aire Acondicionado", isSelected: false},
+    {id: 5, name: "Calefaccion", isSelected: false},
+    {id: 11, name: "TV", isSelected: false},
+    {id: 14, name: "Mascotas", isSelected: false},
+    {id: 15, name: "Desayuno", isSelected: false},
+    {id: 7, name: "Patio", isSelected: false},
+  ];
+
+  constructor(private titlepage:Title, private alquilerService:AlquileresService, private rutaActiva:ActivatedRoute) {
       this.localidades = [
           {name: 'Mina Clavero', code: '1'},
           {name: 'Nono', code: '2'},
@@ -44,6 +58,8 @@ export class AlquileresComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titlepage.setTitle('Alojamientos')
+
     this.rutaActiva.params.subscribe(
       (params: Params) => {
         if(params.idlocalidad!=undefined){
@@ -112,6 +128,10 @@ export class AlquileresComponent implements OnInit {
     this.selectedLocality = undefined;
     this.selectedCategory = undefined;
     this.cantPersonas = '';
+    
+    this.Servicios.forEach(function(elemento) {
+      elemento.isSelected = false
+  })
   }
 
   Buscar(){
@@ -120,9 +140,14 @@ export class AlquileresComponent implements OnInit {
     if(this.selectedCategory?.code!=undefined){ this.categoria = this.selectedCategory?.code} else { this.categoria = '0'}
     
     
-      this.alquilerService.obtenerAlquileres({Localidad:this.localidad,Categoria:this.categoria,Personas:this.cantPersonas}).subscribe(
+      this.alquilerService.obtenerAlquileres({Localidad:this.localidad,Categoria:this.categoria,Personas:this.cantPersonas,Servicios:this.Servicios}).subscribe(
         res => {this.Alojamientos = res
-         this.resultados = this.Alojamientos.length
+         if(this.Alojamientos[0].id==null){
+          this.resultados = 0
+          this.Alojamientos = []
+         }else{
+          this.resultados = this.Alojamientos.length
+         }
         },
         err => console.log(err)
       )}

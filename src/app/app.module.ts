@@ -16,6 +16,7 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { NgxSpinnerModule } from "ngx-spinner";
+import {TooltipModule} from 'primeng/tooltip';
 
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -60,6 +61,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     MessageModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
+    TooltipModule
     ],
   providers: [{provide:HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true}],
   bootstrap: [AppComponent]

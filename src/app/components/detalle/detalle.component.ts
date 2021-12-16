@@ -5,6 +5,7 @@ import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
 import {Message} from 'primeng/api';
 
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detalle',
@@ -49,7 +50,7 @@ export class DetalleComponent implements OnInit {
   CondicionesAlquiler:any=[];
   Relacionados:any=[];
 
-  constructor(private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService) {
+  constructor(private titlepage:Title,private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService) {
     this.mapOptions = {},
     this.formContact= this.createForm();
     this.formComentarios= this.createFormComentarios();
@@ -115,6 +116,7 @@ export class DetalleComponent implements OnInit {
     this.rutaActiva.params.subscribe(
       (params: Params) => {
         this.IdAlquiler = params.id;
+        this.titlepage.setTitle(params.nombre)  
       }
     );
     this.innerWidth = window.innerWidth;

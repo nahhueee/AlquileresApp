@@ -1,4 +1,10 @@
 <p-scrollTop [threshold]="200"></p-scrollTop>
+<ngx-spinner
+            bdColor="rgba(51,51,51,0.8)"
+            template="<img src='assets/otros/loading.gif'/>"
+            >
+</ngx-spinner>
+
 <div class="principalContainer container-fluid" *ngFor ="let zona of DetaZona">
     
         <div class="imgFondo" [style.backgroundImage]="'url('+ zona.imgPrincipal +')'">
@@ -54,8 +60,8 @@
                           <hr class="card-div">
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="info">
-                                <div class="capacidad"><i class="fas fa-male"></i><p>{{alquiler.capacidad}}</p></div>
-                                <div class="habitaciones"><i class="fas fa-bed"></i><p>{{alquiler.habitaciones}}</p></div>
+                                <div class="capacidad" pTooltip="Capacidad" tooltipPosition="right"><i class="fas fa-male"></i><p>{{alquiler.capacidad}}</p></div>
+                                <div class="habitaciones" pTooltip="N° Habitaciones" tooltipPosition="right"><i class="fas fa-bed"></i><p>{{alquiler.habitaciones}}</p></div>
                               </div>
                               <div>
                                 <ngb-rating [(rate)]="alquiler.Raiting" [max]="5" [readonly]='true'>

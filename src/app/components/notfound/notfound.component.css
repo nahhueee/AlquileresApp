@@ -1,0 +1,25 @@
+.info{
+    height: 70vh;
+ }
+ 
+ .btnTodos{
+     font-family: "Roboto-Regular";
+     width: 250px;
+     background: transparent;
+     color: rgb(22, 22, 22);
+     border: 2px solid #F20746;
+ }
+ .btnTodos i{
+     margin-right: 5px;
+ }
+ .btnTodos:hover{
+     border: 2px solid #F20746;
+ }
+ 
+ h3{
+     font-family: "Montserrat-Regular";
+     margin: 10px;
+ }
+ h6{
+     font-family: "Poppins-Medium";
+ }
