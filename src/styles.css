@@ -27,7 +27,7 @@
 
 /* footer */
 .Links{
-   background-color: #d4d4d4;
+   background-color: #2e2e2e;
    padding: 20px;
    text-align: center;
 }
@@ -36,18 +36,22 @@
 }
 .navegacion a{
    text-decoration: none;
-   color: rgb(49, 49, 49);
+   color: rgb(241, 241, 241);
    font-family: "Montserrat-Regular";
+}
+.navegacion a:hover{
+   text-decoration: none;
+   color: rgb(241, 241, 241);
 }
 .Links p{
    font-family: "Asap-Regular";
-   color: rgb(41, 41, 41);
+   color: rgb(235, 235, 235);
    font-size: 15px;
    padding: 10px;
    margin: 0%;
 }
 .navegacion i{
-   color: #F20746;
+   color: #799ad4;
    margin-right: 5px;
 }
 .social i{
