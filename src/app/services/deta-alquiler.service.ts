@@ -1,50 +1,61 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Mail } from '../models/mail';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetaAlquilerService {
-
+  baseUrl = environment.baseUrl;
   constructor(private http:HttpClient) { }
 
   obtenerDetalleAlquileres(IdAlquiler:number){
-    return this.http.get(`api/rentals/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   obtenerServiciosAlquileres(IdAlquiler:number){
-    return this.http.get(`api/rentals/services/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/services/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   obtenerGaleriaAlquileres(IdAlquiler:number){
-    return this.http.get(`api/rentals/galery/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/galery/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   obtenerTarifasAlquileres(IdAlquiler:number){
-    return this.http.get(`api/rentals/rate/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/rate/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   obtenerReseñasAlquileres(IdAlquiler:number){
-    return this.http.get(`api/rentals/coments/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/coments/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   obtenerCondicionesAlquileres(IdAlquiler:number){
-    return this.http.get(`api/rentals/condition/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/condition/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   obtenerRelacionados(idZona:number, idCategoria:number, idAlquiler:number){
-    return this.http.put(`api/rentals/related/`,{idZona:idZona, idCategoria:idCategoria, idAlquiler:idAlquiler},{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/related/`;
+    return this.http.put(url,{idZona:idZona, idCategoria:idCategoria, idAlquiler:idAlquiler},{withCredentials:false})
   }
 
 
   PublicarComentario(Coment:any[]){
-    return this.http.post(`api/rentals/postcoment`,Coment,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/postcoment/`;
+    return this.http.post(url,Coment,{withCredentials:false})
   }
   consultarTotalRaiting(IdAlquiler:number){
-    return this.http.get(`api/rentals/gralraiting/${IdAlquiler}`,{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/gralraiting/${IdAlquiler}`;
+    return this.http.get(url,{withCredentials:false})
   }
   consultarEmailComentario(idAlquiler:number, mail:string){
-    return this.http.put(`api/rentals/verify/`,{idAlquiler:idAlquiler,mail:mail},{withCredentials:true})
+    let url = this.baseUrl + `api/rentals/verify/`;
+    return this.http.put(url,{idAlquiler:idAlquiler,mail:mail},{withCredentials:false})
   }
 
 
   EnviarEmail(Mail:any[]){
-    return this.http.post(`api/send-email/`,Mail,{withCredentials:true})
+    let url = this.baseUrl + `api/send-email/`;
+    return this.http.post(url,Mail,{withCredentials:false})
   }
   
 }

@@ -1,0 +1,8 @@
+{ "/api/*": {
+    "target": "http://31.220.31.6:5000/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {"^/api/*" : "http://31.220.31.6:5000/api/"}
+}}
+

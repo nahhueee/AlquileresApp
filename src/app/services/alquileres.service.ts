@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlquileresService {
-  // API_URI = 'http://127.0.0.1:3000/api/rentals'
+  baseUrl = environment.baseUrl;
   constructor(private http:HttpClient) { }
 
   obtenerTopAlquileres(){
-    return this.http.get(`api/rentals`,{withCredentials:true})
+    let url = this.baseUrl + 'api/rentals';
+    return this.http.get(url,{withCredentials:false})
   }
 
   obtenerAlquileres(Filtro:any=[]){
-    return this.http.put(`api/rentals`,Filtro,{withCredentials:true})
+    let url = this.baseUrl + 'api/rentals';
+    return this.http.put(url,Filtro,{withCredentials:false})
   }
 
   EnviarDatosNuevo(Datos:any=[]){
-    return this.http.post(`api/send-email/new`,Datos,{withCredentials:true})
+    let url = this.baseUrl + 'api/send-email/new';
+    return this.http.post(url,Datos,{withCredentials:false})
   }
 }
