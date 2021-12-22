@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { AlquileresService } from 'src/app/services/alquileres.service';
 
 @Component({
@@ -25,9 +26,10 @@ export class InicioComponent implements OnInit {
     {img: "assets/banners/BannerHome.jpg",
     link: "/contacto"}
   ];
-  constructor(private alquilerService:AlquileresService) { }
+  constructor(private alquilerService:AlquileresService,private titlepage:Title) { }
 
   ngOnInit(): void {
+    this.titlepage.setTitle('Valle Serrano') 
     this.innerWidth = window.innerWidth;
     this.obtenerTopAlquileres()
   }
