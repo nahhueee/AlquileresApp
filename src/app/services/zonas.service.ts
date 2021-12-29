@@ -10,17 +10,17 @@ export class ZonasService {
   constructor(private http:HttpClient) { }
 
   obtenerZonas(){
-    let url = this.baseUrl + `api/zones/`;
+    let url = this.baseUrl + `zones/`;
     return this.http.get(url,{withCredentials:false})
   }
 
   obtenerDetalleZona(idZona:number){
-    let url = this.baseUrl + `api/zones/det/${idZona}`;
+    let url = this.baseUrl + `zones/det/${idZona}`;
     return this.http.get(url,{withCredentials:false})
   }
 
   obtenerAlojamientos(idZona:number){
-    let url = this.baseUrl + `api/zones/rentals/${idZona}`;
+    let url = this.baseUrl + `zones/rentals/${idZona}`;
     return this.http.get(url,{withCredentials:false})
   }
 }

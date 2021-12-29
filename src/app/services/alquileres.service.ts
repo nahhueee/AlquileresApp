@@ -10,17 +10,18 @@ export class AlquileresService {
   constructor(private http:HttpClient) { }
 
   obtenerTopAlquileres(){
-    let url = this.baseUrl + 'api/rentals';
+    let url = this.baseUrl + 'rentals/';
     return this.http.get(url,{withCredentials:false})
   }
 
   obtenerAlquileres(Filtro:any=[]){
-    let url = this.baseUrl + 'api/rentals';
+    console.log(Filtro)
+    let url = this.baseUrl + 'rentals/';
     return this.http.put(url,Filtro,{withCredentials:false})
   }
 
   EnviarDatosNuevo(Datos:any=[]){
-    let url = this.baseUrl + 'api/send-email/new';
+    let url = this.baseUrl + 'send-email/new';
     return this.http.post(url,Datos,{withCredentials:false})
   }
 }
