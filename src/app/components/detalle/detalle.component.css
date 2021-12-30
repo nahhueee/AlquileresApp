@@ -524,7 +524,13 @@ small{
     margin-bottom: 20px;
 }
 
-.reseñas h5{
+/* .reseñas h5{
+    font-family: "Poppins-Medium";
+    font-size: 50px;
+    color: rgb(22, 22, 22);
+    margin-bottom: -5px;
+} */
+.txt-raiting{
     font-family: "Poppins-Medium";
     font-size: 50px;
     color: rgb(22, 22, 22);
@@ -634,14 +640,14 @@ small{
 
 
 /* ModalReseña */
-#ContenedorReseña{
+.Creseña{
     position: relative;
     background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#ContenedorReseña .star-widget .in{
+.Creseña .star-widget .in{
     display: none;
 }
 .star-widget label{
@@ -683,7 +689,7 @@ small{
     content: "Excelente 😍";
 }
 
-#FormReseña header{
+.FormReseña header{
     width: 100%;
     font-size: 25px;
     color: #222;
@@ -693,19 +699,19 @@ small{
     text-align: center;
     transition: all 0.2s ease;
 }
-#FormReseña .textarea{
+.FormReseña .textarea{
     height: 100px;
     width: 100%;
     overflow: hidden;
 } 
-#FormReseña p{
+.FormReseña p{
     margin-top: 6px;
     margin-bottom: 3px;
     color: rgb(36, 36, 36);
     font-family: "Roboto-Medium";
 }
 
-#FormReseña .textarea textarea{
+.FormReseña .textarea textarea{
     height: 100%;
     width: 100%;
     outline: none;
@@ -718,13 +724,13 @@ small{
     resize: none;
 }
 
-#FormReseña .btn{
+.FormReseña .btn{
     height: 45px;
     width: 100%;
     margin: 20px 0;
     padding: 0%;
 }
-#FormReseña .btn button{
+.FormReseña .btn button{
     height: 100%;
     width: 100%;
     font-size: 17px;

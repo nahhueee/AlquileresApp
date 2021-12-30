@@ -322,7 +322,7 @@
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-12 col-md-4">
                             <div class="text-center">
-                                <h5>{{alquiler.Raiting}}</h5>
+                                <h5 class="txt-raiting">{{alquiler.Raiting}}</h5>
                                 <div>
                                     <ngb-rating [(rate)]="alquiler.Raiting" [max]="5" [readonly]='true'>
                                         <ng-template let-fill="fill">
@@ -471,8 +471,9 @@
                         <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="modal-body">
-                        <div id="ContenedorReseña" class="container">
+                        <div class="container Creseña">
                             <div class="star-widget">
+                                
                                 <input class="in" type="radio" name="rate" id="rate-5" value="5" [(ngModel)]="SelectNum">
                                 <label for="rate-5" class="fas fa-star"></label>
                                 <input class="in" type="radio" name="rate" id="rate-4" value="4" [(ngModel)]="SelectNum"> 
@@ -483,8 +484,14 @@
                                 <label for="rate-2" class="fas fa-star"></label>
                                 <input class="in" type="radio" name="rate" id="rate-1" value="1" [(ngModel)]="SelectNum">
                                 <label for="rate-1" class="fas fa-star"></label>
-                            
-                                <form [formGroup]="formComentarios" id="FormReseña" (ngSubmit)="PublicarComentario($event)">
+                                
+                                <div style="text-align: center;" class="Input-error2"  *ngIf="SelectNum==0">
+                                    <p>
+                                        <small>Selecciona una estrella para calificar tu experiencia</small>
+                                    </p>
+                                </div>
+
+                                <form [formGroup]="formComentarios" class="FormReseña" (ngSubmit)="PublicarComentario($event)">
                                     <header></header>
                                     
                                     <p>Mail</p>
@@ -528,9 +535,9 @@
                                     </div>
 
                                     <div class="btn">
-                                        <button id="botonPost" (click)="PublicarComentario($event)" class="btnTodos btn btn-dark" *ngIf="formComentarios.valid" data-dismiss="modal">Publicar</button>
+                                        <button id="botonPost" (click)="PublicarComentario($event)" class="btnTodos btn btn-dark" *ngIf="formComentarios.valid&&SelectNum!=0" data-dismiss="modal">Publicar</button>
 
-                                        <button id="botonPost" type="submit" class="btnTodos btn btn-dark" *ngIf="formComentarios.invalid">Publicar</button>
+                                        <button id="botonPost" type="submit" class="btnTodos btn btn-dark" *ngIf="formComentarios.invalid||SelectNum==0">Publicar</button>
 
                                     </div>
                                 </form>

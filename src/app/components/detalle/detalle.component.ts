@@ -166,6 +166,7 @@ export class DetalleComponent implements OnInit {
   get descripcion(){return this.formComentarios.get('descripcion')}
 
 
+  
   // Mapa
   onMapReady(map: Map) {
     this.map = map;
@@ -315,7 +316,7 @@ export class DetalleComponent implements OnInit {
   PublicarComentario(event: Event){
     event.preventDefault();
     const value = this.formComentarios.value;
-    if (this.formComentarios.valid){
+    if (this.formComentarios.valid && this.SelectNum!=0){
       const value = this.formComentarios.value;
       value.numero = this.SelectNum
       value.idAlquiler = this.IdAlquiler
