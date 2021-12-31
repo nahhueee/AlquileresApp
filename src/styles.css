@@ -165,3 +165,108 @@
    font-weight: normal;
    font-style: normal;
 }
+
+
+/* ModalReseña */
+.Creseña{
+   position: relative;
+   background-color: #ffffff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.Creseña .star-widget .in{
+   display: none;
+}
+.star-widget label{
+   font-size: 40px;
+   color: rgb(163, 162, 162);
+   padding: 10px;
+   float: right;
+   transition: all 0.2s ease;
+   margin-bottom: 15px;
+}
+
+.star-widget .in:not(:checked) ~ label:hover,
+.star-widget .in:not(:checked) ~ label:hover ~ label{
+   color: #F20746;
+
+}
+
+.star-widget .in:checked ~ label{
+   color: #F20746;
+}
+.star-widget .in#rate-5:checked ~ label{
+   color: #ff1f5b;
+   text-shadow: 0 0 20px rgba(255, 238, 144, 0.678);
+}
+
+.star-widget .in#rate-1:checked ~ form header:before{
+   content: "Muy mala 😠";
+}
+.star-widget .in#rate-2:checked ~ form header:before{
+   content: "Mala 😒";
+}
+.star-widget .in#rate-3:checked ~ form header:before{
+   content: "Regular 😄";
+}
+.star-widget .in#rate-4:checked ~ form header:before{
+   content: "Muy buena 😎";
+}
+.star-widget .in#rate-5:checked ~ form header:before{
+   content: "Excelente 😍";
+}
+
+.formreseña header{
+   width: 100%;
+   font-size: 25px;
+   color: #222;
+   font-family: "Poppins-Medium";
+   font-weight: 500;
+   margin: 5px 0 20px 0;
+   text-align: center;
+   transition: all 0.2s ease;
+}
+.formreseña .textarea{
+   height: 100px;
+   width: 100%;
+   overflow: hidden;
+} 
+.formreseña p{
+   margin-top: 6px;
+   margin-bottom: 3px;
+   color: rgb(36, 36, 36);
+   font-family: "Roboto-Medium";
+}
+
+.formreseña .textarea textarea{
+   height: 100%;
+   width: 100%;
+   outline: none;
+   color: rgb(24, 24, 24);
+   border: 1px solid rgb(192, 192, 192);
+   background-color: rgb(255, 255, 255);
+   border-radius: 5px;
+   padding: 10px;
+   font-size: 17px;
+   resize: none;
+}
+
+.formreseña .btn{
+   height: 45px;
+   width: 100%;
+   margin: 20px 0;
+   padding: 0%;
+}
+.formreseña .btn button{
+   height: 100%;
+   width: 100%;
+   font-size: 17px;
+   font-weight: 500;
+   text-transform: uppercase;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   margin: 0%;
+   padding: 0%;
+}
+/* --------------------------------------------------- */
