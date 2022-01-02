@@ -67,7 +67,9 @@ form label{
     color: rgb(36, 36, 36);
     font-family: "Roboto-Medium";
 }
-
+form select{
+    margin: 0%;
+}
 
 .servicios{
     margin: 8px;
@@ -96,13 +98,25 @@ form label{
     font-family: "Poppins-Regular";
     font-size: 15px;
 }
-
+.info2{
+    text-align: center;
+    padding: 10px;
+}
+.info2 p{
+    margin: 0% 15px;
+    font-family: "Poppins-Regular";
+    font-size: 15px;
+}
 
 .web-info{
     margin: 0%;
     color: #666666;
     font-family: "Poppins-Medium";
     font-size: 13px;
+}
+
+.pagos{
+    padding: 10px 30px;
 }
 
 .btnEnviar{
@@ -113,6 +127,9 @@ form label{
 @media only screen and (max-width: 600px){
     .btnEnviar{
         width: 80%;
+    }
+    .pagos{
+        padding: 10px 5px;
     }
 }
 

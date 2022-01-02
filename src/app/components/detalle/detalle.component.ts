@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DetaAlquilerService } from 'src/app/services/deta-alquiler.service';
 import {latLng, MapOptions, tileLayer, Map, Marker, icon} from 'leaflet';
 import {Message} from 'primeng/api';
@@ -50,7 +50,8 @@ export class DetalleComponent implements OnInit {
   CondicionesAlquiler:any=[];
   Relacionados:any=[];
 
-  constructor(private titlepage:Title,private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService) {
+  constructor(private titlepage:Title,private rutaActiva:ActivatedRoute, private detaService:DetaAlquilerService, private router:Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.mapOptions = {},
     this.formContact= this.createForm();
     this.formComentarios= this.createFormComentarios();

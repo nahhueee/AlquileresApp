@@ -160,7 +160,7 @@
                         <h6>Mail</h6>
                         <p>{{alquiler.mail}}</p>
                     </div>
-                    <div *ngIf="alquiler.Web!=''" class="card-info col-6 col-md-3">
+                    <div *ngIf="alquiler.web!=''" class="card-info col-6 col-md-3">
                         <img src="assets/otros/Web.png" alt="">
                         <h6>Web</h6>
                         <a target="_blank" [href]="alquiler.web">Click para ver</a>
@@ -576,7 +576,7 @@
                 [config]="slideConfig" 
                 >
                 <div ngxSlickItem *ngFor="let relacionado of Relacionados" class="slide">
-                <a [routerLink]="['/alojamiento/', relacionado.nombre, relacionado.id]" style="text-decoration: none;">
+                <a [routerLink]="['/alojamiento/', relacionado.nombre, relacionado.id]" style="text-decoration: none;" target="_self">
                     <div class="card">
                         <img src="{{ relacionado.imgPrincipal }}" alt="">
                         

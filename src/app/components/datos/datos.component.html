@@ -43,12 +43,15 @@
                                     <option value="4">Hoteles</option>
                                     <option value="5">Campings</option>
                                 </select>  
-                        </div>
-                        <div class="Input-error"  *ngIf="categoriaField?.invalid && (categoriaField?.dirty || categoriaField?.touched)">
-                            <p *ngIf="categoriaField?.errors?.required">
-                                <small>Selecciona categoria.</small>
-                            </p>
-                        </div>
+                        
+                                <div class="Input-error"  *ngIf="categoriaField?.invalid && (categoriaField?.dirty || categoriaField?.touched)">
+                                    <p *ngIf="categoriaField?.errors?.required">
+                                        <small>Selecciona categoria.</small>
+                                    </p>
+                                </div>
+
+                    </div>
+                        
                 </div>
 
                 <div class="col-md-6"> 
@@ -81,12 +84,14 @@
                     <div class="form-group">
                         <label class="label" for="descripcion">Descripción del Alojamiento</label>
                         <textarea name="descripcion" class="form-control" formControlName="descripcion" cols="30" rows="4" placeholder="Ej: Un complejo único con piscina. Ubicado a 2 cuadras del centro, con una hermosa vista a las Montañas.Los departamentos se encuentran en alquiler todo el año. etc."></textarea>
+                    
+                        <div class="Input-error"  *ngIf="descripcionField?.invalid && (descripcionField?.dirty || descripcionField?.touched)">
+                            <p *ngIf="descripcionField?.errors?.maxlength">
+                                <small>El campo no puede tener mas de 500 caracteres.</small>
+                            </p>
+                        </div>
                     </div>
-                    <div class="Input-error"  *ngIf="descripcionField?.invalid && (descripcionField?.dirty || descripcionField?.touched)">
-                        <p *ngIf="descripcionField?.errors?.maxlength">
-                            <small>El campo no puede tener mas de 500 caracteres.</small>
-                        </p>
-                    </div>
+                    
                 </div>
                 
                 
@@ -111,12 +116,14 @@
                                     <option value="Rabonas">Las Rabonas</option>
                                     
                                 </select>  
+
+                                <div class="Input-error"  *ngIf="localidadField?.invalid && (localidadField?.dirty || localidadField?.touched)">
+                                    <p *ngIf="localidadField?.errors?.required">
+                                        <small>Selecciona una localidad.</small>
+                                    </p>
+                                </div>
                         </div>
-                        <div class="Input-error"  *ngIf="localidadField?.invalid && (localidadField?.dirty || localidadField?.touched)">
-                            <p *ngIf="localidadField?.errors?.required">
-                                <small>Selecciona una localidad.</small>
-                            </p>
-                        </div>
+                        
                 </div>
                 <div class="col-md-6"> 
                     <div class="form-group">
@@ -156,7 +163,7 @@
                                     <option value="xPersona">X Persona</option>
                                     <option value="xNoche">X Noche</option>
                                 </select>  
-                        </div>
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <div class="info">
@@ -234,8 +241,60 @@
                    
                 </div>
 
+           
+
+            <div class="divisor d-flex justify-content-between align-items-center">
+                <h6>Condiciones y Politicas</h6>
             </div>
+            <hr class="hrDivisor">
+    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="reservas">Reservas</label>
+                    <textarea name="reservas" class="form-control" formControlName="reservas"  rows="2" placeholder="Informanos como manejas las reservas"></textarea>
+                
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="info2">
+                    <p style="text-align: center; margin-bottom: 8px;">¿Permites visitas? </p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="radio" checked  name="visitas" value="1" formControlName="visitas">
+                        <p style="font-weight: 600;">Si</p>
+    
+                        <input type="radio" name="visitas" value="2" formControlName="visitas">
+                        <p style="font-weight: 600;">No</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="entrada">Hora de Entrada</label>
+                    <input type="text" class="form-control" name="entrada"  placeholder="Ej: 12:00" formControlName="entrada">
+                </div>
+            </div>
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="salida">Hora de Salida</label>
+                    <input type="text" class="form-control" name="salida"  placeholder="Ej: 10:30" formControlName="salida">                    
+                </div>
+            </div>
+
+
+         </div>
         </form>
+        
+        <h6 style="text-align: center; margin: 10px 0px;">Seleccioná los tipos de pagos que manejas.</h6>
+        <div class="row pagos">
+            <div class="d-flex align-items-center justify-content-center col-4" *ngFor ="let Pago of TiposPagos">
+                <div class="s">
+                    <input type="checkbox" name="{{Pago.name}}" value="{{Pago.name}}" [(ngModel)]="Pago.isSelected">
+                    <label for="#">{{Pago.name}}</label>
+                </div>
+            </div>
+        </div>
 
        
         <div class="divisor d-flex justify-content-between align-items-center">
@@ -257,8 +316,8 @@
                     </div>
                 </div>
             </div>
-          
         
+
 
         <div class="container">
             <hr class="hrDivisor">

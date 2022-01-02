@@ -15,7 +15,7 @@ export class DatosComponent implements OnInit {
   public form: FormGroup;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   
-
+ 
   Servicios = [
     {id : 1, name: "WI-FI", isSelected: false, descripcion: ""},
     {id : 2, name: "Cochera", isSelected: false, descripcion: ""},
@@ -34,6 +34,11 @@ export class DatosComponent implements OnInit {
     {id : 15, name: "Desayuno", isSelected: false, descripcion: ""},
   ];
 
+  TiposPagos = [
+    {name: "Efectivo", isSelected: false},
+    {name: "Tarjetas", isSelected: false},
+    {name: "Transferencias", isSelected: false}
+  ]
   constructor(private titlepage:Title, private alquilerService:AlquileresService,private router:Router) {
     this.form= this.createForm();
    }
@@ -51,15 +56,19 @@ export class DatosComponent implements OnInit {
       categoria: new FormControl('',[Validators.required]),
       capacidad: new FormControl('',Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
       habitaciones: new FormControl('',Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-      precio: new FormControl('',Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+      precio: new FormControl('',Validators.pattern(/^-?(0|[1-9]\d*)?/)),
       condicion: new FormControl('xPersona'),
       direccion: new FormControl('',[Validators.required]),
       descripcion: new FormControl('', [Validators.maxLength(500)]),
       telefono1: new FormControl('',Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
       telefono2: new FormControl('',Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-      wpp: new FormControl(''),
+      wpp: new FormControl('1'),
+      visitas: new FormControl('2'),
+      reservas: new FormControl(''),
       web: new FormControl(''),
       mail: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      entrada: new FormControl(''),
+      salida: new FormControl(''),
 
     });
   }
@@ -85,12 +94,15 @@ export class DatosComponent implements OnInit {
     
     if (this.form.valid) {
       const value = this.form.value;
+      value.pagos = this.TiposPagos
       value.servicios = this.Servicios
       this.msgs=[]
 
+      // console.log(value)
       this.enviarMail(value)
     }else{
       this.form.markAllAsTouched();
+      this.showAdvertencia()
     }
   }
 
@@ -109,6 +121,8 @@ export class DatosComponent implements OnInit {
     )
   }
 
+  showAdvertencia(){this.msgs = [{severity:'info', summary:'Info', detail:'Parece que te falta completar algo importante, revisa nuevamente los datos.'}];
+  }
   showError(){this.msgs = [{severity:'error', summary:'Error', detail:'Ocurrio un error al mandar el email, intenta nuevamente'}];
   }
 }
