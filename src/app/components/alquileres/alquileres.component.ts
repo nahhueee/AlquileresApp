@@ -142,12 +142,10 @@ export class AlquileresComponent implements OnInit {
     
       this.alquilerService.obtenerAlquileres({Localidad:this.localidad,Categoria:this.categoria,Personas:this.cantPersonas,Servicios:this.Servicios}).subscribe(
         res => {this.Alojamientos = res
-         if(this.Alojamientos[0].id==null){
-          this.resultados = 0
-          this.Alojamientos = []
-         }else{
+         console.log(res)
+         
           this.resultados = this.Alojamientos.length
-         }
+         
         },
         err => console.log(err)
       )}
