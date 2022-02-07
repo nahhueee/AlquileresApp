@@ -1,4 +1,4 @@
-export interface Localidad {
+export interface Combo {
     name: string,
     code: string
 }

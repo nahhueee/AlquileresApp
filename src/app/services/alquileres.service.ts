@@ -24,4 +24,13 @@ export class AlquileresService {
     let url = this.baseUrl + 'send-email/new';
     return this.http.post(url,Datos,{withCredentials:false})
   }
+
+  obtenerAllAlquileres(){
+    let url = this.baseUrl + 'rentals/all';
+    return this.http.get(url,{withCredentials:false})
+  }
+  obtenerClicks(Datos:any){
+    let url = this.baseUrl + 'rentals/clicks';
+    return this.http.put(url,Datos,{withCredentials:false})
+  }
 }

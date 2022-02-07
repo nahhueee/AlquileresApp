@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Localidad } from 'src/app/models/localidad';
+import { Combo } from 'src/app/models/combo';
 import { AlquileresService } from 'src/app/services/alquileres.service';
 
 @Component({
@@ -13,11 +13,11 @@ export class AlquileresComponent implements OnInit {
   public isCollapsed = true;
   page:number=1;
   click: boolean = false;
-  localidades: Localidad[];
-  categorias: Localidad[];
+  localidades: Combo[];
+  categorias: Combo[];
 
-  selectedLocality: Localidad | undefined;
-  selectedCategory: Localidad | undefined;
+  selectedLocality: Combo | undefined;
+  selectedCategory: Combo | undefined;
   cantPersonas: string = '';
   localidad:string = '';
   categoria:string = '';

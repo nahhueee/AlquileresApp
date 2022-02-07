@@ -70,6 +70,9 @@
     .filtros{
         margin: 25px 10px;
     }
+    .cant-personas{
+        width: 100%;
+    }
 }
 
 .cant-personas{
@@ -242,6 +245,16 @@
     margin: 0%;
 }
 
+.over-verify{
+    position: absolute;
+    left: 88%;
+    top: 2%;
+    display: flex;
+}
+.over-verify img{
+    width: 28px !important;
+    height: 28px !important;
+}
 .card-title{
     font-family: "Roboto-Medium";
     font-size: 23px;

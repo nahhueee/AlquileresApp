@@ -32,6 +32,10 @@
                             </ng-template>
                         </ngb-rating>
                     </div>
+
+                    <div class="check" *ngIf="alquiler.verificado==1">
+                        <img src="assets/otros/verify.png" alt="">
+                    </div>
                 </div>
                
             </div>
@@ -66,6 +70,21 @@
     <div style="text-align: center;"><p>Consulta por promociones y tarifas</p></div>
     
    </div> 
+</div>
+<div *ngIf="innerWidth<991">
+    <div *ngFor ="let alquiler of DetaAlquiler">
+        <div class="card box-verificado" *ngIf="alquiler.verificado==1" style="margin: 0px 10px;">
+            <div class="row box">
+                    <div class="col-3" style="text-align: center;">
+                        <img src="assets/otros/verify2.png" alt="">
+                    </div>
+                    <div class="col-9">
+                        <h6>Alojamiento Verificado</h6>
+                        <p>Valle Serrano se asegura que este alojamiento existe, la ubicación proporcionada es correcta, fotos, reseñas y servicios son reales.</p> 
+                    </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <br>
@@ -167,150 +186,22 @@
                     </div>
                 </div>
            
-            
-
-            <div class="form-contact" style="background-image: url('assets/fondos/Contact.jpg')">
-                <form  [formGroup]="formContact" (ngSubmit)="enviarMail($event)" method="POST" name="contactForm" class="contactForm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="label" for="name">Nombre Completo</label>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="left-icon"><img src="assets/otros/Person.png" alt=""></div>
-                                    <input [ngClass]="{'has-error':nameField?.invalid && (nameField?.dirty || nameField?.touched)}" type="text" class="form-control" name="name" placeholder="Nombre" formControlName="name">
-                                </div>
-                                <div class="Input-error"  *ngIf="nameField?.invalid && (nameField?.dirty || nameField?.touched)">
-                                    <p *ngIf="nameField?.errors?.required">
-                                        <small>El campo es requerido.</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6"> 
-                            <div class="form-group">
-                                <label class="label" for="email">Mail</label>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="left-icon"><img src="assets/otros/Email.png" alt=""></div>
-                                    <input [ngClass]="{'has-error':emailField?.invalid && (emailField?.dirty || emailField?.touched)}" type="email" class="form-control" name="email" id="email"  placeholder="Email" formControlName="email">
-                                </div>
-                                <div class="Input-error"  *ngIf="emailField?.invalid && (emailField?.dirty || emailField?.touched)">
-                                    <p *ngIf="emailField?.errors?.required">
-                                        <small>El campo es requerido.</small>
-                                    </p>
-                                    <p *ngIf="emailField?.errors?.pattern">
-                                        <small>Ingrese un Mail valido.</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6"> 
-                            <div class="form-group">
-                                <label class="label" for="telefono">Telefono</label>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="left-icon"><img src="assets/otros/Phone.png" alt=""></div>
-                                    <input [ngClass]="{'has-error':phoneField?.invalid && (phoneField?.dirty || phoneField?.touched)}" type="text" class="form-control" name="phone"  placeholder="Telefono" formControlName="phone">
-                                </div>
-                                <div class="Input-error"  *ngIf="phoneField?.invalid && (phoneField?.dirty || phoneField?.touched)">
-                                    <p *ngIf="phoneField?.errors?.required">
-                                        <small>El campo es requerido.</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="label" for="provincia">Provincia</label>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="left-icon"><img src="assets/otros/Map.png" alt=""></div>
-                                        <select [ngClass]="{'has-error':stateField?.invalid && (stateField?.dirty || stateField?.touched)}" class="browser-default custom-select mdb-select md-form" name="state" formControlName="state">
-                                            <option value="" disabled selected>Seleccione la provincia</option>
-                                            <option value="Buenos Aires">Buenos Aires</option>
-                                            <option value="Catamarca">Catamarca</option>
-                                            <option value="Chaco">Chaco</option>
-                                            <option value="Chubut">Chubut</option>
-                                            <option value="Córdoba">Córdoba</option>
-                                            <option value="Corrientes">Corrientes</option>
-                                            <option value="Entre Ríos">Entre Ríos</option>
-                                            <option value="Formosa">Formosa</option>
-                                            <option value="Jujuy">Jujuy</option>
-                                            <option value="La Pampa">La Pampa</option>
-                                            <option value="La Rioja">La Rioja</option>
-                                            <option value="Mendoza">Mendoza</option>
-                                            <option value="Misiones">Misiones</option>
-                                            <option value="Neuquén">Neuquén</option>
-                                            <option value="Salta">Salta</option>
-                                            <option value="San Juan">San Juan</option>
-                                            <option value="San Luis">San Luis</option>
-                                            <option value="Santa Cruz">Santa Cruz</option>
-                                            <option value="Santa Fe">Santa Fe</option>
-                                            <option value="Santiago del Estero">Santiago del Estero</option>
-                                            <option value="Tierra del Fuego">Tierra del Fuego</option>
-                                            <option value="Tucumán">Tierra del Fuego</option>
-                                        </select>  
-                                </div>
-                                <div class="Input-error"  *ngIf="stateField?.invalid && (stateField?.dirty || stateField?.touched)">
-                                    <p *ngIf="stateField?.errors?.required">
-                                        <small>Selecciona una provincia.</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div  class="col-md-12" style="text-align: center;"><p class="pContacto">Datos de mi Estadía</p></div>
-                        <div class="col-md-12"><hr class="hrContacto"></div>
-                        
-                        
-                            <div class="col-6 col-md-3"> 
-                                <div class="form-group">
-                                    <label  class="label" for="fechadesde">Entrada: </label>
-                                    <input type="date" class="form-control" formControlName="entrada" name="entrada">  
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3"> 
-                                <div class="form-group">
-                                    <label  class="label" for="fechaHasta">Salida: </label>
-                                    <input type="date" class="form-control" formControlName="salida" name="salida"> 
-                                </div>
-                            </div>
-                               
-                            <div class="col-6 col-md-3"> 
-                                <div class="form-group">
-                                    <label  class="label" for="mayores">P. Mayores: </label>
-                                    <input [ngClass]="{'has-error':mayorField?.invalid && (mayorField?.dirty || mayorField?.touched)}" type="text" class="form-control" name="mayores" formControlName="mayor">
-                                    <div class="Input-error2"  *ngIf="mayorField?.invalid && (mayorField?.dirty || mayorField?.touched)">
-                                        <p *ngIf="mayorField?.errors?.pattern">
-                                            <small>Ingresa un número.</small>
-                                        </p>
-                                    </div>  
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3"> 
-                                <div class="form-group">
-                                    <label  class="label" for="menores">P. Menores: </label>
-                                    <input [ngClass]="{'has-error':menorField?.invalid && (menorField?.dirty || menorField?.touched)}" type="text" class="form-control" name="menores" formControlName="menor">  
-                                    <div class="Input-error2"  *ngIf="menorField?.invalid && (menorField?.dirty || menorField?.touched)">
-                                        <p *ngIf="menorField?.errors?.pattern">
-                                            <small>Ingresa un número.</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        
-                       <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="label" for="#">Consulta</label>
-                                <textarea name="message" class="form-control" formControlName="message" cols="30" rows="3" placeholder="Consulta"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group" style="text-align: center;">
-                               <input type="submit" value="✔ Enviar" class="btn btn-dark btnEnviar">
-                            </div>
+                <div class="box-contacto row">
+                    <div class="col-12 col-md-6" style="text-align: center;">
+                        <img src="assets/otros/mailContact.jpg" alt="">
+                    </div>
+                    <div class="col-12 col-md-6" style="text-align: center;">
+                        <h5>¡Despejá las dudas!</h5>
+                        <p>Te ayudamos con tu consulta</p>
+                        <hr class="hr-contact">
+                        <div class="contact-buttons">
+                            <button type="button" class="btn btn-dark mail" data-toggle="modal" data-target="#Modal4"><i class="fas fa-envelope"></i> Consultar por Mail</button>
+                            <a target="_blank" href="https://wa.me/{{alquiler.wpp}}?text=Hola%2C%20Te%20escribo%20por%20tu%20alojamiento%20publicado%20en%20valleserrano.ar"><button type="button" class="btn btn-dark wpp"><i class="fab fa-whatsapp"></i> Contactar por Whatsapp</button></a>
                         </div>
                     </div>
-                </form>
-            </div>
+                    
+                </div>
+                
             
             <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
            
@@ -429,6 +320,167 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ModalContacto -->
+            <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center h-100">
+                            <h5 class="modal-title">Enviando una consulta al alojamiento {{alquiler.nombre}}</h5>
+                            <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                
+                                <div class="form-contact" style="background-image: url('assets/fondos/Contact.jpg')">
+                                    <form  [formGroup]="formContact" (ngSubmit)="enviarMail($event)" method="POST" name="contactForm" class="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="name">Nombre Completo</label>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <div class="left-icon"><img src="assets/otros/Person.png" alt=""></div>
+                                                        <input [ngClass]="{'has-error':nameField?.invalid && (nameField?.dirty || nameField?.touched)}" type="text" class="form-control" name="name" placeholder="Nombre" formControlName="name">
+                                                    </div>
+                                                    <div class="Input-error"  *ngIf="nameField?.invalid && (nameField?.dirty || nameField?.touched)">
+                                                        <p *ngIf="nameField?.errors?.required">
+                                                            <small>El campo es requerido.</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Mail</label>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <div class="left-icon"><img src="assets/otros/Email.png" alt=""></div>
+                                                        <input [ngClass]="{'has-error':emailField?.invalid && (emailField?.dirty || emailField?.touched)}" type="email" class="form-control" name="email" id="email"  placeholder="Email" formControlName="email">
+                                                    </div>
+                                                    <div class="Input-error"  *ngIf="emailField?.invalid && (emailField?.dirty || emailField?.touched)">
+                                                        <p *ngIf="emailField?.errors?.required">
+                                                            <small>El campo es requerido.</small>
+                                                        </p>
+                                                        <p *ngIf="emailField?.errors?.pattern">
+                                                            <small>Ingrese un Mail valido.</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <div class="form-group">
+                                                    <label class="label" for="telefono">Telefono</label>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <div class="left-icon"><img src="assets/otros/Phone.png" alt=""></div>
+                                                        <input [ngClass]="{'has-error':phoneField?.invalid && (phoneField?.dirty || phoneField?.touched)}" type="text" class="form-control" name="phone"  placeholder="Telefono" formControlName="phone">
+                                                    </div>
+                                                    <div class="Input-error"  *ngIf="phoneField?.invalid && (phoneField?.dirty || phoneField?.touched)">
+                                                        <p *ngIf="phoneField?.errors?.required">
+                                                            <small>El campo es requerido.</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="provincia">Provincia</label>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <div class="left-icon"><img src="assets/otros/Map.png" alt=""></div>
+                                                            <select [ngClass]="{'has-error':stateField?.invalid && (stateField?.dirty || stateField?.touched)}" class="browser-default custom-select mdb-select md-form" name="state" formControlName="state">
+                                                                <option value="" disabled selected>Seleccione la provincia</option>
+                                                                <option value="Buenos Aires">Buenos Aires</option>
+                                                                <option value="Catamarca">Catamarca</option>
+                                                                <option value="Chaco">Chaco</option>
+                                                                <option value="Chubut">Chubut</option>
+                                                                <option value="Córdoba">Córdoba</option>
+                                                                <option value="Corrientes">Corrientes</option>
+                                                                <option value="Entre Ríos">Entre Ríos</option>
+                                                                <option value="Formosa">Formosa</option>
+                                                                <option value="Jujuy">Jujuy</option>
+                                                                <option value="La Pampa">La Pampa</option>
+                                                                <option value="La Rioja">La Rioja</option>
+                                                                <option value="Mendoza">Mendoza</option>
+                                                                <option value="Misiones">Misiones</option>
+                                                                <option value="Neuquén">Neuquén</option>
+                                                                <option value="Salta">Salta</option>
+                                                                <option value="San Juan">San Juan</option>
+                                                                <option value="San Luis">San Luis</option>
+                                                                <option value="Santa Cruz">Santa Cruz</option>
+                                                                <option value="Santa Fe">Santa Fe</option>
+                                                                <option value="Santiago del Estero">Santiago del Estero</option>
+                                                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                                                <option value="Tucumán">Tierra del Fuego</option>
+                                                            </select>  
+                                                    </div>
+                                                    <div class="Input-error"  *ngIf="stateField?.invalid && (stateField?.dirty || stateField?.touched)">
+                                                        <p *ngIf="stateField?.errors?.required">
+                                                            <small>Selecciona una provincia.</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <div  class="col-md-12" style="text-align: center;"><p class="pContacto">Datos de mi Estadía</p></div>
+                                            <div class="col-md-12"><hr class="hrContacto"></div>
+                                            
+                                            
+                                                <div class="col-6 col-md-3"> 
+                                                    <div class="form-group">
+                                                        <label  class="label" for="fechadesde">Entrada: </label>
+                                                        <input type="date" class="form-control" formControlName="entrada" name="entrada">  
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-md-3"> 
+                                                    <div class="form-group">
+                                                        <label  class="label" for="fechaHasta">Salida: </label>
+                                                        <input type="date" class="form-control" formControlName="salida" name="salida"> 
+                                                    </div>
+                                                </div>
+                                                   
+                                                <div class="col-6 col-md-3"> 
+                                                    <div class="form-group">
+                                                        <label  class="label" for="mayores">P. Mayores: </label>
+                                                        <input [ngClass]="{'has-error':mayorField?.invalid && (mayorField?.dirty || mayorField?.touched)}" type="text" class="form-control" name="mayores" formControlName="mayor">
+                                                        <div class="Input-error2"  *ngIf="mayorField?.invalid && (mayorField?.dirty || mayorField?.touched)">
+                                                            <p *ngIf="mayorField?.errors?.pattern">
+                                                                <small>Ingresa un número.</small>
+                                                            </p>
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-md-3"> 
+                                                    <div class="form-group">
+                                                        <label  class="label" for="menores">P. Menores: </label>
+                                                        <input [ngClass]="{'has-error':menorField?.invalid && (menorField?.dirty || menorField?.touched)}" type="text" class="form-control" name="menores" formControlName="menor">  
+                                                        <div class="Input-error2"  *ngIf="menorField?.invalid && (menorField?.dirty || menorField?.touched)">
+                                                            <p *ngIf="menorField?.errors?.pattern">
+                                                                <small>Ingresa un número.</small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                            
+                                           <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="#">Consulta</label>
+                                                    <textarea name="message" class="form-control" formControlName="message" cols="30" rows="3" placeholder="Consulta"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group" style="text-align: center;">
+                                                   <input type="submit" value="✔ Enviar" class="btn btn-dark btnEnviar">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
              <!-- ModalComentarios -->
              <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog modal-md" role="document">
@@ -567,6 +619,21 @@
                     <p style="text-align: center;">Consulta por promociones y tarifas</p>
                 </div>
             </div>
+            <div *ngIf="innerWidth>991">
+                <div *ngFor ="let alquiler of DetaAlquiler">
+                    <div class="card box-verificado" *ngIf="alquiler.verificado==1">
+                        <div class="row box">
+                                <div class="col-3" style="text-align: center;">
+                                    <img src="assets/otros/verify2.png" alt="">
+                                </div>
+                                <div class="col-9">
+                                    <h6>Alojamiento Verificado</h6>
+                                    <p>Valle Serrano se asegura que este alojamiento existe, la ubicación proporcionada es correcta, fotos, reseñas y servicios son reales.</p> 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <hr>
             
             <div class="Relacionados">
@@ -586,7 +653,12 @@
                             <h4>${{relacionado.precioGral}}</h4> 
                             <p>/{{relacionado.precioCond}}</p>
                           </div>
-                          
+
+                          <div class="over-verify">
+                            <div *ngIf="relacionado.verificado==1">
+                                <img src="assets/otros/verify.png" alt="">
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </a>

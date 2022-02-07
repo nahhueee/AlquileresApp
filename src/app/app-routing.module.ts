@@ -10,6 +10,7 @@ import {DetZonaComponent} from './components/det-zona/det-zona.component'
 import {DatosComponent} from './components/datos/datos.component'
 import {VerificacionComponent} from './components/verificacion/verificacion.component'
 import {NotfoundComponent} from './components/notfound/notfound.component'
+import {InfoComponent} from './components/info/info.component'
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
 {
   path: 'correcto',
   component:VerificacionComponent, 
+},
+{
+  path: 'information',
+  component:InfoComponent, 
 },
 {path: '**', component: NotfoundComponent }
 ];

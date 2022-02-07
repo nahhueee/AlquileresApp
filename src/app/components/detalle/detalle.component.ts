@@ -235,7 +235,6 @@ export class DetalleComponent implements OnInit {
   }
 
 
-
   showText() {
      this.isReadMore = !this.isReadMore
   }

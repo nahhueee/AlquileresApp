@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row card" style="text-align: center;">
+       <div class="col-12">
+        <p-dropdown [options]="alojamientos" [(ngModel)]="selectedAlojamiento" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Selecciona un alojamiento">
+            <ng-template pTemplate="selectedItem">
+                <div class="country-item country-item-value"  *ngIf="selectedAlojamiento">
+                    <div>{{selectedAlojamiento.name}}</div>
+                </div>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+                <div class="country-item">
+                   <div>{{country.name}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>   
+        <p-dropdown [options]="meses" [(ngModel)]="selectedMes" optionLabel="name" placeholder="Selecciona un mes"></p-dropdown>
+       
+    </div>
+            
+            
+    <div class="col-12">
+            <div style="text-align: center;">
+                    <button type="button" class="btnBuscar btn btn-dark" (click)="Buscar()"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+            <div class="resultados">
+                    <div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-friends"></i><h6> Número de visitas al sitio <span>{{visitas}}</span></h6></div> 
+            </div>
+    </div>
+           
+    </div>
+</div>

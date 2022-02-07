@@ -30,6 +30,7 @@ import { DatosComponent } from './components/datos/datos.component';
 import { InterceptorService } from './services/interceptor.service';
 import { VerificacionComponent } from './components/verificacion/verificacion.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { InfoComponent } from './components/info/info.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     DetZonaComponent,
     DatosComponent,
     VerificacionComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
