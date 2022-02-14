@@ -11,6 +11,11 @@ import {DatosComponent} from './components/datos/datos.component'
 import {VerificacionComponent} from './components/verificacion/verificacion.component'
 import {NotfoundComponent} from './components/notfound/notfound.component'
 import {InfoComponent} from './components/info/info.component'
+import { ServiciosComponent } from './components/register/servicios/servicios.component';
+import { GeneralesComponent } from './components/register/generales/generales.component';
+import { DatoContactoComponent } from './components/register/dato-contacto/dato-contacto.component';
+import { CondicionesComponent } from './components/register/condiciones/condiciones.component';
+import { ConfirmacionComponent } from './components/register/confirmacion/confirmacion.component';
 
 const routes: Routes = [
   {
@@ -50,6 +55,7 @@ const routes: Routes = [
   path: 'localidad/:nombre/:id',
   component:DetZonaComponent, 
 },
+
 {
   path: 'register',
   component:DatosComponent, 
@@ -62,6 +68,33 @@ const routes: Routes = [
   path: 'information',
   component:InfoComponent, 
 },
+
+{
+  path: 'registro',
+  component:GeneralesComponent, 
+},
+{
+  path: 'registro/general',
+  component:GeneralesComponent, 
+},
+{
+  path: 'registro/servicios',
+  component:ServiciosComponent, 
+},
+{
+  path: 'registro/contacto',
+  component:DatoContactoComponent, 
+},
+{
+  path: 'registro/condiciones',
+  component:CondicionesComponent, 
+},
+{
+  path: 'registro/confirmacion',
+  component:ConfirmacionComponent, 
+},
+
+
 {path: '**', component: NotfoundComponent }
 ];
 

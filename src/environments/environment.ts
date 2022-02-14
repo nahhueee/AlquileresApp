@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://server-valleserrano.space/api/'
+  // baseUrl: 'https://server-valleserrano.space/api/'
+  baseUrl: 'http://127.0.0.1:3000/api/'
 };
 
 /*

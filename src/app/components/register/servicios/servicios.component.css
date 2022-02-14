@@ -1,0 +1,65 @@
+ /* Divisor */
+ .titulo{
+    margin: 0% 10%;
+}
+.titulo{
+    text-transform: uppercase;
+    font-family: "Montserrat-Regular";
+    margin: 0%;
+    margin-top: 30px;
+    text-align: center;
+}
+.hrDivisor{
+    border-top: 1px solid #ff0000;
+    width: 80%;
+    margin-top: 3px;
+}
+/* ------------------------------ */
+
+/* Errores */
+
+.has-error{
+    border: 1px solid #ff0000;
+}
+small{
+    color: red;
+    margin: 0%;
+}
+.Input-error p{
+    margin: 0%;
+}
+/* ------------------------------ */
+
+.servicios{
+    margin: 8px;
+}
+.servicio{
+    margin-bottom: 10px;
+}
+.s{
+    width: 200px;
+}
+.s input{
+    margin-right: 15px;  
+     transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8);}
+
+
+.Botones{
+    text-align: center;
+    margin-top: 15px;
+} 
+.Botones .btn{
+    margin: 10px;
+    width: 160px;
+    font-family: "Roboto-Regular";
+    background: transparent;
+    color: rgb(22, 22, 22);
+    border: 2px solid #F20746;
+}  
+.Botones .btn:hover{
+    border: 2px solid #F20746;
+    background: #23272b;
+    color: white;
+}

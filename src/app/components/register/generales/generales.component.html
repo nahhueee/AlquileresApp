@@ -1,0 +1,176 @@
+<app-pasos [IndiceActivo]="Indice"></app-pasos>
+
+
+
+<div class="container">
+    <form  [formGroup]="form" method="POST" name="contactForm">
+        <div class="row">
+    
+            <div class="col-12">
+                <h6 class="titulo">Datos básicos</h6>
+                <hr class="hrDivisor">
+            </div>
+           
+    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="name">Nombre del alojamiento</label>
+                    <input [ngClass]="{'has-error':nameField?.invalid && (nameField?.dirty || nameField?.touched)}" type="text" class="form-control" name="name" placeholder="Nombre de tu alojamiento" formControlName="name">
+                    <div class="Input-error"  *ngIf="nameField?.invalid && (nameField?.dirty || nameField?.touched)">
+                        <p *ngIf="nameField?.errors?.required">
+                            <small>El campo es requerido.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="categoria">Categoria de Alojamiento</label>
+                    
+                            <select [ngClass]="{'has-error':categoriaField?.invalid && (categoriaField?.dirty || categoriaField?.touched)}" class="browser-default custom-select mdb-select md-form" name="categoria" formControlName="categoria">
+                                <option value="" disabled selected>Seleccione la categoria</option>
+                                <option value="1">Casas o Chalets</option>
+                                <option value="2">Departamentos o Duplex</option>
+                                <option value="3">Cabañas o Bungalows</option>
+                                <option value="4">Hoteles</option>
+                                <option value="5">Campings</option>
+                            </select>  
+                    
+                            <div class="Input-error"  *ngIf="categoriaField?.invalid && (categoriaField?.dirty || categoriaField?.touched)">
+                                <p *ngIf="categoriaField?.errors?.required">
+                                    <small>Selecciona categoria.</small>
+                                </p>
+                            </div>
+    
+                </div>
+                    
+            </div>
+    
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="capacidad">capacidad Maxima</label>
+                    <input [ngClass]="{'has-error':capacidadField?.invalid && (capacidadField?.dirty || capacidadField?.touched)}" type="text" class="form-control" name="capacidad"  placeholder="Capacidad Maxima" formControlName="capacidad">
+                    
+                    <div class="Input-error"  *ngIf="capacidadField?.invalid && (capacidadField?.dirty || capacidadField?.touched)">
+                        <p *ngIf="capacidadField?.errors?.pattern">
+                            <small>Ingresa un número.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="habitaciones">Número de Habitaciones</label>
+                    <input [ngClass]="{'has-error':habitacionesField?.invalid && (habitacionesField?.dirty || habitacionesField?.touched)}" type="text" class="form-control" name="habitaciones"  placeholder="N° Habitaciones" formControlName="habitaciones">
+                    
+                    <div class="Input-error"  *ngIf="habitacionesField?.invalid && (habitacionesField?.dirty || habitacionesField?.touched)">
+                        <p *ngIf="habitacionesField?.errors?.pattern">
+                            <small>Ingresa un número.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="label" for="descripcion">Descripción del Alojamiento</label>
+                    <textarea name="descripcion" class="form-control" formControlName="descripcion" cols="30" rows="4" placeholder="Ej: Un complejo único con piscina. Ubicado a 2 cuadras del centro, con una hermosa vista a las Montañas.Los departamentos se encuentran en alquiler todo el año. etc."></textarea>
+                
+                    <div class="Input-error"  *ngIf="descripcionField?.invalid && (descripcionField?.dirty || descripcionField?.touched)">
+                        <p *ngIf="descripcionField?.errors?.maxlength">
+                            <small>El campo no puede tener mas de 500 caracteres.</small>
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="col-12">
+                <h6 class="titulo">Ubicación</h6>
+                <hr class="hrDivisor">
+            </div>
+            
+    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="localidad">Localidad</label>
+                    
+                            <select [ngClass]="{'has-error':localidadField?.invalid && (localidadField?.dirty || localidadField?.touched)}" class="browser-default custom-select mdb-select md-form" name="localidad" formControlName="localidad">
+                                <option value="" disabled selected>Seleccione la localidad</option>
+                                <option value="Mina">Mina Clavero</option>
+                                <option value="Brochero">Villa Cura Brochero</option>
+                                <option value="Nono">Nono</option>
+                                <option value="Rosas">Las Rosas</option>
+                                <option value="Lorenzo">San Lorenzo</option>
+                                <option value="Hornillos">Los Hornillos</option>
+                                <option value="Calles">Las Calles</option>
+                                <option value="Rabonas">Las Rabonas</option>
+                                
+                            </select>  
+    
+                            <div class="Input-error"  *ngIf="localidadField?.invalid && (localidadField?.dirty || localidadField?.touched)">
+                                <p *ngIf="localidadField?.errors?.required">
+                                    <small>Selecciona una localidad.</small>
+                                </p>
+                            </div>
+                    </div>
+                    
+            </div>
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="direccion">Dirección</label>
+                    <input [ngClass]="{'has-error':direccionField?.invalid && (direccionField?.dirty || direccionField?.touched)}" type="text" class="form-control" name="direccion"  placeholder="Ej: La Calera 2530" formControlName="direccion">
+                    
+                    <div class="Input-error"  *ngIf="direccionField?.invalid && (direccionField?.dirty || direccionField?.touched)">
+                        <p *ngIf="direccionField?.errors?.required">
+                            <small>El campo es requerido.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-12">
+                <h6 class="titulo">Tarifa</h6>
+                <hr class="hrDivisor">
+            </div>
+            
+    
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="precio">Precio a Mostrar</label>
+                    <input [ngClass]="{'has-error':precioField?.invalid && (precioField?.dirty || precioField?.touched)}" type="text" class="form-control" name="precio"  placeholder="Ej: $2500" formControlName="precio">
+                    
+                    <div class="Input-error"  *ngIf="precioField?.invalid && (precioField?.dirty || precioField?.touched)">
+                        <p *ngIf="direccionField?.errors?.pattern">
+                            <small>Ingresa un número.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="condicion">Tipo de precio</label>
+                    
+                            <select [ngClass]="{'has-error':condicionField?.invalid && (condicionField?.dirty || condicionField?.touched)}" class="browser-default custom-select mdb-select md-form" name="condicion" formControlName="condicion">
+                                <option value="xPersona">X Persona</option>
+                                <option value="xNoche">X Noche</option>
+                            </select>  
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="info">
+                    <p>Este es el precio a mostrar de tu alojamiento, si no deseas que se vea, deja el campo en blanco</p>
+                    <img src="assets/otros/arrow.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="Botones">
+    <button type="button" class="btn btn-dark" (click)="nextPage($event)">Siguiente <i class="fas fa-arrow-right"></i></button>
+</div>
+
+<p-messages [(value)]="msgs" [enableService]="false"></p-messages>

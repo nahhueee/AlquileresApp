@@ -1,0 +1,60 @@
+ /* Divisor */
+ .titulo{
+    margin: 0% 10%;
+}
+.titulo{
+    text-transform: uppercase;
+    font-family: "Montserrat-Regular";
+    margin: 0%;
+    margin-top: 30px;
+    text-align: center;
+}
+.hrDivisor{
+    border-top: 1px solid #ff0000;
+    width: 80%;
+    margin-top: 3px;
+}
+/* ------------------------------ */
+
+.Botones{
+    margin-top: 15px;
+    text-align: center;
+} 
+.Botones .btn{
+    margin: 10px;
+    width: 160px;
+    font-family: "Roboto-Regular";
+    background: transparent;
+    color: rgb(22, 22, 22);
+    border: 2px solid #F20746;
+}  
+.Botones .btn:hover{
+    border: 2px solid #F20746;
+    background: #23272b;
+    color: white;
+}
+.btnEnviar{
+    margin-top: 5px;
+    width: 300px;
+    border-radius: 3px;
+}
+
+
+.registro{
+    display: flex;
+}
+span{
+    font-weight: 500;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+p{
+    margin-bottom: 3px;
+}
+.sub{
+    color: #294B85;
+    font-family: "Poppins-Medium";
+}
+.linea{
+    margin: 2px;
+}

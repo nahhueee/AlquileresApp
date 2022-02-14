@@ -130,21 +130,16 @@
     height: 200px;
 }
 
-/* .overlay{
+.over-verify{
     position: absolute;
-    left: 2%;
+    left: 88%;
     top: 2%;
     display: flex;
-  }
-  
-.overlay h4{
-    background-color: rgba(26, 26, 26, 0.774);;
-    padding: 5px;
-    color: white;
-    border-radius: 3px;
-    font-size: 13px;
-    margin: 0%;
-} */
+}
+.over-verify img{
+    width: 28px !important;
+    height: 28px !important;
+}
 
 .slideAlquileres .card{
     width: 95% !important;
@@ -249,4 +244,24 @@
 }
 .btnTodos:hover{
     border: 2px solid #F20746;
+}
+
+.pinfo{
+    margin-bottom: 0%;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #3d3d3d;
+    font-family: "Poppins-Medium";
+}
+
+
+.imgGaleria{
+    width: 100%;
+    transition: .3s ease;
+}
+.imgGaleria:hover{
+    transition: .3s ease;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    z-index: 1;
 }

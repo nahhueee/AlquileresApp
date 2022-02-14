@@ -18,6 +18,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {TooltipModule} from 'primeng/tooltip';
+import {StepsModule} from 'primeng/steps';
 
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -31,6 +32,12 @@ import { InterceptorService } from './services/interceptor.service';
 import { VerificacionComponent } from './components/verificacion/verificacion.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { InfoComponent } from './components/info/info.component';
+import { ServiciosComponent } from './components/register/servicios/servicios.component';
+import { PasosComponent } from './components/register/pasos/pasos.component';
+import { GeneralesComponent } from './components/register/generales/generales.component';
+import { DatoContactoComponent } from './components/register/dato-contacto/dato-contacto.component';
+import { CondicionesComponent } from './components/register/condiciones/condiciones.component';
+import { ConfirmacionComponent } from './components/register/confirmacion/confirmacion.component';
 
 
 @NgModule({
@@ -46,8 +53,14 @@ import { InfoComponent } from './components/info/info.component';
     DatosComponent,
     VerificacionComponent,
     NotfoundComponent,
-    InfoComponent
-  ],
+    InfoComponent,
+    ServiciosComponent,
+    PasosComponent,
+    GeneralesComponent,
+    DatoContactoComponent,
+    CondicionesComponent,
+    ConfirmacionComponent
+],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -64,7 +77,8 @@ import { InfoComponent } from './components/info/info.component';
     MessageModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    TooltipModule
+    TooltipModule,
+    StepsModule
     ],
   providers: [{provide:HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true}],
   bootstrap: [AppComponent]

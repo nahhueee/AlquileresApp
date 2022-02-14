@@ -1,0 +1,41 @@
+<p-scrollTop [threshold]="200"></p-scrollTop>
+
+    <header class="cabecera" style="background-image: url('assets/fondos/fondo.jpg')">
+        <div class="text-center titulosCabecera">
+                <h1>Registro</h1>
+        </div>
+    </header>
+
+    <br>
+
+
+<div class="card Steps">
+    <div *ngIf="innerWidth>767">
+        <p-steps class="customstepper" [(activeIndex)]="IndiceActivo" [model]="items"></p-steps>
+    </div>
+    
+
+    <div  *ngIf="innerWidth<767" >
+        <div class="StepMovil">
+            <hr class="linea">
+            <div class="step">
+                <!-- Anterior -->
+                <div class="numero"><p *ngIf="IndiceActivo>0">{{IndiceActivo}}</p></div>
+                <span *ngIf="IndiceActivo>0">{{items[IndiceActivo-1].label}}</span>
+            </div>
+            <div  class="step activo">
+                <!-- Activo -->
+                <div class="numero"><p>{{IndiceActivo + 1}}</p></div>
+                <span>{{items[IndiceActivo].label}}</span>
+            </div>
+            <div  class="step">
+                <!-- Siguiente -->
+                <div class="numero"><p *ngIf="IndiceActivo!=4">{{IndiceActivo+2}}</p></div>
+                <span *ngIf="IndiceActivo!=4">{{items[IndiceActivo+1].label}}</span>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+

@@ -50,8 +50,14 @@
                         <!-- <div class="overlay">
                             <h4><i class="fas fa-map-marker-alt"></i> {{alquiler.zona}}</h4>
                         </div> -->
+                        <div class="over-verify">
+                            <div *ngIf="alquiler.verificado==1">
+                                <img pTooltip="Verificado" tooltipPosition="bottom" src="assets/otros/verify.png" alt="">
+                            </div>
+                        </div>
     
                         <div class="card-body">
+                            
                           <h5 class="card-title">{{alquiler.nombre}}</h5>
                           <div class="precio">
                             <h4>${{alquiler.precioGral}}</h4> 
@@ -88,15 +94,62 @@
         <hr id="toGalery" class="divisor">
          <!-- Galeria -->
         <h4 class="subTitulo"><i class="fas fa-images"></i>Galeria</h4>
-        <div class="d-flex justify-content-center align-items-center">
-            <div style="text-align: center;">
-                <img src="assets/otros/trabajando.jpg" alt="">
-                <h6 class="info">Estamos trabajando, para traerte esta sección y las demas, ¿que hacer?, ¿donde comer?. <br> Para que te enteres que tiene cada ciudad para ofrecerte</h6>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4" *ngFor="let imagen of Galeria; let i = index" style="padding: 5px;">
+                    <a href="{{ imagen.ruta }}" data-lightbox="roadtrip"><img *ngIf="i<6" class="imgGaleria" src="{{ imagen.ruta }}" alt=""></a> 
+                </div>
             </div>
-           
+            <div style="text-align: center;"><p class="pinfo">Click sobre imagen para ver más</p></div>
         </div>
-        
+        <br>
+        <div style="text-align: center;">
+            <button type="button" class="btnTodos btn btn-dark" data-toggle="modal" data-target="#Modal1"><i class="fas fa-eye"></i> Ver Todas</button>
+        </div>
+       
 
+        <hr class="divisor">
+        <!-- Que Hacer -->
+       <h4 class="subTitulo"><i class="fas fa-map"></i>¿Que hacer?</h4>
+       <div class="d-flex justify-content-center align-items-center">
+           <div style="text-align: center;">
+               <img src="assets/otros/trabajando.jpg" alt="">
+               <h6 class="info">Estamos trabajando, para traerte esta sección y las demas. <br> Para que te enteres que tiene cada ciudad para ofrecerte</h6>
+           </div>
+          
+       </div>
+
+       <hr class="divisor">
+       <!-- Interacciones -->
+      <h4 class="subTitulo"><i class="fas fa-users"></i>Interacciones</h4>
+      <div class="d-flex justify-content-center align-items-center">
+          <div style="text-align: center;">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D126973263177829%26id%3D107084108500078&show_text=true&width=500" width="500" height="665" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+    </div>
+
+
+    <!-- Modal Galeria -->
+    <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-items-center h-100">
+                    <h5 class="modal-title">Galeria</h5>
+                    <button id="btnCerrarModal" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-4" *ngFor="let imagen of Galeria; let i = index" style="padding: 5px;">
+                                <a href="{{ imagen.ruta }}" data-lightbox="nueva"><img class="imgGaleria" src="{{ imagen.ruta }}" alt=""></a> 
+                            </div>
+                        </div>
+                        <div style="text-align: center;"><p class="pinfo">Click sobre imagen para ver más</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 

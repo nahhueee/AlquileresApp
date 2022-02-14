@@ -1,0 +1,73 @@
+<app-pasos [IndiceActivo]="Indice"></app-pasos>
+
+<div class="container">
+    <form  [formGroup]="form" method="POST">
+        <div class="row">
+            <div class="col-12">
+                <h6 class="titulo">Condiciones y políticas</h6>
+                <hr class="hrDivisor">
+            </div>
+            
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label" for="reservas">Reservas</label>
+                    <textarea name="reservas" class="form-control" formControlName="reservas"  rows="2" placeholder="Informanos como manejas las reservas"></textarea>
+                
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="info2">
+                    <p style="text-align: center; margin-bottom: 8px;">¿Permites visitas? </p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="radio" checked  name="visitas" value="1" formControlName="visitas">
+                        <p style="font-weight: 600;">Si</p>
+            
+                        <input type="radio" name="visitas" value="2" formControlName="visitas">
+                        <p style="font-weight: 600;">No</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="entrada">Hora de Entrada</label>
+                    <input type="text" class="form-control" name="entrada"  placeholder="Ej: 12:00" formControlName="entrada">
+                </div>
+            </div>
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="salida">Hora de Salida</label>
+                    <input type="text" class="form-control" name="salida"  placeholder="Ej: 10:30" formControlName="salida">                    
+                </div>
+            </div>
+            
+            
+            </div>
+    </form>
+            
+    <div class="col-12">
+        <h6 class="titulo">Tipos de Pago</h6>
+        <hr class="hrDivisor">
+    </div>
+
+            <h6 style="text-align: center; margin: 10px 0px;">Seleccioná los tipos de pagos que manejas.</h6>
+            <div class="row pagos">
+            <div class="d-flex align-items-center justify-content-center col-4" *ngFor ="let Pago of TiposPagos">
+                <div class="s" style="text-align: center;">
+                    <input type="checkbox" name="{{Pago.name}}" value="{{Pago.name}}" [(ngModel)]="Pago.isSelected">
+                    <label for="#">{{Pago.name}}</label>
+                </div>
+            </div>
+            </div>
+</div>
+
+   
+
+
+<div class="Botones">
+    <button type="button" class="btn btn-dark" (click)="prevPage()"><i class="fas fa-arrow-left"></i> Anterior</button>
+    <button type="button" class="btn btn-dark" (click)="nextPage($event)">Siguiente <i class="fas fa-arrow-right"></i></button>
+</div>
+
+<p-messages [(value)]="msgs" [enableService]="false"></p-messages>

@@ -12,6 +12,7 @@ export class DetZonaComponent implements OnInit {
   IdZona:number=0
   DetaZona:any=[]
   Alojamientos:any=[]
+  Galeria:any=[]
   
   constructor(private titlepage:Title, private zonaService:ZonasService,private rutaActiva:ActivatedRoute) { }
 
@@ -27,6 +28,7 @@ export class DetZonaComponent implements OnInit {
     
     this.obtenerDetZona()
     this.obtenerAlojamientos()
+    this.obtenerGaleria()
   }
 
   scrollToGalery() {
@@ -81,6 +83,12 @@ export class DetZonaComponent implements OnInit {
   obtenerAlojamientos(){
     this.zonaService.obtenerAlojamientos(this.IdZona).subscribe(
     res => {this.Alojamientos = res},
+    err => console.log(err)
+  )}
+
+  obtenerGaleria(){
+    this.zonaService.obtenerGaleria(this.IdZona).subscribe(
+    res => {this.Galeria = res},
     err => console.log(err)
   )}
 }

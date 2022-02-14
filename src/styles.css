@@ -24,6 +24,13 @@
    width: 300px !important;
 }
 
+/*Stepper */
+.p-steps-number{
+   color: white !important;
+   background: #294B85 !important;
+}
+
+
 /* footer */
 .Links{
    background-color: #2e2e2e;
@@ -59,6 +66,14 @@
 }
 .social{
    margin: 10px;
+}
+.marca{
+   text-align: center;
+   background-color: black;
+   padding: 15px;
+}
+.marca img{
+   width: 150px;
 }
 /* ------------------------------ */
 

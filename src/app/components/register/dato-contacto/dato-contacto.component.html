@@ -1,0 +1,87 @@
+<app-pasos [IndiceActivo]="Indice"></app-pasos>
+
+
+<div class="container">
+    <form  [formGroup]="form" method="POST">
+        <div class="row">
+    
+            <div class="col-12">
+                <h6 class="titulo">Contacto</h6>
+                <hr class="hrDivisor">
+            </div>
+
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="mail">Mail</label>
+                    <input [ngClass]="{'has-error':mailField?.invalid && (mailField?.dirty || mailField?.touched)}" type="text" class="form-control" name="mail"  placeholder="Tu mail de contacto" formControlName="mail">
+                    
+                    <div class="Input-error"  *ngIf="mailField?.invalid && (mailField?.dirty || mailField?.touched)">
+                        <p *ngIf="mailField?.errors?.pattern">
+                            <small>Ingresa un mail válido.</small>
+                        </p>
+                        <p *ngIf="mailField?.errors?.required">
+                            <small>El campo es requerido.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="web">Web</label>
+                    <input type="text" class="form-control" name="web"  placeholder="Ej: www.misitioweb.com" formControlName="web">
+                   <p class="web-info">Tambien puedes agregar el link de tu pagina de facebook por ejemplo.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="telefono1">Telefono N° 1</label>
+                    <input [ngClass]="{'has-error':telefono1Field?.invalid && (telefono1Field?.dirty || telefono1Field?.touched)}" type="text" class="form-control" name="telefono1"  placeholder="Telefono principal" formControlName="telefono1">
+                    
+                    <div class="Input-error"  *ngIf="telefono1Field?.invalid && (telefono1Field?.dirty || telefono1Field?.touched)">
+                        <p *ngIf="telefono1Field?.errors?.pattern">
+                            <small>Ingresa un número.</small>
+                        </p>
+                        <p *ngIf="mailField?.errors?.required">
+                            <small>El campo es requerido.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"> 
+                <div class="form-group">
+                    <label class="label" for="telefono2">Telefono N° 2</label>
+                    <input [ngClass]="{'has-error':telefono2Field?.invalid && (telefono2Field?.dirty || telefono2Field?.touched)}" type="text" class="form-control" name="telefono2"  placeholder="Telefono secundario" formControlName="telefono2">
+                    
+                    <div class="Input-error"  *ngIf="telefono2Field?.invalid && (telefono2Field?.dirty || telefono2Field?.touched)">
+                        <p *ngIf="telefono2Field?.errors?.pattern">
+                            <small>Ingresa un número.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                
+                <div class="info">
+                    <p style="text-align: center; margin-bottom: 8px;">Telefono al que recibiras los whatsapps </p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input type="radio" checked  name="wpp" value="1" formControlName="wpp">
+                        <p style="font-weight: 600;">Telefono1</p>
+
+                        <input type="radio" name="wpp" value="2" formControlName="wpp">
+                        <p style="font-weight: 600;">Telefono2</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="Botones">
+    <button type="button" class="btn btn-dark" (click)="prevPage()"><i class="fas fa-arrow-left"></i> Anterior</button>
+    <button type="button" class="btn btn-dark" (click)="nextPage($event)">Siguiente <i class="fas fa-arrow-right"></i></button>
+</div>
+
+<p-messages [(value)]="msgs" [enableService]="false"></p-messages>

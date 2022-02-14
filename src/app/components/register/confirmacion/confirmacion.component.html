@@ -1,0 +1,115 @@
+<app-pasos [IndiceActivo]="Indice"></app-pasos>
+
+<div class="container">
+    <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-12">
+            <h6 class="titulo">Revisa que tus datos sean correctos</h6>
+            <hr class="hrDivisor">
+        </div>
+
+        <div class="col-9 datos">
+            <br>
+            <h6 class="sub">Datos Generales</h6>
+            <hr class="linea">
+            <div class="registro">
+                <span>Nombre de tu alojamiento: </span><p>{{Generales[0].name}}</p><br>
+            </div>
+            <div class="registro">
+                <span>Categoria: </span><p>{{Generales[0].categoria}}</p><br>
+            </div>
+            <div class="registro">
+                <span>Capacidad: </span><p>{{Generales[0].capacidad}}</p> <br>
+            </div>
+            <div class="registro">
+                <span>N° de Habitaciones: </span><p>{{Generales[0].habitaciones}}</p><br>
+            </div>
+            <div class="registro">
+                <span>Descripción: </span><p>{{Generales[0].descripcion}}</p><br>
+            </div>
+            <br>
+
+            <h6 class="sub">Ubicación</h6>
+            <hr class="linea">
+            <div class="registro">
+                <span>Dirección: </span><p>{{Generales[0].direccion}}</p><br>
+            </div>
+            <div class="registro">
+                <span>Localidad: </span><p>{{Generales[0].localidad}}</p><br>
+            </div>
+            <br>
+
+            <hr class="linea">
+            <div class="registro">
+                <span>Precio a mostrar:</span>  <p>{{Generales[0].precio}} {{Generales[0].condicion}} </p>
+            </div>
+            <hr class="linea">
+            <br>
+
+            
+            <h6 class="sub">Servicios</h6>
+            <hr class="linea">
+                <div *ngFor ="let servicio of Servicios[0]">
+                    <div *ngIf="servicio.isSelected==true">
+                        <div class="registro">
+                            <span>{{servicio.name}}</span><p>{{servicio.descripcion}}</p><br>
+                        </div>
+                    </div>
+                </div>
+            <hr class="linea">
+            <br>
+           
+            <h6 class="sub">Contacto</h6>
+            <hr class="linea">
+                <div class="registro">
+                    <span>Telefono1:</span><p>{{Contacto[0].telefono1}}</p><br>
+                </div>
+                <div class="registro">
+                    <span>Telefono2:</span><p>{{Contacto[0].telefono2}}</p><br>
+                </div>
+                <div class="registro">
+                    <span>Web:</span><p>{{Contacto[0].web}}</p><br>
+                </div>
+                <div class="registro">
+                    <span>Correo electrónico:</span><p>{{Contacto[0].mail}}</p><br>
+                </div>
+            <hr class="linea">
+            <br>
+
+            <h6 class="sub">Condiciones</h6>
+            <hr class="linea">
+                <div class="registro">
+                    <span>Horario de Entrada:</span><p>{{Condiciones[0].entrada}}</p><br>
+                </div>
+                <div class="registro">
+                    <span>Horario de Salida:</span><p>{{Condiciones[0].salida}}</p><br>
+                </div>
+                <div class="registro">
+                    <span>Visitas:</span><p *ngIf="Condiciones[0].visitas==1">Si</p> <p *ngIf="Condiciones[0].visitas==0">No</p><br>
+                </div>
+                <div class="registro">
+                    <span>Reservas:</span><p>{{Condiciones[0].reservas}}</p><br>
+                </div>
+            <hr class="linea">
+            <br>
+            
+            <h6 class="sub">Tipos de pago</h6>
+            <hr class="linea">
+                <div *ngFor ="let pago of Pagos[0]">
+                    <div *ngIf="pago.isSelected==true">
+                      <span>{{pago.name}}</span><br>
+                    </div>
+                </div>
+            <hr class="linea">
+            <br>
+        </div>
+    </div>
+</div>
+
+<div class="Botones">
+    <button type="button" class="btn btn-dark" (click)="prevPage()"><i class="fas fa-arrow-left"></i> Anterior</button>
+</div>
+<div style="text-align: center">
+    <input type="submit" value="✔ Guardar y Enviar" (click)="enviarMail()" class="btn btn-dark btnEnviar">
+</div>
+
+<p-messages [(value)]="msgs" [enableService]="false"></p-messages>

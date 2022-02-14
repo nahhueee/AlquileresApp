@@ -1,0 +1,31 @@
+<app-pasos [IndiceActivo]="Indice"></app-pasos>
+
+
+<h6 class="titulo">Servicios</h6>
+<hr class="hrDivisor">
+
+    <h6 style="text-align: center; margin: 20px 10px;">Seleccioná los servicios que ofreces, agrega una observación corta si es necesario.</h6>
+   
+
+    <div class="row servicios">
+        <div class="d-flex align-items-center justify-content-center col-12 col-md-6 servicio" *ngFor ="let servicio of Servicios">
+            <div class="s">
+                <input type="checkbox" name="{{servicio.name}}" value="{{servicio.name}}" [(ngModel)]="servicio.isSelected">
+                <label for="#">{{servicio.name}}</label>
+            </div>
+            <div class="desc">
+                    <input type="text" class="form-control" [(ngModel)]="servicio.descripcion" placeholder="Observación">
+            </div>
+        </div>
+    </div>
+
+    <div class="Botones">
+        <button type="button" class="btn btn-dark" (click)="prevPage()"><i class="fas fa-arrow-left"></i> Anterior</button>
+        <button type="button" class="btn btn-dark" (click)="nextPage()">Siguiente <i class="fas fa-arrow-right"></i></button>
+    </div>
+
+
+
+
+
+

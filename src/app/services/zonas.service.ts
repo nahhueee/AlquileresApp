@@ -23,4 +23,8 @@ export class ZonasService {
     let url = this.baseUrl + `zones/rentals/${idZona}`;
     return this.http.get(url,{withCredentials:false})
   }
+  obtenerGaleria(idZona:number){
+    let url = this.baseUrl + `zones/galery/${idZona}`;
+    return this.http.get(url,{withCredentials:false})
+  }
 }
