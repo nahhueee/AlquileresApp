@@ -16,6 +16,7 @@ import { GeneralesComponent } from './components/register/generales/generales.co
 import { DatoContactoComponent } from './components/register/dato-contacto/dato-contacto.component';
 import { CondicionesComponent } from './components/register/condiciones/condiciones.component';
 import { ConfirmacionComponent } from './components/register/confirmacion/confirmacion.component';
+import { ComidaComponent } from './components/comida/comida.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,11 @@ const routes: Routes = [
 {
   path: 'localidad/:nombre/:id',
   component:DetZonaComponent, 
+},
+
+{
+  path: 'donde-comer',
+  component:ComidaComponent, 
 },
 
 {

@@ -38,6 +38,7 @@ import { GeneralesComponent } from './components/register/generales/generales.co
 import { DatoContactoComponent } from './components/register/dato-contacto/dato-contacto.component';
 import { CondicionesComponent } from './components/register/condiciones/condiciones.component';
 import { ConfirmacionComponent } from './components/register/confirmacion/confirmacion.component';
+import { ComidaComponent } from './components/comida/comida.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { ConfirmacionComponent } from './components/register/confirmacion/confir
     GeneralesComponent,
     DatoContactoComponent,
     CondicionesComponent,
-    ConfirmacionComponent
+    ConfirmacionComponent,
+    ComidaComponent
 ],
   imports: [
     BrowserModule,
