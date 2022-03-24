@@ -29,7 +29,6 @@ export class ConfirmacionComponent implements OnInit {
     this.Condiciones[0] = JSON.parse(localStorage.getItem('condiciones') ?? '') 
     this.Contacto[0] = JSON.parse(localStorage.getItem('contacto') ?? '') 
     this.Pagos[0] = JSON.parse(localStorage.getItem('pagos') ?? '')
-    console.log(this.Condiciones)
   }
 
   prevPage() {
@@ -45,8 +44,9 @@ export class ConfirmacionComponent implements OnInit {
     this.Datos.pagos = JSON.parse(localStorage.getItem('pagos') ?? '') 
     
     this.registroService.EnviarDatosNuevo(this.Datos).subscribe(
-      res => { console.log(res)
+      res => { 
         if(res=='Recibido'){
+              this.registroService.EliminarDatos()
               this.router.navigate(['/correcto'])
               }else{
                 this.showError()

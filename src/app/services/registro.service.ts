@@ -22,10 +22,16 @@ export class RegistroService {
     localStorage.setItem('condiciones', JSON.stringify(objeto))
     localStorage.setItem('pagos', JSON.stringify(pagos))
   }
+  EliminarDatos(){
+    localStorage.removeItem('generales')
+    localStorage.removeItem('servicios')
+    localStorage.removeItem('contacto')
+    localStorage.removeItem('condiciones')
+    localStorage.removeItem('pagos')
+  }
 
   EnviarDatosNuevo(Datos:any=[]){
     let url = this.baseUrl + 'send-email/new';
-    console.log(Datos)
     return this.http.post(url,Datos,{withCredentials:false})
   }
 }

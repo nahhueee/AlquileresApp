@@ -370,6 +370,7 @@ export class DetalleComponent implements OnInit {
       value.alojamiento = this.DetaAlquiler[0].nombre
       value.hospedante = this.DetaAlquiler[0].mail.replace('\r\n','')
 
+
      this.detaService.EnviarEmail(value).subscribe(
         res => {if(res=='Recibido'){
                   this.showSuccesful()
